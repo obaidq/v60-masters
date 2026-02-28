@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="V60 Masters">
+<meta name="theme-color" content="#1a0f08">
+<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☕</text></svg>">
+<title>V60 Masters</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700;800&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{
+--bg:#f6f1e9;--bg2:#ece5d8;--card:#fff;--card2:#faf7f2;--border:#ddd3c2;--border2:#ece5d8;
+--t1:#1a0f08;--t2:#5c4333;--t3:#8a7462;--t4:#b8a894;
+--a1:#6b3a1f;--a2:#a0622e;--a3:#d4913f;--a4:#e8b86d;
+--hot:#c0392b;--hotBg:#fce4e1;--ice:#2471a3;--iceBg:#d6eaf8;
+--ok:#1e8449;--okBg:#d5f5e3;--warn:#d4890a;--warnBg:#fef3d5;
+--r:16px;--r2:12px;--r3:8px;
+--sh1:0 1px 3px rgba(26,15,8,0.06);--sh2:0 4px 16px rgba(26,15,8,0.08);--sh3:0 8px 32px rgba(26,15,8,0.12);
+}
+[data-theme=dark]{
+--bg:#0f0b08;--bg2:#1a1410;--card:#1e1812;--card2:#251d15;--border:#332a20;--border2:#2a2118;
+--t1:#f0e8dc;--t2:#b8a894;--t3:#7a6b5c;--t4:#4a3f34;
+--sh1:0 1px 3px rgba(0,0,0,0.3);--sh2:0 4px 16px rgba(0,0,0,0.3);--sh3:0 8px 32px rgba(0,0,0,0.4);
+}
+body{
+font-family:'Cairo','Tajawal',sans-serif;background:var(--bg);color:var(--t1);
+line-height:1.6;min-height:100vh;min-height:100dvh;overflow-x:hidden;
+transition:background .3s,color .3s;padding-bottom:80px;
+}
+.en{font-family:'Inter','Cairo',sans-serif;direction:ltr;display:inline;unicode-bidi:embed}
+button,input,select{font-family:inherit}
+button{cursor:pointer;border:none;background:none}
+
+/* NAV */
+.nav{position:fixed;bottom:0;left:0;right:0;z-index:200;background:var(--card);border-top:1px solid var(--border);display:flex;padding:4px 0 max(env(safe-area-inset-bottom),6px);box-shadow:0 -1px 12px rgba(0,0,0,.06);transition:background .3s}
+.nb{flex:1;display:flex;flex-direction:column;align-items:center;gap:1px;padding:6px 2px 2px;color:var(--t3);font-size:9px;font-weight:700;font-family:'Tajawal';transition:color .15s}
+.nb svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.nb.on{color:var(--a2)}
+
+/* SCREENS */
+.scr{display:none;animation:fi .25s ease}.scr.on{display:block}
+@keyframes fi{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* HEADER */
+.hd{background:linear-gradient(155deg,#1a0f08,#3d2213 60%,#5a3320);color:#faf5ed;padding:max(env(safe-area-inset-top),20px) 20px 18px;position:relative;overflow:hidden}
+.hd::after{content:'';position:absolute;top:-40px;left:-40px;width:120px;height:120px;border-radius:50%;background:rgba(212,145,63,.08)}
+.hd-row{display:flex;justify-content:space-between;align-items:center;position:relative;z-index:1}
+.hd h1{font-size:22px;font-weight:900}.hd h1 b{color:var(--a3);font-family:'Inter',sans-serif}
+.hd-sub{font-size:11px;opacity:.5;font-family:'Tajawal';margin-top:1px}
+.hd-btns{display:flex;gap:6px}
+.ib{width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.7);display:flex;align-items:center;justify-content:center;font-size:16px;transition:background .15s}
+.ib:hover{background:rgba(255,255,255,.1)}
+
+/* STATS */
+.stats{display:flex;margin:0 20px;background:var(--card);border-radius:var(--r);box-shadow:var(--sh2);transform:translateY(-14px);overflow:hidden;transition:background .3s}
+.st{flex:1;text-align:center;padding:12px 6px;border-left:1px solid var(--border)}.st:last-child{border-left:none}
+.st b{display:block;font-size:20px;font-weight:900;color:var(--a2);font-family:'Inter';line-height:1.1}
+.st span{font-size:9px;color:var(--t3);font-family:'Tajawal';font-weight:700}
+
+/* SUGGEST */
+.sug{margin:0 20px 14px;padding:14px 18px;background:linear-gradient(135deg,var(--a1),var(--a2));border-radius:var(--r);color:#fff;display:flex;align-items:center;gap:12px;transition:transform .1s;cursor:pointer}
+.sug:active{transform:scale(.98)}
+.sug-i{font-size:28px}.sug h3{font-size:14px;font-weight:800}.sug p{font-size:10px;opacity:.7;font-family:'Tajawal'}
+
+/* CHIPS */
+.chips{padding:0 20px 10px;display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}.chips::-webkit-scrollbar{display:none}
+.ch{padding:7px 14px;border-radius:20px;font-size:11px;font-weight:700;border:1.5px solid var(--border);background:var(--card);color:var(--t2);white-space:nowrap;transition:all .15s;flex-shrink:0}
+.ch.on{background:var(--a1);color:#fff;border-color:var(--a1)}
+.ch[data-v=hot].on{background:var(--hot);border-color:var(--hot)}
+.ch[data-v=iced].on{background:var(--ice);border-color:var(--ice)}
+
+/* FILTER ROW */
+.frow{padding:0 20px 10px;display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.fs{font-family:'Cairo';font-size:11px;padding:6px 10px;border:1.5px solid var(--border);border-radius:var(--r3);background:var(--card);color:var(--t1);transition:all .15s}
+.fs:focus{border-color:var(--a2);outline:none}
+.rcnt{font-size:11px;color:var(--t3);font-family:'Tajawal';margin-right:auto}
+
+/* CARDS */
+.cw{padding:4px 20px 20px}
+.cg{display:flex;flex-direction:column;gap:12px}
+
+.cd{background:var(--card);border:1.5px solid var(--border);border-radius:var(--r);padding:16px;cursor:pointer;transition:all .2s;position:relative;overflow:hidden;box-shadow:var(--sh1)}
+.cd:active{transform:scale(.985)}
+.cd::before{content:'';position:absolute;top:0;right:0;bottom:0;width:4px}
+.cd.ht::before{background:var(--hot)}.cd.ic::before{background:var(--ice)}
+
+.cd-r1{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:8px}
+.cd-name{font-size:16px;font-weight:900;line-height:1.3}
+.cd-meth{font-size:11px;color:var(--t2);font-family:'Tajawal';margin-top:1px}
+.bgs{display:flex;gap:4px;flex-wrap:wrap;flex-shrink:0}
+.bg{font-size:8px;font-weight:800;padding:3px 8px;border-radius:12px;font-family:'Tajawal';letter-spacing:.2px}
+
+/* COMMUNITY RATING */
+.rating{display:flex;align-items:center;gap:6px;margin:6px 0}
+.stars{color:var(--a3);font-size:13px;letter-spacing:1px;direction:ltr}
+.rating-txt{font-size:10px;color:var(--t3);font-family:'Tajawal'}
+
+/* FLAVOR MINI */
+.fl-mini{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin:8px 0}
+.fl-m{text-align:center}
+.fl-m-bar{height:3px;background:var(--bg2);border-radius:2px;overflow:hidden;margin:0 auto;width:80%}
+.fl-m-fill{height:100%;border-radius:2px}
+.fl-m-l{font-size:8px;color:var(--t3);font-family:'Tajawal';margin-top:1px}
+
+/* CARD STATS */
+.cd-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin:8px 0;padding:8px;background:var(--bg);border-radius:var(--r3);transition:background .3s}
+.cs{text-align:center}
+.cs b{display:block;font-size:15px;font-weight:900;line-height:1.2;font-family:'Inter'}
+.cs span{font-size:8px;color:var(--t3);font-family:'Tajawal';font-weight:700}
+
+/* YIELD PREVIEW */
+.yield{display:flex;align-items:center;gap:8px;margin:6px 0;padding:8px 12px;background:var(--card2);border:1px solid var(--border2);border-radius:var(--r3)}
+.yield-cup{font-size:22px}
+.yield-info{flex:1}
+.yield b{font-size:13px;font-weight:800;display:block;line-height:1.2}
+.yield span{font-size:10px;color:var(--t3);font-family:'Tajawal'}
+
+/* MINI TL */
+.mtl{display:flex;align-items:center;padding:6px 8px;background:var(--bg);border-radius:var(--r3);margin:6px 0;overflow-x:auto;scrollbar-width:none;gap:0;transition:background .3s}.mtl::-webkit-scrollbar{display:none}
+.mt-s{display:flex;flex-direction:column;align-items:center;min-width:34px}
+.mt-w{font-weight:900;color:var(--a1);font-size:11px;font-family:'Inter'}
+.mt-d{width:7px;height:7px;border-radius:50%;background:var(--a2);margin:2px 0}
+.mt-t{color:var(--t3);font-size:8px;font-family:'Inter';direction:ltr}
+.mt-l{flex:1;height:2px;background:var(--border);min-width:8px}
+
+.cd-bot{display:flex;justify-content:space-between;align-items:center;margin-top:6px;padding-top:8px;border-top:1px solid var(--border)}
+.cd-meta{font-size:10px;color:var(--t3);font-family:'Tajawal'}
+.cd-acts{display:flex;gap:6px;align-items:center}
+.fb{width:30px;height:30px;border-radius:50%;border:1.5px solid var(--border);background:var(--card);display:flex;align-items:center;justify-content:center;font-size:14px;transition:all .15s}
+.fb.on{background:var(--hotBg);border-color:var(--hot);color:var(--hot)}
+.bb{padding:6px 14px;border-radius:16px;background:var(--a1);color:#fff;font-size:10px;font-weight:800;font-family:'Cairo';display:flex;align-items:center;gap:3px}
+
+/* EMPTY */
+.empty{text-align:center;padding:60px 20px;color:var(--t3)}
+.empty b{display:block;font-size:40px;margin-bottom:8px}
+.empty h3{font-size:16px;color:var(--t1);margin-bottom:4px}
+
+/* ═══ DETAIL ═══ */
+.dh{padding:max(env(safe-area-inset-top),16px) 20px 16px;background:linear-gradient(155deg,#1a0f08,#3d2213);color:#faf5ed}
+.dh-back{background:none;border:none;color:rgba(255,255,255,.6);font-size:13px;font-family:'Cairo';font-weight:600;margin-bottom:6px;display:flex;align-items:center;gap:4px}
+.dh h2{font-size:20px;font-weight:900;font-family:'Cairo'}
+.dh-sub{font-size:12px;opacity:.6;font-family:'Tajawal';margin-top:2px}
+.dh-badges{display:flex;gap:4px;margin-top:6px}
+.db{padding:0 20px 100px}
+
+/* SECTION CARD */
+.sc{margin:12px 0;padding:16px;background:var(--card);border-radius:var(--r);box-shadow:var(--sh1);transition:background .3s}
+.sc h3{font-size:13px;font-weight:800;color:var(--a2);margin-bottom:10px;display:flex;align-items:center;gap:6px}
+
+/* BIO */
+.bio{font-size:12px;color:var(--t2);background:var(--card2);padding:12px 16px;border-radius:var(--r2);line-height:1.8;font-family:'Tajawal';border-right:3px solid var(--a2);margin:12px 0;transition:background .3s}
+
+/* FLAVOR DETAIL */
+.fl-row{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.fl-lbl{font-size:11px;font-weight:700;min-width:52px;color:var(--t2);font-family:'Tajawal'}
+.fl-tr{flex:1;height:8px;background:var(--bg2);border-radius:4px;overflow:hidden}
+.fl-f{height:100%;border-radius:4px;transition:width .6s ease}
+.fl-v{font-size:12px;font-weight:900;min-width:20px;font-family:'Inter'}
+
+/* INFO GRID */
+.ig{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ig-i{display:flex;flex-direction:column}
+.ig-l{font-size:9px;font-weight:700;color:var(--t3);font-family:'Tajawal'}
+.ig-v{font-size:14px;font-weight:800}
+.ig-v .en{font-weight:800}
+
+/* WHAT YOU GET */
+.wyg{margin:12px 0;padding:16px;background:linear-gradient(135deg,var(--a1),#4a2510);border-radius:var(--r);color:#fff}
+.wyg h3{font-size:13px;font-weight:800;margin-bottom:10px;color:var(--a4)}
+.wyg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.wyg-i{text-align:center;background:rgba(255,255,255,.08);padding:10px 6px;border-radius:var(--r2)}
+.wyg-i b{display:block;font-size:18px;font-weight:900;font-family:'Inter';line-height:1.1}
+.wyg-i span{font-size:9px;opacity:.7;font-family:'Tajawal'}
+
+/* CALC */
+.calc{margin:12px 0;padding:16px;background:var(--card2);border:1.5px dashed var(--border);border-radius:var(--r);transition:background .3s}
+.calc h3{font-size:13px;font-weight:800;color:var(--a2);margin-bottom:10px}
+.calc-r{display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap}
+.calc-in{width:64px;font-family:'Inter';font-size:18px;font-weight:900;text-align:center;border:2px solid var(--border);border-radius:var(--r3);padding:8px 4px;background:var(--card);color:var(--t1);transition:border-color .15s}
+.calc-in:focus{border-color:var(--a2);outline:none}
+.calc-lab{font-size:13px;font-weight:700}
+.calc-out{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:8px}
+.co-i{background:var(--card);padding:10px;border-radius:var(--r3);text-align:center;box-shadow:var(--sh1)}
+.co-i b{display:block;font-size:18px;font-weight:900;color:var(--a1);font-family:'Inter';line-height:1.1}
+.co-i span{font-size:9px;color:var(--t3);font-family:'Tajawal';font-weight:700}
+
+/* STEPS */
+.stp{display:grid;grid-template-columns:46px 50px 1fr;gap:0 10px;padding:12px 0;border-bottom:1px solid var(--border)}
+.stp:last-child{border-bottom:none}
+.s-t{font-size:13px;font-weight:800;color:var(--a2);font-family:'Inter';direction:ltr;text-align:left;padding-top:1px}
+.s-sc{display:flex;flex-direction:column;align-items:center}
+.s-sv{font-size:15px;font-weight:900;background:var(--bg);border:1.5px solid var(--border);border-radius:6px;padding:2px 6px;min-width:44px;text-align:center;font-family:'Inter';direction:ltr;transition:background .3s}
+.s-add{font-size:10px;color:var(--ok);font-weight:800;font-family:'Inter';direction:ltr;margin-top:1px}
+.s-bd{padding-top:1px}
+.s-lb{font-size:13px;font-weight:800;margin-bottom:2px}
+.s-lb small{font-weight:500;color:var(--t3);font-size:11px}
+.s-ds{font-size:11px;color:var(--t2);font-family:'Tajawal';line-height:1.5}
+.s-wt{display:inline-flex;align-items:center;gap:3px;font-size:9px;color:var(--a2);font-weight:700;margin-top:3px;background:var(--warnBg);padding:2px 8px;border-radius:8px;font-family:'Tajawal'}
+
+/* BREW CTA */
+.bcta{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:15px;border:none;border-radius:var(--r);background:linear-gradient(135deg,var(--a1),var(--a2));color:#fff;font-size:15px;font-weight:800;font-family:'Cairo';margin:14px 0;box-shadow:0 4px 16px rgba(107,58,31,.3);transition:transform .1s}
+.bcta:active{transform:scale(.97)}
+
+/* ═══ BREW MODE ═══ */
+.brew{position:fixed;inset:0;z-index:300;background:linear-gradient(180deg,#0f0a06,#1e1610);color:#faf5ed;display:none;flex-direction:column}
+.brew.on{display:flex}
+.brew-top{padding:max(env(safe-area-inset-top),14px) 20px 10px;display:flex;justify-content:space-between;align-items:center}
+.brew-x{background:none;border:none;color:rgba(255,255,255,.5);font-size:13px;font-family:'Cairo';font-weight:600}
+.brew-nm{font-size:12px;font-weight:700;opacity:.7}
+.brew-c{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 20px}
+.brew-tm{font-size:72px;font-weight:900;font-family:'Inter';letter-spacing:-3px;direction:ltr;line-height:1}
+@media(min-height:700px){.brew-tm{font-size:88px}}
+.brew-sc{margin:16px 0;padding:14px 24px;background:rgba(255,255,255,.06);border-radius:var(--r);text-align:center;min-width:180px;border:1.5px solid rgba(255,255,255,.08)}
+.brew-sv{font-size:44px;font-weight:900;color:var(--a3);font-family:'Inter';direction:ltr;line-height:1}
+.brew-sl{font-size:11px;opacity:.4;font-family:'Tajawal';margin-top:2px}
+.brew-sa{font-size:15px;color:#2ecc71;font-weight:800;font-family:'Inter';direction:ltr;margin-top:3px}
+.brew-sn{font-size:18px;font-weight:800;margin:14px 0 4px}
+.brew-sd{font-size:13px;opacity:.6;font-family:'Tajawal';text-align:center;max-width:280px;line-height:1.6}
+.brew-sw{font-size:12px;color:var(--a3);font-weight:700;margin-top:6px;background:rgba(212,145,63,.12);padding:5px 14px;border-radius:14px;font-family:'Tajawal'}
+.brew-dots{display:flex;gap:6px;margin:18px 0}
+.bd{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.12);transition:all .3s}
+.bd.dn{background:#2ecc71}.bd.cr{background:var(--a3);transform:scale(1.3)}
+.brew-bot{padding:14px 20px max(env(safe-area-inset-bottom),20px);display:flex;gap:10px}
+.brew-btn{flex:1;padding:14px;border:none;border-radius:var(--r2);font-size:15px;font-weight:800;font-family:'Cairo';transition:transform .1s}
+.brew-btn:active{transform:scale(.96)}
+.bnext{background:var(--a3);color:#1a0f08}
+.bpause{background:rgba(255,255,255,.08);color:#faf5ed}
+
+/* ═══ SUGGEST ═══ */
+.sov{display:none;position:fixed;inset:0;z-index:250;background:rgba(0,0,0,.55);backdrop-filter:blur(5px);justify-content:center;align-items:flex-end}
+.sov.on{display:flex}
+.ssheet{background:var(--card);border-radius:20px 20px 0 0;width:100%;max-width:440px;padding:24px 20px max(env(safe-area-inset-bottom),28px);max-height:85dvh;overflow-y:auto;animation:su .3s ease;transition:background .3s}
+@keyframes su{from{transform:translateY(100%)}to{transform:none}}
+.ssheet h2{font-size:18px;font-weight:900;margin-bottom:4px}
+.ssheet>p{font-size:12px;color:var(--t3);font-family:'Tajawal';margin-bottom:16px}
+.sq{margin-bottom:16px}
+.sq-l{font-size:12px;font-weight:800;margin-bottom:6px}
+.sq-os{display:flex;gap:6px;flex-wrap:wrap}
+.sq-o{padding:8px 14px;border-radius:var(--r3);border:1.5px solid var(--border);background:var(--card);font-size:12px;font-weight:700;font-family:'Cairo';transition:all .15s;color:var(--t1)}
+.sq-o.on{background:var(--a1);color:#fff;border-color:var(--a1)}
+.sgo{width:100%;padding:13px;border:none;border-radius:var(--r2);background:linear-gradient(135deg,var(--a1),var(--a2));color:#fff;font-size:14px;font-weight:800;font-family:'Cairo';margin-top:6px}
+
+/* RESPONSIVE */
+@media(min-width:700px){.cg{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}}
+@media(min-width:1100px){.cg{grid-template-columns:repeat(3,1fr)}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+<button class="nb on" data-s="home"><svg viewBox="0 0 24 24"><path d="M3 12l9-9 9 9"/><path d="M9 21V12h6v9"/></svg>الرئيسية</button>
+<button class="nb" data-s="favs"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 000-7.78z"/></svg>المفضلة</button>
+</nav>
+
+<div class="scr on" id="home">
+<div class="hd">
+<div class="hd-row"><div><h1>وصفات <b>V60</b></h1><div class="hd-sub">13 وصفة موثّقة من 10 خبراء عالميين</div></div>
+<div class="hd-btns"><button class="ib" id="thB">&#9789;</button></div></div>
+</div>
+<div class="stats">
+<div class="st"><b>13</b><span>وصفة</span></div>
+<div class="st"><b>10</b><span>خبير</span></div>
+<div class="st"><b>12</b><span>موثّقة</span></div>
+<div class="st"><b>3</b><span>مثلّجة</span></div>
+</div>
+<div class="sug" id="sugO"><div class="sug-i">&#9749;</div><div><h3>محتار وش تحضّر؟</h3><p>جاوب 3 أسئلة ونرشّح لك</p></div></div>
+<div class="chips" id="tF">
+<button class="ch on" data-v="">الكل</button>
+<button class="ch" data-v="hot">&#9728; حار</button>
+<button class="ch" data-v="iced">&#10052; مثلّج</button>
+<button class="ch" data-v="beg">&#127793; مبتدئ</button>
+<button class="ch" data-v="adv">&#127941; متقدم</button>
+<button class="ch" data-v="top">&#11088; الأشهر</button>
+</div>
+<div class="frow">
+<select class="fs" id="fE"><option value="">كل الخبراء</option></select>
+<select class="fs" id="fR"><option value="">النسبة</option><option value="12">~1:12</option><option value="15">1:15</option><option value="16">1:16</option><option value="17">1:17</option></select>
+<select class="fs" id="fS"><option value="pop">الأشهر</option><option value="fast">الأسرع</option><option value="easy">الأسهل</option><option value="strong">الأقوى</option></select>
+<span class="rcnt" id="rc"></span>
+</div>
+<div class="cw"><div class="cg" id="grid"></div></div>
+</div>
+
+<div class="scr" id="favs">
+<div class="hd"><div class="hd-row"><div><h1>&#10084; المفضلة</h1><div class="hd-sub">وصفاتك المحفوظة</div></div></div></div>
+<div class="cw" style="padding-top:16px"><div class="cg" id="fG"></div></div>
+</div>
+
+<div class="scr" id="detail"></div>
+<div class="brew" id="brew"></div>
+
+<div class="sov" id="sov">
+<div class="ssheet">
+<h2>&#9749; اقترح لي وصفة</h2><p>جاوب الأسئلة وبنلاقي لك الأنسب</p>
+<div class="sq"><div class="sq-l">تبيها حارة ولا باردة؟</div><div class="sq-os" data-q="type"><button class="sq-o" data-v="hot">&#9728; حارة</button><button class="sq-o" data-v="iced">&#10052; باردة</button><button class="sq-o on" data-v="">ما يفرق</button></div></div>
+<div class="sq"><div class="sq-l">تحبها قوية ولا خفيفة؟</div><div class="sq-os" data-q="str"><button class="sq-o" data-v="s">قوية</button><button class="sq-o" data-v="l">خفيفة</button><button class="sq-o on" data-v="">متوسطة</button></div></div>
+<div class="sq"><div class="sq-l">مستواك؟</div><div class="sq-os" data-q="lv"><button class="sq-o" data-v="b">مبتدئ</button><button class="sq-o" data-v="a">خبير</button><button class="sq-o on" data-v="">عادي</button></div></div>
+<button class="sgo" id="sgo">اقترح لي &#8592;</button>
+</div></div>
+
+<script>
+const D=[
+{id:1,ex:"James Hoffmann",exA:"جيمس هوفمان",m:"Structured Even Extraction",mA:"الاستخلاص المتساوي",type:"hot",dose:30,water:500,ice:0,ratio:"1:16.7",rn:16.7,temp:97,tn:'«أعلى حرارة ممكنة» — Hario Europe: 97°C',ode:"4–5",oMin:4,oMax:5,time:"~3:30",ts:210,agit:"دوران + تحريك ملعقة + دوران",st:"موثّقة",diff:"مبتدئ",pop:5,fl:{sw:3,ac:3,bd:4,cl:5},bio:"بطل العالم باريستا 2007. مؤسس Square Mile Coffee. أشهر فيديو V60 على يوتيوب.",steps:[
+{l:"التفتيح",add:60,total:60,t:"0:00",w:"45 ثانية",n:"حرّك الفلتر دوران عشان تتبلل الحبوب",tmp:97},
+{l:"الصبّة 1",add:240,total:300,t:"0:45",w:"30 ثانية صب",n:"صبّ حلزوني قوي من الوسط للخارج",tmp:97},
+{l:"الصبّة 2",add:200,total:500,t:"1:15",w:"30 ثانية صب",n:"صبّ هادي في الوسط",tmp:97},
+{l:"التحريك",add:0,total:500,t:"1:45",w:"تصفية ~1:45",n:"حرّك مع الساعة + عكسها، ثم دوران أخير"}
+]},
+{id:2,ex:"James Hoffmann",exA:"جيمس هوفمان",m:"Iced V60",mA:"V60 مثلّج",type:"iced",dose:32.5,water:300,ice:200,ratio:"~1:15.4",rn:15.4,temp:95,tn:"95°C",ode:"3.5–4.5",oMin:3.5,oMax:4.5,time:"~2:55",ts:175,agit:"",st:"موثّقة",diff:"مبتدئ",pop:4,fl:{sw:3,ac:4,bd:3,cl:4},bio:"نسبة ~1:15.4 مع 500g سائل (300 ماء + 200 ثلج).",steps:[
+{l:"التجهيز",add:0,total:0,t:"—",w:"",n:"حط 200g ثلج في السيرفر",tmp:null},
+{l:"التفتيح",add:65,total:65,t:"0:00",w:"45 ثانية",n:"صبّ 65g وخلّه يتفتّح",tmp:95},
+{l:"الصبّة 1",add:235,total:300,t:"0:45",w:"تصفية ~2:10",n:"صبّ كل الماء. ينزل على الثلج.",tmp:95}
+]},
+{id:3,ex:"Tetsu Kasuya",exA:"تيتسو كاسويا",m:"4:6 Method",mA:"طريقة 4:6",type:"hot",dose:20,water:300,ice:0,ratio:"1:15",rn:15,temp:92,tn:"92°C (بطولة) / ~93°C (فاتحة)",ode:"5.5–6.5",oMin:5.5,oMax:6.5,time:"~3:30",ts:210,agit:"بدون",st:"موثّقة",diff:"مبتدئ",pop:5,fl:{sw:4,ac:3,bd:3,cl:3},bio:"بطل العالم Brewers Cup 2016 (اليابان). أول صبّتين (40%) = حلاوة/حموضة. آخر 3 (60%) = القوة.",steps:[
+{l:"الصبّة 1",add:60,total:60,t:"0:00",w:"انتظر لين ينشف",n:"مبسّطة: 60g متساوية. البطولة: 50g",tmp:92},
+{l:"الصبّة 2",add:60,total:120,t:"~0:45",w:"انتظر لين ينشف",n:"البطولة: 70g",tmp:92},
+{l:"الصبّة 3",add:60,total:180,t:"~1:20",w:"انتظر لين ينشف",n:"",tmp:92},
+{l:"الصبّة 4",add:60,total:240,t:"~2:00",w:"انتظر لين ينشف",n:"",tmp:92},
+{l:"الصبّة 5",add:60,total:300,t:"~2:30",w:"تصفية ~1 دقيقة",n:"",tmp:92}
+]},
+{id:4,ex:"Tetsu Kasuya",exA:"تيتسو كاسويا",m:"Ice Brew",mA:"بروّ الثلج (تجريبية)",type:"iced",dose:50,water:100,ice:500,ratio:"1:12",rn:12,temp:0,tn:"بدون حرارة",ode:"—",oMin:null,oMax:null,time:"4–15 hrs",ts:null,agit:"بدون",st:"موثّقة",diff:"متقدم",pop:2,fl:{sw:5,ac:2,bd:5,cl:2},bio:'تجريبية — «ما تعطي نتائج ثابتة». استخلاص بارد بطيء.',steps:[
+{l:"التجهيز",add:0,total:0,t:"—",w:"",n:"50g بن خشن في V60",tmp:null},
+{l:"الثلج",add:500,total:500,t:"0:00",w:"",n:"500g ثلج مباشرة على البن",tmp:0},
+{l:"الماء",add:100,total:600,t:"0:01",w:"4–15 ساعة",n:"100g ماء بارد. خلّ الثلج يذوب.",tmp:0}
+]},
+{id:5,ex:"Scott Rao",exA:"سكوت راو",m:"Two-Pour Method",mA:"طريقة الصبّتين",type:"hot",dose:20,water:330,ice:0,ratio:"~1:16.5",rn:16.5,temp:97,tn:'97°C — «أعلى حرارة ممكنة»',ode:"4–5",oMin:4,oMax:5,time:"4:00–4:30",ts:255,agit:"دوران بعد كل صبّة",st:"موثّقة",diff:"متوسط",pop:4,fl:{sw:3,ac:3,bd:5,cl:4},bio:"مؤلف كتب علم القهوة. يستهدف استخلاص 22–24.5%. ينصح بـV60 بلاستيك.",steps:[
+{l:"التفتيح",add:60,total:60,t:"0:00",w:"40 ثانية",n:"دوران قوي بعد الصب",tmp:97},
+{l:"الصبّة 1",add:140,total:200,t:"0:40",w:"انتظر ~70% ينزل",n:"دوران خفيف",tmp:97},
+{l:"الصبّة 2",add:130,total:330,t:"~1:30",w:"تصفية ~2:30–3:00",n:"دوران خفيف. تصفية كاملة.",tmp:97}
+]},
+{id:6,ex:"Matt Winton",exA:"مات وينتون",m:"Five-Pour Method",mA:"طريقة الخمس صبّات",type:"hot",dose:20,water:300,ice:0,ratio:"1:15",rn:15,temp:93,tn:"93°C تفتيح / ~88°C باقي (كتلتين)",ode:"5–6",oMin:5,oMax:6,time:"~3:30",ts:210,agit:"بدون (ارتفاع الصب)",st:"موثّقة",diff:"متقدم",pop:3,fl:{sw:4,ac:4,bd:3,cl:4},bio:"بطل العالم Brewers Cup 2021. يعتمد ارتفاع الصب بدل التحريك.",steps:[
+{l:"الصبّة 1",add:60,total:60,t:"0:00",w:"لين يقارب ينشف",n:"93°C. صبّ من ارتفاع.",tmp:93},
+{l:"الصبّة 2",add:60,total:120,t:"~0:40",w:"لين يقارب ينشف",n:"غيّر لـ~88°C",tmp:88},
+{l:"الصبّة 3",add:60,total:180,t:"~1:15",w:"لين يقارب ينشف",n:"",tmp:88},
+{l:"الصبّة 4",add:60,total:240,t:"~1:50",w:"لين يقارب ينشف",n:"",tmp:88},
+{l:"الصبّة 5",add:60,total:300,t:"~2:25",w:"تصفية ~1 دقيقة",n:"",tmp:88}
+]},
+{id:7,ex:"Emi Fukahori",exA:"إيمي فوكاهوري",m:"Hybrid Immersion (GINA)",mA:"الطريقة الهجينة",type:"hot",dose:17,water:220,ice:0,ratio:"~1:12.9",rn:12.9,temp:80,tn:"80°C غمر / 95°C تقطير",ode:"—",oMin:null,oMax:null,time:"~2:55",ts:175,agit:"",st:"موثّقة",diff:"متقدم",pop:3,fl:{sw:5,ac:2,bd:4,cl:3},bio:"بطلة العالم Brewers Cup 2018. أول امرأة تفوز. GINA by Goat Story.",steps:[
+{l:"المرحلة 1",add:50,total:50,t:"0:00",w:"غمر 45 ثانية",n:"الصمّام مقفل. 80°C.",tmp:80},
+{l:"المرحلة 2",add:100,total:150,t:"0:45",w:"تقطير 60 ثانية",n:"الصمّام مفتوح. 95°C.",tmp:95},
+{l:"المرحلة 3",add:70,total:220,t:"1:45",w:"غمر 45 ثانية",n:"الصمّام مقفل. 80°C.",tmp:80},
+{l:"التصفية",add:0,total:220,t:"2:30",w:"25 ثانية",n:"الصمّام مفتوح.",tmp:null}
+]},
+{id:8,ex:"Patrik Rolf",exA:"باتريك رولف",m:"April Coffee V60",mA:"طريقة April Coffee",type:"hot",dose:20,water:300,ice:0,ratio:"1:15",rn:15,temp:92,tn:"92°C",ode:"5.5–6.5",oMin:5.5,oMax:6.5,time:"~3:20",ts:205,agit:"صبّ دائري قوي",st:"موثّقة",diff:"متوسط",pop:3,fl:{sw:3,ac:4,bd:3,cl:5},bio:"مؤسس April Coffee كوبنهاغن. فضية Brewers Cup 2019.",steps:[
+{l:"الصبّة 1",add:50,total:50,t:"0:00",w:"40 ثانية",n:"صبّ دائري قوي",tmp:92},
+{l:"الصبّة 2",add:50,total:100,t:"0:40",w:"30 ثانية",n:"",tmp:92},
+{l:"الصبّة 3",add:50,total:150,t:"1:10",w:"30 ثانية",n:"",tmp:92},
+{l:"الصبّة 4",add:50,total:200,t:"1:40",w:"30 ثانية",n:"",tmp:92},
+{l:"الصبّة 5",add:50,total:250,t:"2:10",w:"30 ثانية",n:"",tmp:92},
+{l:"الصبّة 6",add:50,total:300,t:"2:40",w:"تصفية ~50 ثانية",n:"",tmp:92}
+]},
+{id:9,ex:"Lance Hedrick",exA:"لانس هيدريك",m:"Versatile V60",mA:"الوصفة المرنة",type:"hot",dose:20,water:340,ice:0,ratio:"1:17",rn:17,temp:100,tn:"100°C (غليان)",ode:"4–5",oMin:4,oMax:5,time:"~3:00",ts:180,agit:"دوران بعد كل صبّة",st:"موثّقة",diff:"مبتدئ",pop:4,fl:{sw:3,ac:3,bd:3,cl:4},bio:"يوتيوبر ومثقّف قهوة. ساهم بتصميم Fellow Ode Gen 2.",steps:[
+{l:"الصبّة 1",add:50,total:50,t:"0:00",w:"30 ثانية",n:"دوران",tmp:100},
+{l:"الصبّة 2",add:50,total:100,t:"0:30",w:"30 ثانية",n:"دوران",tmp:100},
+{l:"الصبّة 3",add:120,total:220,t:"1:00",w:"30 ثانية",n:"دوران",tmp:100},
+{l:"الصبّة 4",add:120,total:340,t:"1:30",w:"تصفية ~1–2 دقيقة",n:"دوران",tmp:100}
+]},
+{id:10,ex:"Lance Hedrick",exA:"لانس هيدريك",m:"Ultimate Flash Brew",mA:"فلاش برو مثلّج",type:"iced",dose:20,water:240,ice:60,ratio:"~1:15",rn:15,temp:97,tn:"93–100°C",ode:"—",oMin:null,oMax:null,time:"~2:45",ts:178,agit:"خفيف",st:"موثّقة",diff:"متوسط",pop:3,fl:{sw:3,ac:4,bd:3,cl:5},bio:"نسبة ماء:ثلج 8:2. الثلج يُحرّك بالقهوة بعد التحضير.",steps:[
+{l:"التفتيح",add:60,total:60,t:"0:00",w:"60 ثانية",n:"دقيقة كاملة تفتيح",tmp:97},
+{l:"الصبّة 1",add:90,total:150,t:"1:00",w:"45 ثانية",n:"",tmp:97},
+{l:"الصبّة 2",add:90,total:240,t:"1:45",w:"تصفية ~1 دقيقة",n:"",tmp:97},
+{l:"التبريد",add:0,total:240,t:"~2:45",w:"",n:"حرّك 60g ثلج بالقهوة لين 5–15°C. قدّم على ثلج جديد.",tmp:null}
+]},
+{id:11,ex:"Jonathan Gagné",exA:"جوناثان غانييه",m:"V60 Recipe",mA:"وصفة V60",type:"hot",dose:22,water:374,ice:0,ratio:"1:17",rn:17,temp:100,tn:"100°C (غليان)",ode:"4–5",oMin:4,oMax:5,time:"~4:03",ts:243,agit:"دوران بعد كل صبّة",st:"موثّقة",diff:"متوسط",pop:3,fl:{sw:3,ac:3,bd:4,cl:5},bio:'عالم فيزياء فلكية. مؤلف «The Physics of Filter Coffee». متأثر بـScott Rao.',steps:[
+{l:"التفتيح",add:77,total:77,t:"0:00",w:"~40 ثانية",n:"3.5× الجرعة",tmp:100},
+{l:"الصبّة 1",add:123,total:200,t:"~0:40",w:"لين ينزل أغلبه",n:"دوران",tmp:100},
+{l:"الصبّة 2",add:174,total:374,t:"~1:40",w:"تصفية ~2:20",n:"دوران",tmp:100}
+]},
+{id:12,ex:"Tim Wendelboe",exA:"تيم ويندلبو",m:"Staged Pour",mA:"الصبّ المرحلي",type:"hot",dose:32.5,water:500,ice:0,ratio:"1:15.4",rn:15.4,temp:98,tn:"~98°C (تقدير المجتمع)",ode:"3.5–5",oMin:3.5,oMax:5,time:"~3:15",ts:195,agit:"تحريك بالتفتيح",st:"جزئية",diff:"مبتدئ",pop:3,fl:{sw:4,ac:3,bd:4,cl:3},bio:"بطل العالم باريستا 2004. محمصة ومقهى في أوسلو.",steps:[
+{l:"التفتيح",add:60,total:60,t:"0:00",w:"30 ثانية",n:"حرّك بالملعقة",tmp:98},
+{l:"الصبّة 1",add:140,total:200,t:"0:30",w:"لين ينزل أغلبه",n:"",tmp:98},
+{l:"الصبّة 2",add:300,total:500,t:"~1:15",w:"تصفية ~2:00",n:"صبّ دائري مستمر",tmp:98}
+]},
+{id:13,ex:"Ben Put",exA:"بن بوت",m:"Monogram Coffee V60",mA:"وصفة Monogram Coffee",type:"hot",dose:21,water:340,ice:0,ratio:"1:16",rn:16,temp:93,tn:"93°C (200°F)",ode:"4.5–5.5",oMin:4.5,oMax:5.5,time:"~2:45",ts:165,agit:"",st:"موثّقة",diff:"مبتدئ",pop:3,fl:{sw:4,ac:3,bd:3,cl:4},bio:"بطل كندا باريستا 7 مرات. مؤسس Monogram Coffee.",steps:[
+{l:"التفتيح",add:50,total:50,t:"0:00",w:"30 ثانية",n:"",tmp:93},
+{l:"الصبّة 1",add:200,total:250,t:"0:30",w:"لين ينزل أغلبه",n:"",tmp:93},
+{l:"الصبّة 2",add:90,total:340,t:"~1:15",w:"تصفية ~1:15–1:45",n:"",tmp:93}
+]}
+];
+
+// STATE
+let favs=JSON.parse(localStorage.getItem('v60f')||'[]');
+let aT='',curS='home';
+const $=id=>document.getElementById(id);
+
+// NAV
+document.querySelectorAll('.nb').forEach(b=>b.onclick=()=>{showS(b.dataset.s);if(b.dataset.s==='favs')rFav()});
+function showS(id){curS=id;document.querySelectorAll('.scr').forEach(s=>s.classList.toggle('on',s.id===id));document.querySelectorAll('.nb').forEach(b=>b.classList.toggle('on',b.dataset.s===id));scrollTo(0,0)}
+
+// THEME
+$('thB').onclick=()=>{const d=document.body.dataset.theme==='dark'?'':'dark';document.body.dataset.theme=d;localStorage.setItem('v60t',d)};
+if(localStorage.getItem('v60t')==='dark')document.body.dataset.theme='dark';
+
+// FILTERS
+document.querySelectorAll('#tF .ch').forEach(c=>c.onclick=()=>{document.querySelectorAll('#tF .ch').forEach(x=>x.classList.remove('on'));c.classList.add('on');aT=c.dataset.v;render()});
+$('fE').onchange=$('fR').onchange=$('fS').onchange=render;
+const exps=[...new Set(D.map(r=>r.ex))];
+exps.forEach(e=>{const o=document.createElement('option');o.value=e;o.textContent=e;$('fE').appendChild(o)});
+
+function cups(r){const liq=(r.water+(r.ice||0))*.94;return Math.round(liq/120*10)/10}
+function yieldML(r){return Math.round((r.water+(r.ice||0))*.94)}
+
+function getF(){
+let res=D.filter(r=>{
+if(aT==='hot'&&r.type!=='hot')return false;
+if(aT==='iced'&&r.type!=='iced')return false;
+if(aT==='beg'&&r.diff!=='مبتدئ')return false;
+if(aT==='adv'&&r.diff==='مبتدئ')return false;
+if(aT==='top'&&r.pop<4)return false;
+const ex=$('fE').value;if(ex&&r.ex!==ex)return false;
+const rat=$('fR').value;if(rat&&Math.round(r.rn)!==+rat)return false;
+return true;
+});
+const s=$('fS').value;
+if(s==='fast')res.sort((a,b)=>(a.ts||9e3)-(b.ts||9e3));
+else if(s==='easy')res.sort((a,b)=>(a.diff==='مبتدئ'?0:a.diff==='متوسط'?1:2)-(b.diff==='مبتدئ'?0:b.diff==='متوسط'?1:2));
+else if(s==='strong')res.sort((a,b)=>a.rn-b.rn);
+else res.sort((a,b)=>b.pop-a.pop);
+return res;
+}
+
+function flB(v,mx,c){return`<div class="fl-m"><div class="fl-m-bar"><div class="fl-m-fill" style="width:${v/mx*100}%;background:${c}"></div></div></div>`}
+function mtl(r){const ps=r.steps.filter(s=>s.add>0);if(!ps.length)return'';let h='<div class="mtl">';ps.forEach((s,i)=>{if(i)h+='<div class="mt-l"></div>';h+=`<div class="mt-s"><span class="mt-w">${s.total}g</span><div class="mt-d"></div><span class="mt-t">${s.t}</span></div>`});return h+'</div>'}
+function starsHTML(p){return'&#9733;'.repeat(p)+'&#9734;'.repeat(5-p)}
+
+function cardH(r){
+const f=r.fl,pc=r.steps.filter(s=>s.add>0).length,iF=favs.includes(r.id);
+const ym=yieldML(r),yc=cups(r);
+return`
+<div class="cd ${r.type==='iced'?'ic':'ht'}" data-id="${r.id}">
+<div class="cd-r1">
+<div><div class="cd-name"><span class="en">${r.ex}</span></div><div class="cd-meth">${r.mA}</div></div>
+<div class="bgs">
+<span class="bg ${r.type==='iced'?'b-iced':'b-hot'}">${r.type==='iced'?'مثلّج':'حار'}</span>
+<span class="bg" style="background:var(--bg2);color:var(--t2)">${r.diff}</span>
+</div></div>
+<div class="rating"><span class="stars">${starsHTML(r.pop)}</span><span class="rating-txt">شعبية المجتمع</span></div>
+<div class="fl-mini">
+${flB(f.sw,5,'#e74c3c')}<span class="fl-m-l">حلاوة</span>
+${flB(f.ac,5,'#f1c40f')}<span class="fl-m-l">حموضة</span>
+${flB(f.bd,5,'#8b4513')}<span class="fl-m-l">قوام</span>
+${flB(f.cl,5,'#3498db')}<span class="fl-m-l">صفاء</span>
+</div>
+<div class="cd-stats">
+<div class="cs"><b>${r.dose}g</b><span>البن</span></div>
+<div class="cs"><b><span class="en">${r.ratio}</span></b><span>النسبة</span></div>
+<div class="cs"><b>${r.temp||'—'}°</b><span>الحرارة</span></div>
+<div class="cs"><b><span class="en">${r.time}</span></b><span>الوقت</span></div>
+</div>
+<div class="yield">
+<div class="yield-cup">&#9749;</div>
+<div class="yield-info"><b>~${ym}ml ≈ ${yc>=2?Math.round(yc):yc} كوب</b><span>${r.dose}g بن → ${r.water}g ماء${r.ice?' + '+r.ice+'g ثلج':''} → ${ym}ml قهوة جاهزة</span></div>
+</div>
+${mtl(r)}
+<div class="cd-bot">
+<span class="cd-meta">${pc} صبّة · <span class="en">Ode ${r.ode}</span></span>
+<div class="cd-acts">
+<button class="fb ${iF?'on':''}" onclick="event.stopPropagation();tFav(${r.id})">${iF?'&#10084;':'&#9825;'}</button>
+<button class="bb" onclick="event.stopPropagation();startB(${r.id})">&#9749; حضّر</button>
+</div></div></div>`}
+
+function render(){const f=getF();const g=$('grid');$('rc').textContent=f.length+' وصفة';
+if(!f.length){g.innerHTML='<div class="empty"><b>&#9749;</b><h3>ما لقينا وصفات</h3><p>عدّل الفلاتر</p></div>';return}
+g.innerHTML=f.map(cardH).join('');
+g.querySelectorAll('.cd').forEach(c=>c.onclick=()=>openD(+c.dataset.id))}
+
+// FAVS
+function tFav(id){if(favs.includes(id))favs=favs.filter(x=>x!==id);else favs.push(id);localStorage.setItem('v60f',JSON.stringify(favs));render();if(curS==='favs')rFav()}
+function rFav(){const g=$('fG'),fr=D.filter(r=>favs.includes(r.id));
+if(!fr.length){g.innerHTML='<div class="empty"><b>&#9825;</b><h3>ما عندك مفضلات</h3><p>اضغط القلب &#9825; على أي وصفة</p></div>';return}
+g.innerHTML=fr.map(cardH).join('');g.querySelectorAll('.cd').forEach(c=>c.onclick=()=>openD(+c.dataset.id))}
+
+// DETAIL
+function openD(id){
+const r=D.find(x=>x.id===id);if(!r)return;
+const f=r.fl,ym=yieldML(r),yc=cups(r);
+const stH=r.steps.map(s=>`<div class="stp">
+<div class="s-t">${s.t}</div>
+<div class="s-sc"><div class="s-sv">${s.total}g</div>${s.add?'<div class="s-add">+'+s.add+'g</div>':''}</div>
+<div class="s-bd"><div class="s-lb">${s.l}${s.tmp?' <small>@ '+s.tmp+'°C</small>':''}</div>
+${s.n?'<div class="s-ds">'+s.n+'</div>':''}
+${s.w?'<div class="s-wt">&#9202; '+s.w+'</div>':''}</div></div>`).join('');
+
+$('detail').innerHTML=`
+<div class="dh">
+<button class="dh-back" onclick="showS('home')">&#8594; رجوع</button>
+<h2><span class="en">${r.ex}</span></h2>
+<div class="dh-sub">${r.mA}</div>
+<div class="dh-badges"><span class="bg ${r.type==='iced'?'b-iced':'b-hot'}">${r.type==='iced'?'مثلّج':'حار'}</span><span class="bg" style="background:rgba(255,255,255,.12);color:#fff">${r.diff}</span><span class="bg ${r.st==='موثّقة'?'b-ok':'b-warn'}">${r.st}</span></div>
+</div><div class="db">
+<div class="bio">${r.bio}</div>
+
+<div class="wyg">
+<h3>&#127861; وش بتحصل بالضبط</h3>
+<div class="wyg-grid">
+<div class="wyg-i"><b>${r.dose}g</b><span>بن مطحون</span></div>
+<div class="wyg-i"><b>${r.water}g</b><span>ماء${r.ice?' + '+r.ice+'g ثلج':''}</span></div>
+<div class="wyg-i"><b>~${ym}ml</b><span>قهوة جاهزة</span></div>
+<div class="wyg-i"><b>${r.temp||'—'}°C</b><span>حرارة الماء</span></div>
+<div class="wyg-i"><b>${r.ratio}</b><span>النسبة</span></div>
+<div class="wyg-i"><b>~${yc>=2?Math.round(yc):yc}</b><span>كوب</span></div>
+</div></div>
+
+<div class="sc">
+<h3>&#127912; الطعم المتوقّع</h3>
+<div class="fl-row"><span class="fl-lbl">الحلاوة</span><div class="fl-tr"><div class="fl-f" style="width:${f.sw*20}%;background:#e74c3c"></div></div><span class="fl-v">${f.sw}/5</span></div>
+<div class="fl-row"><span class="fl-lbl">الحموضة</span><div class="fl-tr"><div class="fl-f" style="width:${f.ac*20}%;background:#f1c40f"></div></div><span class="fl-v">${f.ac}/5</span></div>
+<div class="fl-row"><span class="fl-lbl">القوام</span><div class="fl-tr"><div class="fl-f" style="width:${f.bd*20}%;background:#8b4513"></div></div><span class="fl-v">${f.bd}/5</span></div>
+<div class="fl-row"><span class="fl-lbl">الصفاء</span><div class="fl-tr"><div class="fl-f" style="width:${f.cl*20}%;background:#3498db"></div></div><span class="fl-v">${f.cl}/5</span></div>
+</div>
+
+<div class="sc">
+<h3>&#128203; المواصفات</h3>
+<div class="ig">
+<div class="ig-i"><span class="ig-l">البن</span><span class="ig-v"><span class="en">${r.dose}g</span></span></div>
+<div class="ig-i"><span class="ig-l">الماء${r.ice?' + ثلج':''}</span><span class="ig-v"><span class="en">${r.water}g${r.ice?' + '+r.ice+'g':''}
+</span></span></div>
+<div class="ig-i"><span class="ig-l">النسبة</span><span class="ig-v"><span class="en">${r.ratio}</span></span></div>
+<div class="ig-i"><span class="ig-l">الحرارة</span><span class="ig-v">${r.tn}</span></div>
+<div class="ig-i"><span class="ig-l">Ode Gen 2</span><span class="ig-v"><span class="en">${r.ode}</span></span></div>
+<div class="ig-i"><span class="ig-l">الوقت</span><span class="ig-v"><span class="en">${r.time}</span></span></div>
+${r.agit?'<div class="ig-i" style="grid-column:1/-1"><span class="ig-l">التحريك</span><span class="ig-v">'+r.agit+'</span></div>':''}
+</div></div>
+
+<div class="calc">
+<h3>&#128290; حاسبة الجرعة — عدّل على كيفك</h3>
+<div class="calc-r"><span class="calc-lab">عندي</span><input class="calc-in" type="number" id="cI" value="${r.dose}" min="5" max="100" step="0.5"><span class="calc-lab">g بن</span></div>
+<div class="calc-out" id="cO"></div>
+</div>
+
+<div class="sc">
+<h3>&#128203; خطوة بخطوة — الميزان + التوقيت</h3>
+${stH}
+</div>
+<button class="bcta" onclick="startB(${r.id})">&#9749; ابدأ التحضير بالمؤقت</button>
+</div>`;
+showS('detail');
+const ci=$('cI');
+const uc=()=>{const nd=parseFloat(ci.value)||r.dose,sc=nd/r.dose,nw=Math.round(r.water*sc),ni=r.ice?Math.round(r.ice*sc):0,ny=Math.round((nw+ni)*.94),bl=r.steps.find(s=>s.l.includes('تفتيح')||s.l.includes('المرحلة'));
+$('cO').innerHTML=`
+<div class="co-i"><b>${nw}g</b><span>ماء</span></div>
+${ni?'<div class="co-i"><b>'+ni+'g</b><span>ثلج</span></div>':''}
+<div class="co-i"><b>~${ny}ml</b><span>قهوة جاهزة</span></div>
+${bl?'<div class="co-i"><b>'+Math.round(bl.add*sc)+'g</b><span>تفتيح</span></div>':''}
+`};ci.oninput=uc;uc();
+}
+
+// BREW
+let bT=null,bS=0,bP=false,bR=null,bI=0;
+function startB(id){bR=D.find(x=>x.id===id);if(!bR)return;bI=0;bS=0;bP=false;$('brew').classList.add('on');rBS();clearInterval(bT);bT=setInterval(()=>{if(!bP){bS++;rBT()}},1000)}
+function rBS(){const r=bR,s=r.steps[bI];
+$('brew').innerHTML=`
+<div class="brew-top"><button class="brew-x" onclick="xB()">&#10005; إغلاق</button><span class="brew-nm">${r.ex} — ${r.mA}</span></div>
+<div class="brew-c">
+<div class="brew-tm" id="bTD">00:00</div>
+<div class="brew-sc">
+<div class="brew-sv">${s.total}g</div>
+<div class="brew-sl">الميزان لازم يوصل</div>
+${s.add?'<div class="brew-sa">+ '+s.add+'g أضف الحين</div>':''}
+</div>
+<div class="brew-sn">${s.l}${s.tmp?' @ '+s.tmp+'°C':''}</div>
+${s.n?'<div class="brew-sd">'+s.n+'</div>':''}
+${s.w?'<div class="brew-sw">&#9202; '+s.w+'</div>':''}
+<div class="brew-dots">${r.steps.map((_,i)=>'<div class="bd '+(i<bI?'dn':i===bI?'cr':'')+'"></div>').join('')}</div>
+</div>
+<div class="brew-bot">
+<button class="brew-btn bpause" onclick="tBP()">${bP?'&#9654; كمّل':'&#10074;&#10074; وقّف'}</button>
+<button class="brew-btn bnext" onclick="nBS()">${bI<r.steps.length-1?'التالي &#8592;':'&#10003; خلصت!'}</button>
+</div>`;rBT()}
+function rBT(){const e=$('bTD');if(!e)return;e.textContent=String(Math.floor(bS/60)).padStart(2,'0')+':'+String(bS%60).padStart(2,'0')}
+function nBS(){if(bI<bR.steps.length-1){bI++;rBS()}else xB()}
+function tBP(){bP=!bP;rBS()}
+function xB(){clearInterval(bT);$('brew').classList.remove('on')}
+
+// SUGGEST
+let sA={type:'',str:'',lv:''};
+$('sugO').onclick=()=>$('sov').classList.add('on');
+$('sov').onclick=e=>{if(e.target===$('sov'))$('sov').classList.remove('on')};
+document.querySelectorAll('.sq-o').forEach(o=>o.onclick=()=>{const q=o.closest('.sq-os').dataset.q;o.closest('.sq-os').querySelectorAll('.sq-o').forEach(x=>x.classList.remove('on'));o.classList.add('on');sA[q]=o.dataset.v});
+$('sgo').onclick=()=>{
+let pool=D.filter(r=>{
+if(sA.type&&r.type!==sA.type)return false;
+if(sA.str==='s'&&r.rn>15.5)return false;
+if(sA.str==='l'&&r.rn<16)return false;
+if(sA.lv==='b'&&r.diff!=='مبتدئ')return false;
+if(sA.lv==='a'&&r.diff==='مبتدئ')return false;
+return true;
+});if(!pool.length)pool=D;
+pool.sort((a,b)=>b.pop-a.pop);
+$('sov').classList.remove('on');openD(pool[0].id)};
+
+render();
+</script>
+</body>
+</html>
