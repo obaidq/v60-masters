@@ -1,688 +1,687 @@
 /**
- * Coffee Knowledge Base for V60 Masters Brewing App
- * Structured reference data: origins, roast adjustments, water quality, glossary, common mistakes.
- * All data sourced from SCA standards, specialty coffee research, and expert brew guides.
+ * قاعدة بيانات القهوة — V60 Masters
+ * بيانات مرجعية: المناشئ، التحميص، جودة الماء، المصطلحات، الأخطاء الشائعة
+ * المصادر: معايير SCA، أبحاث القهوة المختصة، أدلة خبراء التحضير
  */
 
 const COFFEE_KNOWLEDGE = {
 
   // ──────────────────────────────────────────────
-  // 1. COFFEE ORIGINS — Top 10 with flavor profiles
+  // 1. مناشئ القهوة — أفضل 10 مع ملفات النكهة
   // ──────────────────────────────────────────────
   origins: [
     {
       id: "ethiopia",
-      country: "Ethiopia",
+      country: "إثيوبيا",
       flag: "🇪🇹",
-      region: "Africa",
+      region: "أفريقيا",
       altitude: "1500–2200m",
       varieties: ["Heirloom", "Typica", "74110", "74112"],
-      processing: ["Washed", "Natural"],
+      processing: ["مغسولة", "طبيعية"],
       flavorProfile: {
-        primary: ["Fruity", "Floral", "Berry"],
-        secondary: ["Bergamot", "Jasmine", "Blueberry", "Stone fruit", "Citrus"],
-        body: "Light to Medium",
-        acidity: "Bright, wine-like",
-        sweetness: "High — honey, tropical fruit",
-        finish: "Tea-like, clean, lingering floral"
+        primary: ["فواكه", "زهور", "توت"],
+        secondary: ["برغموت", "ياسمين", "بلوبيري", "فواكه نواة", "حمضيات"],
+        body: "خفيف إلى متوسط",
+        acidity: "حموضة مشرقة ونبيذية",
+        sweetness: "عالية — عسل وفواكه استوائية",
+        finish: "نهاية شبيهة بالشاي، نظيفة، زهرية طويلة"
       },
       notableRegions: [
-        { name: "Yirgacheffe", notes: "Delicate, tea-like body with citrus and floral notes" },
-        { name: "Sidamo", notes: "Well-rounded brightness with subtle sweetness" },
-        { name: "Guji", notes: "Intense berry, peach, complex layered fruit" }
+        { name: "Yirgacheffe", notes: "قوام رقيق شبيه بالشاي مع حمضيات وزهور" },
+        { name: "Sidamo", notes: "إشراقة متوازنة مع حلاوة خفية" },
+        { name: "Guji", notes: "توت مكثف، خوخ، طبقات فاكهية معقدة" }
       ],
-      brewTip: "Try a longer bloom (45s) to let the complex aromatics develop. Light roasts from Ethiopia often shine brightest at 94–96°C.",
-      description: "Birthplace of coffee. Ethiopian heirloom varietals are often considered the pinnacle of specialty coffee, offering unmatched complexity and fruit-forward character."
+      brewTip: "جرّب تفتيح أطول (45 ثانية) عشان النكهات المعقدة تتفتح. التحميص الفاتح من إثيوبيا يتألق على 94–96°C.",
+      description: "مهد القهوة. أصناف الـHeirloom الإثيوبية تُعتبر قمة القهوة المختصة — تعقيد ما يتكرر ونكهات فاكهية فريدة."
     },
     {
       id: "colombia",
-      country: "Colombia",
+      country: "كولومبيا",
       flag: "🇨🇴",
-      region: "South America",
+      region: "أمريكا الجنوبية",
       altitude: "1200–2000m",
       varieties: ["Caturra", "Castillo", "Colombia", "Typica", "Bourbon"],
-      processing: ["Washed", "Honey", "Natural"],
+      processing: ["مغسولة", "عسلية", "طبيعية"],
       flavorProfile: {
-        primary: ["Caramel", "Nutty", "Balanced"],
-        secondary: ["Red apple", "Dark chocolate", "Toffee", "Brown sugar", "Citrus"],
-        body: "Medium to Full",
-        acidity: "Well-balanced, bright but not sharp",
-        sweetness: "Medium-high — caramel, panela",
-        finish: "Clean, sweet, lingering chocolate"
+        primary: ["كراميل", "مكسرات", "متوازنة"],
+        secondary: ["تفاح أحمر", "شوكولاتة داكنة", "توفي", "سكر بني", "حمضيات"],
+        body: "متوسط إلى كامل",
+        acidity: "متوازنة ومشرقة بدون حدة",
+        sweetness: "متوسطة عالية — كراميل وبانيلا",
+        finish: "نظيفة وحلوة مع شوكولاتة طويلة"
       },
       notableRegions: [
-        { name: "Huila", notes: "Fruity, sweet, candy-like with complex acidity" },
-        { name: "Nariño", notes: "High altitude, bright acidity, citrus and floral" },
-        { name: "Antioquia", notes: "Classic chocolate, nutty, well-rounded" }
+        { name: "Huila", notes: "فاكهية وحلوة مثل الحلوى مع حموضة معقدة" },
+        { name: "Nariño", notes: "ارتفاع عالي، حموضة مشرقة، حمضيات وزهور" },
+        { name: "Antioquia", notes: "شوكولاتة كلاسيكية ومكسرات متوازنة" }
       ],
-      brewTip: "Colombian coffees are forgiving across parameters. A 1:16 ratio at 93°C is a reliable starting point.",
-      description: "One of the world's most consistent producers of quality coffee. Colombian Supremo is prized for its aromatic sweetness and approachable balance."
+      brewTip: "القهوة الكولومبية متسامحة مع المتغيرات. نسبة 1:16 على 93°C نقطة بداية موثوقة.",
+      description: "من أكثر الدول ثباتاً في جودة القهوة. الكولومبي يتميز بحلاوة عطرية وتوازن سهل الاستمتاع."
     },
     {
       id: "brazil",
-      country: "Brazil",
+      country: "البرازيل",
       flag: "🇧🇷",
-      region: "South America",
+      region: "أمريكا الجنوبية",
       altitude: "800–1400m",
       varieties: ["Bourbon", "Catuai", "Mundo Novo", "Yellow Bourbon"],
-      processing: ["Natural", "Pulped Natural", "Washed"],
+      processing: ["طبيعية", "نصف مغسولة", "مغسولة"],
       flavorProfile: {
-        primary: ["Chocolate", "Nutty", "Low acidity"],
-        secondary: ["Maple", "Hazelnut", "Peanut", "Bittersweet chocolate", "Dried fruit"],
-        body: "Medium to Full",
-        acidity: "Low — smooth, mellow",
-        sweetness: "Medium — brown sugar, cocoa",
-        finish: "Round, clean, chocolatey"
+        primary: ["شوكولاتة", "مكسرات", "حموضة منخفضة"],
+        secondary: ["قيقب", "بندق", "فول سوداني", "شوكولاتة مرّة حلوة", "فواكه مجففة"],
+        body: "متوسط إلى كامل",
+        acidity: "منخفضة — ناعمة وهادئة",
+        sweetness: "متوسطة — سكر بني وكاكاو",
+        finish: "مستديرة ونظيفة وشوكولاتية"
       },
       notableRegions: [
-        { name: "Cerrado", notes: "Sweet, nutty, chocolate, low acidity" },
-        { name: "Mogiana", notes: "Caramel, balanced, creamy body" },
-        { name: "Sul de Minas", notes: "Citrus hints, bright for a Brazilian, smooth" }
+        { name: "Cerrado", notes: "حلوة ومكسرات وشوكولاتة وحموضة منخفضة" },
+        { name: "Mogiana", notes: "كراميل ومتوازنة وقوام كريمي" },
+        { name: "Sul de Minas", notes: "لمسات حمضيات ونعومة غير معتادة للبرازيلي" }
       ],
-      brewTip: "Lower water temperature (90–92°C) prevents over-extraction of the chocolatey sweetness. Great as a base for blends.",
-      description: "World's largest coffee producer. Brazilian naturals are staples in espresso blends and deliver comforting, approachable cups."
+      brewTip: "حرارة أقل (90–92°C) تمنع الاستخلاص الزائد وتحافظ على حلاوة الشوكولاتة. ممتازة كقاعدة للخلطات.",
+      description: "أكبر منتج قهوة في العالم. الطبيعي البرازيلي ركيزة أساسية في خلطات الإسبريسو ويقدم كوب مريح وسهل."
     },
     {
       id: "kenya",
-      country: "Kenya",
+      country: "كينيا",
       flag: "🇰🇪",
-      region: "Africa",
+      region: "أفريقيا",
       altitude: "1400–2100m",
       varieties: ["SL28", "SL34", "Ruiru 11", "Batian"],
-      processing: ["Washed (double-fermented)", "Natural"],
+      processing: ["مغسولة (تخمير مزدوج)", "طبيعية"],
       flavorProfile: {
-        primary: ["Bright", "Berry", "Citrus"],
-        secondary: ["Blackcurrant", "Tomato", "Grapefruit", "Cranberry", "Savory"],
-        body: "Medium to Full, juicy",
-        acidity: "High — vibrant, sparkling, phosphoric",
-        sweetness: "Medium — brown sugar undertones",
-        finish: "Long, complex, wine-like"
+        primary: ["مشرقة", "توت", "حمضيات"],
+        secondary: ["كشمش أسود", "طماطم", "قريب فروت", "توت بري", "مالحة خفيف"],
+        body: "متوسط إلى كامل، عصيري",
+        acidity: "عالية — نابضة ولامعة وفوسفورية",
+        sweetness: "متوسطة — لمسات سكر بني",
+        finish: "طويلة ومعقدة وشبيهة بالنبيذ"
       },
       notableRegions: [
-        { name: "Nyeri", notes: "Intense blackcurrant, bright sparkling acidity" },
-        { name: "Kirinyaga", notes: "Complex berry, full body, sweet finish" },
-        { name: "Kiambu", notes: "Citrus-forward, clean, refined" }
+        { name: "Nyeri", notes: "كشمش أسود مكثف وحموضة فوسفورية لامعة" },
+        { name: "Kiambu", notes: "متوازنة ونظيفة مع فواكه مجففة" },
+        { name: "Kirinyaga", notes: "عصيرية وحمضيات ومعقدة" }
       ],
-      brewTip: "Kenyan coffees demand precision. Use 94–96°C water and a finer grind to maximize the vibrant acidity. Avoid over-extracting — the savory notes can dominate.",
-      description: "Immediately recognizable for their distinct savory brightness and complex fruit. Kenyan AA grade beans are among the most sought-after in specialty coffee."
+      brewTip: "الكيني يحتاج طحنة أنعم شوي ودرجة حرارة عالية (95–96°C) عشان تطلع حموضته العصيرية.",
+      description: "القهوة الكينية من أفضل القهاوي في العالم — أصناف SL28 وSL34 تنتج نكهات فاكهية مكثفة وحموضة استثنائية."
     },
     {
       id: "guatemala",
-      country: "Guatemala",
+      country: "غواتيمالا",
       flag: "🇬🇹",
-      region: "Central America",
-      altitude: "1300–2000m",
+      region: "أمريكا الوسطى",
+      altitude: "1200–1800m",
       varieties: ["Bourbon", "Caturra", "Catuai", "Typica", "Pache"],
-      processing: ["Washed", "Honey", "Natural"],
+      processing: ["مغسولة", "عسلية", "طبيعية"],
       flavorProfile: {
-        primary: ["Chocolate", "Spice", "Full body"],
-        secondary: ["Dark chocolate", "Cinnamon", "Dried fruit", "Brown sugar", "Toffee"],
-        body: "Full, velvety",
-        acidity: "Medium — balanced, structured",
-        sweetness: "High — molasses, dark caramel",
-        finish: "Smoky, warm, lingering spice"
+        primary: ["شوكولاتة", "كراميل", "فاكهية"],
+        secondary: ["تفاح أخضر", "عسل", "بندق", "حمضيات", "توفي"],
+        body: "متوسط إلى كامل",
+        acidity: "مشرقة ومتوازنة — تفاحية",
+        sweetness: "عالية — عسل وكراميل",
+        finish: "نظيفة وطويلة مع شوكولاتة"
       },
       notableRegions: [
-        { name: "Antigua", notes: "Rich chocolate, smooth body, volcanic soil complexity" },
-        { name: "Huehuetenango", notes: "Fruity, wine-like acidity, complex structure" },
-        { name: "Atitlán", notes: "Floral, citrus, clean bright cup" }
+        { name: "Antigua", notes: "شوكولاتة غنية وقوام كامل ودخانية خفيفة من التربة البركانية" },
+        { name: "Huehuetenango", notes: "فاكهية ومعقدة مع حموضة نبيذية" },
+        { name: "Atitlán", notes: "حمضيات ونكهات زهرية مع قوام حريري" }
       ],
-      brewTip: "The full body pairs well with slightly coarser grinds. 92–94°C brings out the chocolate and spice without bitterness.",
-      description: "Volcanic soils and high altitudes produce dense, complex beans. Guatemalan coffees offer a comforting warmth with surprising depth."
+      brewTip: "قهوة غواتيمالا تعطيك أفضل نتيجة على 93–95°C مع نسبة 1:16. ممتازة للتحضير اليومي.",
+      description: "من أعرق دول القهوة المختصة. التربة البركانية والارتفاع تعطي القهوة الغواتيمالية عمق وتعقيد مميز."
     },
     {
       id: "costarica",
-      country: "Costa Rica",
+      country: "كوستاريكا",
       flag: "🇨🇷",
-      region: "Central America",
-      altitude: "1200–1800m",
+      region: "أمريكا الوسطى",
+      altitude: "1000–1800m",
       varieties: ["Caturra", "Catuai", "Villa Sarchi", "SL28"],
-      processing: ["Honey", "Washed", "Natural", "Anaerobic"],
+      processing: ["مغسولة", "عسلية", "طبيعية"],
       flavorProfile: {
-        primary: ["Honey", "Citrus", "Clean"],
-        secondary: ["Orange", "Mandarin", "Tamarind", "Vanilla", "Papaya"],
-        body: "Light to Medium",
-        acidity: "Bright — crisp, citric",
-        sweetness: "High — honey, raw sugar",
-        finish: "Clean, sweet, refreshing"
+        primary: ["عسل", "حمضيات", "نظيفة"],
+        secondary: ["مشمش", "بابايا", "سكر بني", "فانيلا", "تفاح"],
+        body: "متوسط",
+        acidity: "مشرقة ونظيفة ومنعشة",
+        sweetness: "عالية — عسل وفواكه استوائية",
+        finish: "نظيفة وحلوة ومنعشة"
       },
       notableRegions: [
-        { name: "Tarrazú", notes: "Bright citrus, clean body, high sweetness" },
-        { name: "West Valley", notes: "Floral, stone fruit, honey sweetness" },
-        { name: "Central Valley", notes: "Balanced, nutty, smooth" }
+        { name: "Tarrazú", notes: "أشهر منطقة — حلوة ونظيفة ومعقدة" },
+        { name: "West Valley", notes: "فاكهية ومشرقة مع قوام حريري" },
+        { name: "Central Valley", notes: "متوازنة وسهلة مع حلاوة كراميل" }
       ],
-      brewTip: "Honey-processed Costa Ricans shine with a 1:16 ratio and 93°C water. The clarity is best on a V60 with thin paper filters.",
-      description: "Known for exceptionally clean cups with honey-sweet brightness. Costa Rica is a pioneer in experimental processing methods like anaerobic honey."
-    },
-    {
-      id: "indonesia",
-      country: "Indonesia (Sumatra)",
-      flag: "🇮🇩",
-      region: "Asia-Pacific",
-      altitude: "800–1500m",
-      varieties: ["Typica", "Catimor", "Tim Tim", "Mandheling"],
-      processing: ["Wet-hulled (Giling Basah)", "Natural", "Washed"],
-      flavorProfile: {
-        primary: ["Earthy", "Herbal", "Full body"],
-        secondary: ["Cedar", "Tobacco", "Dark chocolate", "Mushroom", "Spice"],
-        body: "Heavy, syrupy",
-        acidity: "Low — muted, rounded",
-        sweetness: "Low-medium — raw cocoa, brown sugar",
-        finish: "Long, earthy, lingering spice"
-      },
-      notableRegions: [
-        { name: "Mandheling", notes: "Classic earthy, herbal, thick body" },
-        { name: "Lintong", notes: "Cleaner, more herbal, subtle spice" },
-        { name: "Gayo (Aceh)", notes: "Complex, sweet, more fruit than typical Sumatra" }
-      ],
-      brewTip: "Use coarser grind and lower temperature (88–91°C) to tame the heavy body. Darker roasts of Sumatra can handle lower ratios (1:14).",
-      description: "The unique wet-hull processing creates an unmistakable earthy, full-bodied character. Sumatran coffees are polarizing — people either love or puzzle over them."
+      brewTip: "القهوة الكوستاريكية نظيفة جداً — جرّبها على درجة حرارة عالية (95°C) عشان تطلع حلاوتها.",
+      description: "كوستاريكا تنتج قهوة نظيفة ومشرقة بفضل الـmicro mills والاهتمام بالجودة. المعالجة العسلية عندهم من الأفضل."
     },
     {
       id: "yemen",
-      country: "Yemen",
+      country: "اليمن",
       flag: "🇾🇪",
-      region: "Middle East",
+      region: "شبه الجزيرة العربية",
       altitude: "1500–2500m",
-      varieties: ["Yemeni Heirloom (Typica descendants)", "Dawairi", "Jaadi", "Udaini"],
-      processing: ["Natural (sun-dried)"],
+      varieties: ["Yemeni Heirloom", "Typica variants"],
+      processing: ["طبيعية (تجفيف شمسي تقليدي)"],
       flavorProfile: {
-        primary: ["Wine", "Chocolate", "Complex"],
-        secondary: ["Dried fruit", "Spice", "Red wine", "Cocoa", "Tobacco", "Cinnamon"],
-        body: "Medium to Full",
-        acidity: "Medium — winey, structured",
-        sweetness: "High — dates, raisins, dried fig",
-        finish: "Long, warm, complex spice trail"
+        primary: ["فواكه مجففة", "توابل", "شوكولاتة"],
+        secondary: ["تمر", "زبيب", "قرفة", "كاكاو", "تبغ"],
+        body: "كامل وغني",
+        acidity: "متوسطة — دافئة وليست حادة",
+        sweetness: "عالية — تمر وعسل وفواكه مجففة",
+        finish: "طويلة ودافئة وتوابلية"
       },
       notableRegions: [
-        { name: "Haraz", notes: "Fruity, winey, complex chocolate notes" },
-        { name: "Bani Matar", notes: "Deep spice, dried fruit, full body" },
-        { name: "Hayma", notes: "Bright fruit, cleaner profile, floral" }
+        { name: "Haraz", notes: "معقدة بشكل استثنائي — فواكه مجففة وشوكولاتة وتوابل" },
+        { name: "Bani Matar", notes: "نكهات عميقة من التمر والعسل والكاكاو" },
+        { name: "Ibb", notes: "فاكهية أكثر مع حموضة نبيذية خفيفة" }
       ],
-      brewTip: "Yemeni naturals are wild and complex. Start at 93°C with a 1:15 ratio. Expect longer bloom times due to very dry processing.",
-      description: "One of the oldest coffee origins in the world. Yemeni coffees bridge African fruit-forward wildness and Asian earthy pungency, creating something truly unique."
+      brewTip: "اليمني يحب حرارة أقل شوي (91–93°C) ونسبة أقوى (1:15) عشان تطلع حلاوة التمر والفواكه المجففة.",
+      description: "أصل القهوة المزروعة تجارياً. القهوة اليمنية من أغلى وأندر القهاوي — نكهاتها الفريدة لا تُقلّد. قريبة من قلبنا."
     },
     {
       id: "panama",
-      country: "Panama (Geisha)",
+      country: "بنما",
       flag: "🇵🇦",
-      region: "Central America",
+      region: "أمريكا الوسطى",
       altitude: "1600–1900m",
-      varieties: ["Geisha/Gesha", "Caturra", "Typica", "Catuai"],
-      processing: ["Washed", "Natural", "Honey"],
+      varieties: ["Geisha / Gesha", "Caturra", "Catuai", "Typica"],
+      processing: ["مغسولة", "طبيعية", "عسلية"],
       flavorProfile: {
-        primary: ["Jasmine", "Bergamot", "Tea-like"],
-        secondary: ["Peach", "Mango", "Rose", "Lemongrass", "Tropical fruit"],
-        body: "Light, delicate, silky",
-        acidity: "Bright — elegant, refined, citric",
-        sweetness: "Very high — floral honey, nectar",
-        finish: "Extraordinarily long, perfumed, lingering jasmine"
+        primary: ["زهور", "شاي", "حمضيات"],
+        secondary: ["ياسمين", "برغموت", "خوخ", "عسل", "مانجو"],
+        body: "خفيف إلى متوسط، حريري",
+        acidity: "مشرقة ومعقدة — شبيهة بالشاي",
+        sweetness: "عالية جداً — عسل وفواكه استوائية",
+        finish: "طويلة جداً وزهرية ومعقدة"
       },
       notableRegions: [
-        { name: "Boquete (Hacienda La Esmeralda)", notes: "World-famous Geisha origin, jasmine, bergamot, unmatched elegance" },
-        { name: "Volcán", notes: "Tropical fruit, floral, bright acidity" },
-        { name: "Renacimiento", notes: "Clean, sweet, subtle complexity" }
+        { name: "Boquete", notes: "أشهر منطقة — قيشا بوكيتي من أغلى القهاوي في العالم" },
+        { name: "Volcán", notes: "ارتفاع عالي وزهرية مكثفة" }
       ],
-      brewTip: "Geisha demands careful extraction. Use 92–94°C, a 1:16 ratio, and gentle pours. Over-agitation will flatten the delicate florals.",
-      description: "Panama Geisha is widely regarded as the most exquisite coffee variety. Auction lots have fetched over $2,000/kg. The jasmine-bergamot signature is unmistakable."
+      brewTip: "القيشا تحتاج حرارة عالية (95–96°C) وطحنة متوسطة دقيقة. لا تستعجل — خلها تتفتح ببطء.",
+      description: "موطن القيشا (Gesha) — الصنف الأغلى والأكثر تميزاً في عالم القهوة المختصة. نكهات زهرية وشاي لا مثيل لها."
+    },
+    {
+      id: "indonesia",
+      country: "إندونيسيا",
+      flag: "🇮🇩",
+      region: "جنوب شرق آسيا",
+      altitude: "900–1700m",
+      varieties: ["Typica", "Tim Tim", "Catimor", "S-Lini", "Jember"],
+      processing: ["غيلينغ باسا (تجفيف رطب)", "مغسولة", "طبيعية"],
+      flavorProfile: {
+        primary: ["أرضية", "عشبية", "قوام ثقيل"],
+        secondary: ["تبغ", "خشب", "توابل", "شوكولاتة داكنة", "كراميل محروق"],
+        body: "كامل جداً وثقيل",
+        acidity: "منخفضة — ترابية ودافئة",
+        sweetness: "متوسطة — كراميل محروق وتوابل",
+        finish: "ثقيلة وطويلة وترابية"
+      },
+      notableRegions: [
+        { name: "Sumatra / Mandheling", notes: "أرضية عميقة وقوام سميك — مميزة جداً" },
+        { name: "Sulawesi / Toraja", notes: "أنظف من سومطرا مع حلاوة وتوابل" },
+        { name: "Java", notes: "متوازنة ونظيفة مع شوكولاتة وتوابل خفيفة" }
+      ],
+      brewTip: "الإندونيسي يناسبه حرارة منخفضة (89–92°C) وطحنة أخشن. جرّب نسبة 1:15 للقوام الكامل.",
+      description: "معالجة Giling Basah الفريدة تعطي قهوة إندونيسيا طابعها الأرضي المميز. سومطرا تحديداً لها جمهور كبير."
     },
     {
       id: "rwanda",
-      country: "Rwanda",
+      country: "رواندا",
       flag: "🇷🇼",
-      region: "Africa",
-      altitude: "1700–2200m",
-      varieties: ["Red Bourbon", "Jackson", "BM 139"],
-      processing: ["Washed", "Natural"],
+      region: "أفريقيا",
+      altitude: "1400–2000m",
+      varieties: ["Bourbon", "Jackson (Bourbon variant)"],
+      processing: ["مغسولة", "طبيعية"],
       flavorProfile: {
-        primary: ["Citrus", "Floral", "Juicy"],
-        secondary: ["Orange blossom", "Red grape", "Plum", "Lemon", "Hibiscus"],
-        body: "Medium, silky smooth",
-        acidity: "Bright — sparkling, citric, malic",
-        sweetness: "High — raw honey, cane sugar",
-        finish: "Clean, juicy, sweet aftertaste"
+        primary: ["فواكه حمراء", "حمضيات", "زهرية"],
+        secondary: ["تفاح أحمر", "كرز", "برتقال دموي", "كراميل", "شاي"],
+        body: "متوسط، حريري",
+        acidity: "مشرقة ونظيفة ومتوازنة",
+        sweetness: "عالية — فواكه حمراء وكراميل",
+        finish: "نظيفة ومنعشة مع لمسة شاي"
       },
       notableRegions: [
-        { name: "Nyamasheke", notes: "Bright citrus, floral, complex layered fruit" },
-        { name: "Huye Mountain", notes: "Red fruit, juicy body, clean finish" },
-        { name: "Gakenke", notes: "Floral, tea-like, delicate sweetness" }
+        { name: "Huye Mountain", notes: "من أفضل محطات الغسيل — نظيفة ومعقدة" },
+        { name: "Nyamasheke", notes: "فاكهية مكثفة مع حموضة لامعة" }
       ],
-      brewTip: "Rwandan coffees are similar to Kenyan but gentler. 93–95°C with a 1:16 ratio lets the juicy citrus and floral notes sing.",
-      description: "East African gem producing silky-smooth cups with bright, sparkling acidity. Rwandan specialty coffee has risen dramatically in quality and recognition."
+      brewTip: "الرواندي يشبه الإثيوبي بالنظافة لكن أكثر توازناً. جرّبه على 94°C مع نسبة 1:16.",
+      description: "بلد الألف تل. القهوة الرواندية صاعدة بقوة في عالم المختصة — جودة عالية وأسعار معقولة مقارنة بالكيني والإثيوبي."
     }
   ],
 
   // ──────────────────────────────────────────────
-  // 2. ROAST LEVEL ADJUSTMENTS FOR V60
+  // 2. تعديلات التحميص — 4 مستويات
   // ──────────────────────────────────────────────
   roastAdjustments: [
     {
       id: "light",
-      level: "Light Roast",
-      color: "#C4956A",
-      scaName: "Cinnamon / Light City",
-      description: "Beans dropped just after first crack. Dense, high acidity, origin character dominates. Requires more energy to extract.",
+      level: "تحميص فاتح",
+      color: "#8B6F47",
+      scaName: "Light / Cinnamon / City",
+      description: "يوقف عند أو قبل الكراك الأول مباشرة. يحافظ على أعلى حموضة ونكهات المنشأ. كثيف وصعب الاستخلاص — يحتاج ماء أسخن وطحنة أنعم.",
       parameters: {
-        temperature: { value: "94–96°C", note: "Hotter water compensates for dense cell structure" },
-        grindSize: { value: "Medium-fine", note: "Finer than medium to increase surface area and extraction" },
-        ratio: { value: "1:15 – 1:16", note: "Slightly less water to concentrate delicate flavors" },
-        bloomTime: { value: "40–50 seconds", note: "Extended bloom lets CO₂ escape from dense beans" },
-        bloomRatio: { value: "2.5–3x coffee weight", note: "More bloom water for thorough saturation" },
-        totalBrewTime: { value: "3:00 – 3:45", note: "Longer contact time for full extraction" },
-        pourStyle: { value: "Slower, more agitation", note: "Swirl after bloom; gentle stir mid-brew helps even extraction" },
-        targetTDS: { value: "1.30–1.45%", note: "Slightly higher strength to capture complexity" }
+        "الحرارة": { value: "94–100°C", note: "ماء أسخن يكسر بنية الحبة الكثيفة" },
+        "الطحنة": { value: "متوسطة دقيقة", note: "أنعم من المعتاد عشان تزيد مساحة الاستخلاص" },
+        "النسبة": { value: "1:15 – 1:17", note: "نسبة قوية تبرز نكهات المنشأ" },
+        "التفتيح": { value: "40–50 ثانية", note: "أطول — فيه CO₂ أكثر يحتاج يطلع" },
+        "حجم التفتيح": { value: "2–3× وزن البن", note: "أكثر ماء للتفتيح يساعد التبليل" },
+        "وقت التحضير": { value: "3:00 – 4:00", note: "أطول — الاستخلاص يحتاج وقت أكثر" },
+        "طريقة الصب": { value: "تحريك أكثر", note: "دوران بعد التفتيح + صب بطيء وثابت" },
+        "TDS المستهدف": { value: "1.30–1.50%", note: "تركيز أعلى يبرز التعقيد" }
       },
       troubleshooting: {
-        tooSour: "Grind finer, increase water temperature by 1–2°C, or extend brew time",
-        tooBitter: "Unlikely with light roast — if it happens, grind coarser or lower temp by 1°C",
-        tooWeak: "Increase dose (use 1:14) or grind finer",
-        tooFlat: "Use hotter water and more agitation to unlock aromatics"
+        tooSour: "اطحن أنعم واصبر — الفاتح يحتاج استخلاص أعلى. جرّب ماء أسخن (98–100°C).",
+        tooBitter: "اطحن أخشن أو نزّل الحرارة درجة أو درجتين",
+        tooWeak: "زد كمية البن أو اطحن أنعم لزيادة التركيز",
+        tooStrong: "خفف بالماء الساخن أو استخدم نسبة أعلى (1:17)"
       }
     },
     {
       id: "medium",
-      level: "Medium Roast",
-      color: "#8B5E3C",
-      scaName: "City / Full City",
-      description: "Stopped between first and second crack. Balanced sweetness, acidity, and body. Most forgiving roast level for brewing.",
+      level: "تحميص متوسط",
+      color: "#6B4226",
+      scaName: "City+ / Full City",
+      description: "بعد الكراك الأول بشوي. يوازن بين نكهات المنشأ وحلاوة التحميص. أسهل في الاستخلاص ويتسامح مع المتغيرات — مثالي للأغلب.",
       parameters: {
-        temperature: { value: "91–94°C", note: "Standard range; balanced extraction" },
-        grindSize: { value: "Medium", note: "Sea salt consistency — the classic V60 grind" },
-        ratio: { value: "1:15 – 1:17", note: "Standard range; adjust to taste" },
-        bloomTime: { value: "30–40 seconds", note: "Standard bloom duration" },
-        bloomRatio: { value: "2x coffee weight", note: "Standard bloom volume" },
-        totalBrewTime: { value: "2:30 – 3:30", note: "The sweet spot for most V60 brews" },
-        pourStyle: { value: "Steady concentric circles", note: "Consistent pour rate, gentle swirl after bloom" },
-        targetTDS: { value: "1.20–1.40%", note: "The SCA-recommended sweet spot" }
+        "الحرارة": { value: "92–95°C", note: "المنتصف — يناسب أغلب الأوقات" },
+        "الطحنة": { value: "متوسطة", note: "أنعم من ملح البحر، أخشن من ملح الطعام" },
+        "النسبة": { value: "1:15 – 1:17", note: "1:16 نقطة بداية مثالية" },
+        "التفتيح": { value: "30–40 ثانية", note: "التفتيح القياسي" },
+        "حجم التفتيح": { value: "2× وزن البن", note: "الحجم القياسي" },
+        "وقت التحضير": { value: "2:30 – 3:30", note: "النطاق الذهبي القياسي" },
+        "طريقة الصب": { value: "تحريك معتدل", note: "دوران واحد بعد التفتيح + صب ثابت" },
+        "TDS المستهدف": { value: "1.25–1.45%", note: "نطاق SCA القياسي" }
       },
       troubleshooting: {
-        tooSour: "Grind slightly finer or increase temperature by 1–2°C",
-        tooBitter: "Grind slightly coarser or reduce temperature by 1–2°C",
-        tooWeak: "Use a stronger ratio (1:15) or grind finer",
-        tooStrong: "Dilute slightly or use a weaker ratio (1:17)"
+        tooSour: "اطحن أنعم درجة أو ارفع الحرارة درجة",
+        tooBitter: "اطحن أخشن شوي أو نزّل الحرارة درجة أو درجتين",
+        tooWeak: "استخدم نسبة أقوى (1:15) أو اطحن أنعم",
+        tooStrong: "خفف بالماء أو استخدم نسبة أخف (1:17)"
       }
     },
     {
       id: "dark",
-      level: "Dark Roast",
+      level: "تحميص داكن",
       color: "#3E2118",
       scaName: "Full City+ / Vienna / French",
-      description: "Taken into or past second crack. Porous, oils on surface, low acidity, roast character dominates. Extracts very quickly — easy to over-extract.",
+      description: "وصل أو تجاوز الكراك الثاني. مسامي وعليه زيوت. حموضة منخفضة وطابع التحميص يسيطر. يستخلص بسرعة — سهل يصير مرّ.",
       parameters: {
-        temperature: { value: "88–91°C", note: "Cooler water prevents over-extraction and bitterness" },
-        grindSize: { value: "Medium-coarse", note: "Coarser to slow extraction; dark beans shatter easily producing fines" },
-        ratio: { value: "1:16 – 1:18", note: "More water dilutes intense roast flavors" },
-        bloomTime: { value: "25–35 seconds", note: "Shorter bloom — less CO₂ in porous dark beans" },
-        bloomRatio: { value: "2x coffee weight", note: "Standard bloom volume" },
-        totalBrewTime: { value: "2:15 – 3:00", note: "Faster drawdown to prevent harsh bitter notes" },
-        pourStyle: { value: "Faster, less agitation", note: "Gentle pours, avoid swirling — dark roasts extract fast enough" },
-        targetTDS: { value: "1.15–1.30%", note: "Slightly lower strength avoids harshness" }
+        "الحرارة": { value: "88–91°C", note: "ماء أبرد يمنع الاستخلاص الزائد والمرارة" },
+        "الطحنة": { value: "متوسطة خشنة", note: "أخشن تبطّئ الاستخلاص — الحبوب الداكنة تتفتت وتنتج فاينز" },
+        "النسبة": { value: "1:16 – 1:18", note: "ماء أكثر يخفف نكهات التحميص القوية" },
+        "التفتيح": { value: "25–35 ثانية", note: "أقصر — CO₂ أقل في الحبوب المسامية" },
+        "حجم التفتيح": { value: "2× وزن البن", note: "الحجم القياسي" },
+        "وقت التحضير": { value: "2:15 – 3:00", note: "أسرع عشان تتجنب المرارة الحادة" },
+        "طريقة الصب": { value: "أسرع وبدون تحريك", note: "صب هادي بدون دوران — الداكن يستخلص بسرعة كافية" },
+        "TDS المستهدف": { value: "1.15–1.30%", note: "تركيز أقل شوي يتجنب الحدة" }
       },
       troubleshooting: {
-        tooSour: "Rare with dark roast — if sour, grind finer or increase temp slightly",
-        tooBitter: "Grind much coarser, lower temperature to 88°C, pour faster",
-        tooAshy: "Lower temperature and coarsen grind — the smoky/ashy taste is over-extraction",
-        tooWeak: "Increase dose rather than grinding finer (fines cause clogging)"
+        tooSour: "نادر مع الداكن — لو حامض اطحن أنعم أو ارفع الحرارة شوي",
+        tooBitter: "اطحن أخشن بوضوح ونزّل الحرارة لـ88°C واصب أسرع",
+        tooAshy: "نزّل الحرارة واطحن أخشن — طعم الرماد/الدخان = استخلاص زائد",
+        tooWeak: "زد كمية البن بدل ما تنعّم الطحنة (التنعيم يسبب انسداد)"
       }
     },
     {
       id: "omni",
-      level: "Omni Roast",
+      level: "أومني روست",
       color: "#6B4226",
-      scaName: "City to Full City (versatile range)",
-      description: "Roasted to perform across brewing methods — both filter and espresso. Has a wide usable extraction window. Start with medium parameters and dial in by taste.",
+      scaName: "City to Full City (نطاق متعدد)",
+      description: "محمّص عشان ينفع لأكثر من طريقة — فلتر وإسبريسو. نطاق استخلاص واسع. ابدأ بالمتوسط وعدّل حسب الذوق.",
       parameters: {
-        temperature: { value: "91–94°C", note: "Start in the middle and adjust — treat it like medium until you taste it" },
-        grindSize: { value: "Medium", note: "Start medium; adjust based on whether the roast leans light or dark" },
-        ratio: { value: "1:15 – 1:17", note: "1:16 is the safest starting point" },
-        bloomTime: { value: "30–40 seconds", note: "Standard bloom; adjust based on how aggressively it degasses" },
-        bloomRatio: { value: "2x coffee weight", note: "Standard bloom volume" },
-        totalBrewTime: { value: "2:30 – 3:30", note: "Target the standard window and adjust" },
-        pourStyle: { value: "Moderate agitation", note: "One gentle swirl after bloom; steady pours" },
-        targetTDS: { value: "1.20–1.40%", note: "Standard SCA range" }
+        "الحرارة": { value: "91–94°C", note: "ابدأ بالمنتصف وعدّل — عامله مثل المتوسط لين تتذوقه" },
+        "الطحنة": { value: "متوسطة", note: "ابدأ متوسط وعدّل حسب ميل التحميص للفاتح أو الداكن" },
+        "النسبة": { value: "1:15 – 1:17", note: "1:16 أأمن نقطة بداية" },
+        "التفتيح": { value: "30–40 ثانية", note: "قياسي — عدّل حسب قوة خروج الغاز" },
+        "حجم التفتيح": { value: "2× وزن البن", note: "الحجم القياسي" },
+        "وقت التحضير": { value: "2:30 – 3:30", note: "النطاق القياسي ثم عدّل" },
+        "طريقة الصب": { value: "تحريك معتدل", note: "دوران خفيف بعد التفتيح + صب ثابت" },
+        "TDS المستهدف": { value: "1.20–1.40%", note: "نطاق SCA القياسي" }
       },
       troubleshooting: {
-        tooSour: "Treat it like a light roast — finer grind, hotter water, more agitation",
-        tooBitter: "Treat it like a dark roast — coarser grind, cooler water, less agitation",
-        unbalanced: "Omni roasts need 7–21 days rest after roast date for best results",
-        hollow: "Increase ratio to 1:15 and grind slightly finer"
+        tooSour: "عامله مثل الفاتح — اطحن أنعم وارفع الحرارة وزد التحريك",
+        tooBitter: "عامله مثل الداكن — اطحن أخشن ونزّل الحرارة وقلّل التحريك",
+        unbalanced: "الأومني يحتاج 7–21 يوم راحة بعد التحميص عشان يتوازن",
+        hollow: "ارفع النسبة لـ1:15 واطحن أنعم شوي"
       }
     }
   ],
 
   // ──────────────────────────────────────────────
-  // 3. WATER QUALITY GUIDE
+  // 3. دليل جودة الماء
   // ──────────────────────────────────────────────
   waterQuality: {
-    overview: "Coffee is 98% water. Water chemistry directly affects extraction efficiency and flavor clarity. Bad water can ruin great beans.",
+    overview: "القهوة 98% ماء. كيمياء الماء تأثر مباشرة على كفاءة الاستخلاص ونظافة النكهة. ماء سيّء يخرب حبوب ممتازة.",
     scaStandard: {
-      label: "SCA Gold Cup Standard",
+      label: "معيار SCA للكأس الذهبية",
       tds: { ideal: 150, range: [75, 250], unit: "ppm" },
       calcium: { ideal: 51, range: [17, 85], unit: "ppm" },
       magnesium: { ideal: 17, range: [5, 30], unit: "ppm" },
       alkalinity: { ideal: 40, range: [40, 70], unit: "ppm as CaCO₃" },
       ph: { ideal: 7.0, range: [6.5, 7.5] },
       sodium: { max: 10, unit: "ppm" },
-      chlorine: { max: 0, note: "Zero — chlorine destroys flavor" }
+      chlorine: { max: 0, note: "صفر — الكلور يدمر النكهة" }
     },
     minerals: [
       {
-        name: "Calcium (Ca²⁺)",
-        role: "Extraction power",
-        detail: "Pulls flavor compounds from grounds. Higher calcium emphasizes body and mouthfeel. Too much causes scale buildup.",
+        name: "الكالسيوم (Ca²⁺)",
+        role: "قوة الاستخلاص",
+        detail: "يسحب مركبات النكهة من البن. كالسيوم أعلى = قوام ومذاق أثقل. كثرته تسبب ترسبات كلسية.",
         idealRange: "17–85 ppm"
       },
       {
-        name: "Magnesium (Mg²⁺)",
-        role: "Flavor clarity",
-        detail: "Highlights acidity and bright fruity notes. Extracts more efficiently than calcium per ion. Key for specialty coffee.",
+        name: "المغنيسيوم (Mg²⁺)",
+        role: "نظافة النكهة",
+        detail: "يبرز الحموضة والنكهات الفاكهية المشرقة. يستخلص بكفاءة أعلى من الكالسيوم. مفتاح القهوة المختصة.",
         idealRange: "5–30 ppm"
       },
       {
-        name: "Bicarbonate (HCO₃⁻)",
-        role: "Buffer / Alkalinity",
-        detail: "Buffers acidity in the cup. Too low = sour, sharp brew. Too high = flat, chalky, muted flavors. The most critical balance.",
-        idealRange: "40–70 ppm as CaCO₃"
+        name: "البيكربونات (HCO₃⁻)",
+        role: "معادل / قلوية",
+        detail: "يعادل الحموضة في الكوب. قليل جداً = حامض وحاد. كثير جداً = مسطح وباهت وطباشيري. أهم توازن.",
+        idealRange: "40–70 ppm كـCaCO₃"
       },
       {
-        name: "Sodium (Na⁺)",
-        role: "Taste modifier",
-        detail: "Small amounts can enhance sweetness perception. Above 10 ppm creates salty/metallic taste.",
+        name: "الصوديوم (Na⁺)",
+        role: "معدّل الطعم",
+        detail: "كميات صغيرة تعزز إحساس الحلاوة. فوق 10 ppm يعطي طعم مالح/معدني.",
         idealRange: "< 10 ppm"
       }
     ],
-    filterMethodTip: "For V60 / pour-over, aim for softer water (75–150 ppm TDS) to let brightness and fruit notes shine through clearly.",
+    filterMethodTip: "لـV60 والمقطّر، استهدف ماء ناعم (75–150 ppm TDS) عشان الإشراقة والنكهات الفاكهية تطلع بوضوح.",
     tapWaterAdvice: {
-      title: "Simple advice for tap water users",
+      title: "نصائح بسيطة لمستخدمي ماء الصنبور",
       steps: [
         {
-          label: "Test your water",
-          detail: "Buy a cheap TDS meter (under $15). Dip it in your tap water. If it reads 75–200 ppm, your water is likely fine for good coffee."
+          label: "افحص ماءك",
+          detail: "اشترِ جهاز TDS رخيص. حطّه بماء الصنبور. لو القراءة 75–200 ppm، ماءك غالباً كويّس للقهوة."
         },
         {
-          label: "Too high (above 250 ppm)?",
-          detail: "Your water is hard. Use a Brita-style activated carbon filter to reduce chlorine and some minerals. For serious improvement, try a mix of 50% filtered tap + 50% distilled water."
+          label: "عالي جداً (فوق 250 ppm)؟",
+          detail: "ماءك عسر. استخدم فلتر كربوني (مثل Brita) لتقليل الكلور وبعض المعادن. للتحسين الجدي، جرّب خلط 50% ماء مفلتر + 50% ماء مقطر."
         },
         {
-          label: "Too low (below 50 ppm)?",
-          detail: "Your water is too soft — it lacks extraction power. Add mineral packets (Third Wave Water, Lotus Water, or Aquacode) to distilled/RO water. You can also blend soft water with harder tap water."
+          label: "منخفض جداً (تحت 50 ppm)؟",
+          detail: "ماءك ناعم زيادة — ما عنده قوة استخلاص كافية. أضف أكياس معادن (Third Wave Water أو Lotus Water) لماء مقطر/RO. أو اخلط الناعم مع ماء صنبور أعسر."
         },
         {
-          label: "Chlorine smell?",
-          detail: "Always filter out chlorine — it kills coffee flavor. Any carbon filter removes it, or leave water in an open container for 24 hours to off-gas."
+          label: "ريحة كلور؟",
+          detail: "دايماً فلتر الكلور — يقتل نكهة القهوة. أي فلتر كربوني يشيله، أو خلّ الماء بإناء مفتوح 24 ساعة يتبخر."
         },
         {
-          label: "Simplest approach",
-          detail: "If your tap water tastes clean and neutral, it is probably good enough. If it tastes metallic, chlorinated, or has a strong mineral taste, filter it or use bottled spring water with a TDS of 100–150 ppm."
+          label: "أبسط طريقة",
+          detail: "لو ماء الصنبور عندك طعمه نظيف وعادي — غالباً ينفع. لو طعمه معدني أو فيه كلور أو أملاح قوية، فلتره أو استخدم ماء معبأ TDS بين 100–150 ppm."
         }
       ]
     },
     brewedCoffeeTDS: {
-      label: "Final brewed coffee TDS (in the cup)",
+      label: "TDS القهوة المحضّرة (في الكوب)",
       ideal: "1.15–1.45%",
-      note: "This is different from water TDS. Brewed coffee TDS measures dissolved coffee solids and indicates strength/concentration."
+      note: "هذا غير TDS الماء. TDS القهوة يقيس المواد الذائبة من البن ويدل على القوة/التركيز."
     }
   },
 
   // ──────────────────────────────────────────────
-  // 4. COFFEE GLOSSARY — 30 essential terms
+  // 4. مصطلحات القهوة — 30 مصطلح أساسي
   // ──────────────────────────────────────────────
   glossary: [
     {
-      term: "Bloom",
-      definition: "The initial pour of hot water onto dry coffee grounds, causing them to release trapped CO₂ gas and puff up. Fresh coffee blooms vigorously. A good bloom ensures even extraction in the main brew.",
-      category: "Brewing"
+      term: "Bloom (التفتيح)",
+      definition: "الصبّة الأولى من الماء الساخن على البن الجاف — تخلّيه يطلع غاز CO₂ المحبوس وينتفخ. البن الطازج يتفتح بقوة. تفتيح جيد = استخلاص متساوي بعده.",
+      category: "التحضير"
     },
     {
-      term: "Drawdown",
-      definition: "The phase after your final pour when water drains through the coffee bed and filter. Drawdown time is a key diagnostic — too fast means under-extraction, too slow means the grind is too fine or the bed is clogged.",
-      category: "Brewing"
+      term: "Drawdown (النزول)",
+      definition: "المرحلة بعد آخر صبّة لمّا الماء ينزل من خلال البن والفلتر. وقت النزول مؤشر مهم — سريع جداً = استخلاص ناقص، بطيء جداً = الطحنة ناعمة زيادة أو الفلتر مسدود.",
+      category: "التحضير"
     },
     {
-      term: "Agitation",
-      definition: "Any physical disturbance of the coffee bed during brewing — swirling the dripper, stirring with a spoon, or the force of the pour itself. More agitation increases extraction speed.",
-      category: "Brewing"
+      term: "Agitation (التحريك)",
+      definition: "أي حركة تزعج طبقة البن أثناء التحضير — دوران الـV60، تحريك بالملعقة، أو قوة الصب نفسه. تحريك أكثر = سرعة استخلاص أعلى.",
+      category: "التحضير"
     },
     {
-      term: "Channeling",
-      definition: "When water finds a path of least resistance through cracks or gaps in the coffee bed, flowing through those channels instead of evenly through all the grounds. Causes uneven extraction — some grounds over-extracted, others under-extracted.",
-      category: "Brewing"
+      term: "Channeling (القنوات)",
+      definition: "لمّا الماء يلاقي مسار سهل عبر شقوق أو فراغات في طبقة البن ويمر من خلالها بدل ما ينتشر بالتساوي. يسبب استخلاص غير متساوي — أجزاء مستخلصة زيادة وأجزاء ناقصة.",
+      category: "التحضير"
     },
     {
-      term: "TDS (Total Dissolved Solids)",
-      definition: "A measurement of the concentration of dissolved compounds in liquid. For input water, measured in ppm (aim for 75–250). For brewed coffee, measured as a percentage (aim for 1.15–1.45%). Measured with a refractometer.",
-      category: "Science"
+      term: "TDS (المواد الذائبة الكلية)",
+      definition: "قياس تركيز المواد الذائبة في السائل. لماء الإدخال: يُقاس بـppm (استهدف 75–250). للقهوة المحضّرة: يُقاس كنسبة مئوية (استهدف 1.15–1.45%). يُقاس بالرفراكتوميتر.",
+      category: "العلم"
     },
     {
-      term: "Extraction",
-      definition: "The process of dissolving flavor compounds from ground coffee into water. Target is 18–22% of the coffee's mass. Under-extraction tastes sour and thin; over-extraction tastes bitter and harsh.",
-      category: "Science"
+      term: "Extraction (الاستخلاص)",
+      definition: "عملية إذابة مركبات النكهة من البن المطحون بالماء. الهدف 18–22% من كتلة البن. استخلاص ناقص = حامض ورقيق. استخلاص زائد = مرّ وحاد.",
+      category: "العلم"
     },
     {
-      term: "Bypass",
-      definition: "Water that passes around or through the coffee bed without fully extracting. Some bypass is intentional (creates a cleaner cup), but too much leads to a watery, hollow-tasting brew.",
-      category: "Science"
+      term: "Bypass (التجاوز)",
+      definition: "ماء يمر حول أو عبر طبقة البن بدون استخلاص كامل. بعض التجاوز مقصود (يعطي كوب أنظف)، لكن كثرته تعطي قهوة مائية وفارغة.",
+      category: "العلم"
     },
     {
-      term: "Dose",
-      definition: "The weight of dry ground coffee you use for a brew, measured in grams. For V60, typical doses range from 12g (single cup) to 30g (large brew).",
-      category: "Brewing"
+      term: "Dose (الجرعة)",
+      definition: "وزن البن الجاف المطحون المستخدم، بالجرام. للـV60 الجرعات النموذجية من 12g (كوب واحد) إلى 30g (تحضير كبير).",
+      category: "التحضير"
     },
     {
-      term: "Ratio",
-      definition: "The proportion of coffee to water, expressed as 1:X (e.g., 1:16 means 1 gram of coffee per 16 grams of water). Lower ratios (1:14) = stronger; higher ratios (1:18) = lighter.",
-      category: "Brewing"
+      term: "Ratio (النسبة)",
+      definition: "نسبة البن للماء، مكتوبة 1:X (مثلاً 1:16 = 1 جرام بن لكل 16 جرام ماء). نسب أقل (1:14) = أقوى. نسب أعلى (1:18) = أخف.",
+      category: "التحضير"
     },
     {
-      term: "Grind Size",
-      definition: "How coarse or fine the coffee particles are after grinding. Finer grinds extract faster (more surface area), coarser grinds extract slower. V60 typically uses medium to medium-fine.",
-      category: "Brewing"
+      term: "Grind Size (حجم الطحنة)",
+      definition: "مدى خشونة أو نعومة حبيبات البن بعد الطحن. أنعم = استخلاص أسرع (مساحة سطح أكبر)، أخشن = استخلاص أبطأ. الـV60 عادة يستخدم متوسط إلى متوسط دقيق.",
+      category: "التحضير"
     },
     {
-      term: "Pour Rate",
-      definition: "The speed at which you add water to the coffee bed, measured in grams per second. Slower pours give more control and extraction; faster pours reduce contact time.",
-      category: "Brewing"
+      term: "Pour Rate (سرعة الصب)",
+      definition: "السرعة اللي تضيف فيها الماء على طبقة البن، بالجرامات بالثانية. صب أبطأ = تحكم واستخلاص أكثر. صب أسرع = وقت تلامس أقل.",
+      category: "التحضير"
     },
     {
-      term: "First Crack",
-      definition: "An audible popping sound during roasting when beans reach ~196°C. Internal moisture turns to steam and the bean structure fractures. Light roasts stop here; medium roasts continue past it.",
-      category: "Roasting"
+      term: "First Crack (الكراك الأول)",
+      definition: "صوت فرقعة مسموع أثناء التحميص لمّا الحبوب توصل ~196°C. الرطوبة الداخلية تتحول لبخار وبنية الحبة تتشقق. التحميص الفاتح يوقف هنا. المتوسط يكمل بعده.",
+      category: "التحميص"
     },
     {
-      term: "Second Crack",
-      definition: "A second, quieter crackling sound during roasting at ~224°C as the bean's cellulose structure breaks down. Marks the transition to dark roast. Oils begin to appear on the surface.",
-      category: "Roasting"
+      term: "Second Crack (الكراك الثاني)",
+      definition: "صوت طقطقة ثاني أهدأ أثناء التحميص على ~224°C لمّا بنية السليلوز تتكسر. بداية التحميص الداكن. الزيوت تبدأ تطلع على السطح.",
+      category: "التحميص"
     },
     {
-      term: "Degassing",
-      definition: "The release of CO₂ from roasted coffee over days and weeks. Fresh-roasted coffee needs 3–14 days of rest to degas before optimal brewing. Too fresh = aggressive bloom and uneven extraction.",
-      category: "Roasting"
+      term: "Degassing (التنفيس)",
+      definition: "خروج CO₂ من البن المحمّص على مدى أيام وأسابيع. البن الطازج يحتاج 3–14 يوم راحة قبل التحضير المثالي. طازج زيادة = تفتيح عنيف واستخلاص غير متساوي.",
+      category: "التحميص"
     },
     {
-      term: "Acidity",
-      definition: "The bright, lively, tangy quality in coffee — not sourness. Desirable acidity is described as citric (lemon), malic (apple), or phosphoric (sparkling). High-altitude and light-roast coffees have more acidity.",
-      category: "Tasting"
+      term: "Acidity (الحموضة)",
+      definition: "الجودة المشرقة والحيوية والمنعشة في القهوة — مو الحموضة المعدية. الحموضة المرغوبة توصف بحمضيات (ليمون)، تفاحية، أو فوسفورية (لامعة). قهوة الارتفاعات العالية والتحميص الفاتح فيها حموضة أكثر.",
+      category: "التذوق"
     },
     {
-      term: "Body",
-      definition: "The physical weight and texture of coffee in your mouth. Ranges from tea-like (light body) to syrupy (heavy body). Affected by roast level, origin, processing method, and brew parameters.",
-      category: "Tasting"
+      term: "Body (القوام)",
+      definition: "الثقل والملمس الفيزيائي للقهوة بفمك. يتراوح من شبيه بالشاي (خفيف) إلى شرابي (ثقيل). يتأثر بمستوى التحميص والمنشأ وطريقة المعالجة ومتغيرات التحضير.",
+      category: "التذوق"
     },
     {
-      term: "Mouthfeel",
-      definition: "The tactile sensation of coffee on your palate — silky, creamy, gritty, astringent, juicy, or dry. Related to body but refers specifically to texture rather than weight.",
-      category: "Tasting"
+      term: "Mouthfeel (الإحساس بالفم)",
+      definition: "الإحساس اللمسي للقهوة على حنكك — حريري، كريمي، حبيبي، قابض، عصيري، أو جاف. مرتبط بالقوام لكن يشير تحديداً للملمس مو الثقل.",
+      category: "التذوق"
     },
     {
-      term: "Finish / Aftertaste",
-      definition: "The flavors that linger after swallowing. A long, pleasant finish is a hallmark of great coffee. Can be described as clean, sweet, dry, lingering, or fleeting.",
-      category: "Tasting"
+      term: "Finish (النهاية / الأفتر تيست)",
+      definition: "النكهات اللي تبقى بعد البلع. نهاية طويلة وممتعة علامة على قهوة ممتازة. توصف بنظيفة، حلوة، جافة، طويلة، أو عابرة.",
+      category: "التذوق"
     },
     {
-      term: "Cupping",
-      definition: "The standardized SCA method for evaluating coffee. Coarsely ground coffee is steeped in hot water, the crust is broken and skimmed, then the coffee is slurped from a spoon. Used by professionals to score and compare coffees.",
-      category: "Tasting"
+      term: "Cupping (الكابينق)",
+      definition: "طريقة SCA المعيارية لتقييم القهوة. بن مطحون خشن ينقع بماء ساخن، تُكسر القشرة وتُزال، ثم تُرشف القهوة من ملعقة. يستخدمها المحترفون للتقييم والمقارنة.",
+      category: "التذوق"
     },
     {
-      term: "SCA Score",
-      definition: "A quality score from 0–100 assigned through the SCA cupping protocol. Specialty coffee must score 80+. Scores of 85+ are considered excellent; 90+ are exceptional and rare.",
-      category: "Tasting"
+      term: "SCA Score (درجة SCA)",
+      definition: "درجة جودة من 0–100 تُعطى بنظام الكابينق. القهوة المختصة لازم تحصل 80+. درجات 85+ تُعتبر ممتازة. 90+ استثنائية ونادرة.",
+      category: "التذوق"
     },
     {
-      term: "Washed Process",
-      definition: "Coffee processing where the fruit skin and mucilage are removed before drying using water and fermentation. Produces clean, bright, acidity-forward cups where origin character shines.",
-      category: "Processing"
+      term: "Washed Process (المغسولة)",
+      definition: "معالجة يُزال فيها القشر واللب قبل التجفيف باستخدام الماء والتخمير. تنتج أكواب نظيفة ومشرقة وحموضة واضحة تبرز طابع المنشأ.",
+      category: "المعالجة"
     },
     {
-      term: "Natural Process",
-      definition: "Coffee dried inside the whole cherry, allowing the fruit to ferment around the seed. Produces fruity, sweet, full-bodied, sometimes winey cups. Also called dry process.",
-      category: "Processing"
+      term: "Natural Process (الطبيعية)",
+      definition: "البن يُجفف داخل الكرزة كاملة، يخلي الثمرة تتخمر حول البذرة. تنتج أكواب فاكهية وحلوة وكاملة القوام وأحياناً نبيذية. تسمى أيضاً المعالجة الجافة.",
+      category: "المعالجة"
     },
     {
-      term: "Honey Process",
-      definition: "The skin is removed but some or all of the sticky mucilage (the 'honey') is left on the bean during drying. Yellow honey = less mucilage; red/black honey = more. Creates sweetness and body between washed and natural.",
-      category: "Processing"
+      term: "Honey Process (العسلية)",
+      definition: "يُزال القشر لكن يبقى كل أو بعض اللب اللزج (العسل) على الحبة أثناء التجفيف. أصفر = لب أقل. أحمر/أسود = لب أكثر. تعطي حلاوة وقوام بين المغسولة والطبيعية.",
+      category: "المعالجة"
     },
     {
-      term: "Anaerobic Process",
-      definition: "Coffee fermented in sealed, oxygen-free tanks before drying. Creates intense, unconventional flavors — tropical fruit, boozy, candy-like. A modern experimental method gaining popularity.",
-      category: "Processing"
+      term: "Anaerobic Process (اللاهوائية)",
+      definition: "بن يُخمّر في أوعية مغلقة بدون أكسجين قبل التجفيف. تنتج نكهات مكثفة وغير تقليدية — فواكه استوائية، كحولية، حلوى. طريقة تجريبية حديثة صاعدة.",
+      category: "المعالجة"
     },
     {
-      term: "Single Origin",
-      definition: "Coffee sourced from one specific country, region, farm, or lot. Highlights the unique terroir and character of that place. Contrasted with blends, which mix origins.",
-      category: "General"
+      term: "Single Origin (سنقل أوريجن)",
+      definition: "قهوة من مصدر واحد محدد — بلد أو منطقة أو مزرعة أو لوت. تبرز الطابع الفريد للمكان. عكس الخلطات (Blends) اللي تخلط مناشئ.",
+      category: "عام"
     },
     {
-      term: "Specialty Coffee",
-      definition: "Coffee that scores 80+ on the SCA scale, grown at high altitude, carefully processed, and roasted to highlight origin character. Represents roughly 5–10% of global coffee production.",
-      category: "General"
+      term: "Specialty Coffee (القهوة المختصة)",
+      definition: "قهوة تحصل 80+ على مقياس SCA، تُزرع على ارتفاعات عالية، تُعالج بعناية، وتُحمّص لإبراز طابع المنشأ. تمثل تقريباً 5–10% من إنتاج القهوة العالمي.",
+      category: "عام"
     },
     {
-      term: "Dialing In",
-      definition: "The iterative process of adjusting grind size, dose, ratio, temperature, and technique to optimize a coffee's taste. Each new bag of beans requires dialing in. The core skill of good brewing.",
-      category: "Brewing"
+      term: "Dialing In (الضبط)",
+      definition: "عملية تكرارية لضبط الطحنة والجرعة والنسبة والحرارة والتقنية للوصول للذوق المثالي. كل كيس جديد يحتاج ضبط. المهارة الأساسية للتحضير الجيد.",
+      category: "التحضير"
     },
     {
-      term: "Refractometer",
-      definition: "A device that measures the TDS (concentration) of brewed coffee by shining light through a small sample. Used to calculate extraction yield. Essential for data-driven brewing.",
-      category: "Equipment"
+      term: "Refractometer (رفراكتوميتر)",
+      definition: "جهاز يقيس TDS (تركيز) القهوة المحضّرة بتسليط ضوء عبر عينة صغيرة. يُستخدم لحساب نسبة الاستخلاص. أساسي للتحضير المبني على البيانات.",
+      category: "الأدوات"
     },
     {
-      term: "Gooseneck Kettle",
-      definition: "A kettle with a thin, curved spout that provides precise control over pour rate and placement. Essential for V60 and other pour-over methods. Temperature-controlled models are ideal.",
-      category: "Equipment"
+      term: "Gooseneck Kettle (غوزنيك)",
+      definition: "غلاية بفوهة رفيعة منحنية توفر تحكم دقيق بسرعة ومكان الصب. ضرورية للـV60 وباقي طرق المقطّر. الموديلات المتحكمة بالحرارة هي الأفضل.",
+      category: "الأدوات"
     },
     {
-      term: "Burr Grinder",
-      definition: "A grinder that uses two revolving abrasive surfaces (burrs) to crush beans into uniform particles. Produces far more consistent grinds than blade grinders. Flat burrs and conical burrs each have different characteristics.",
-      category: "Equipment"
+      term: "Burr Grinder (طاحونة بُر)",
+      definition: "طاحونة تستخدم سطحين حادين دوّارين (بُرز) لسحق الحبوب لحبيبات موحدة. تنتج طحنة أكثر تناسقاً بكثير من طاحونة الشفرات. الفلات بُر والكونيكال بُر لكل منهم خصائص مختلفة.",
+      category: "الأدوات"
     }
   ],
 
   // ──────────────────────────────────────────────
-  // 5. COMMON V60 MISTAKES
+  // 5. أخطاء V60 الشائعة
   // ──────────────────────────────────────────────
   commonMistakes: [
     {
       id: 1,
-      mistake: "Skipping the bloom",
-      why: "Trapped CO₂ in fresh coffee creates a gas barrier that repels water. Without blooming, water channels around dry pockets, causing uneven extraction — sour and bitter notes in the same cup.",
-      fix: "Pour 2–3x the coffee weight in water (e.g., 40–50g for 18g dose), wait 30–45 seconds. The grounds should puff up and bubble. If they do not bloom, your coffee may be stale.",
+      mistake: "تخطّي التفتيح",
+      why: "غاز CO₂ المحبوس في البن الطازج يعمل حاجز غاز يطرد الماء. بدون تفتيح، الماء يمشي حول جيوب جافة ويسبب استخلاص غير متساوي — حموضة ومرارة بنفس الكوب.",
+      fix: "صبّ 2–3× وزن البن ماء (مثلاً 40–50g لـ18g بن)، انتظر 30–45 ثانية. لازم البن ينتفخ ويطلع فقاعات. لو ما تفتّح — بنّك غالباً قديم.",
       severity: "high"
     },
     {
       id: 2,
-      mistake: "Wrong grind size (usually too coarse)",
-      why: "V60 has a large single hole and thin paper filters — water flows through quickly. If the grind is too coarse, water rushes through without extracting enough, producing a sour, watery cup. Too fine and it clogs.",
-      fix: "Start with medium-fine (finer than sea salt, coarser than table salt). Target a total brew time of 2:30–3:30 for a single cup. If drawdown is under 2 minutes, grind finer. Over 4 minutes, grind coarser.",
+      mistake: "حجم طحنة غلط (عادة أخشن من اللازم)",
+      why: "الـV60 فيه فتحة كبيرة واحدة وفلتر ورقي رقيق — الماء يمر بسرعة. لو الطحنة خشنة زيادة، الماء يجري بدون استخلاص كافي ويعطيك كوب حامض ومائي. ناعم زيادة وينسد.",
+      fix: "ابدأ بمتوسط دقيق (أنعم من ملح البحر، أخشن من ملح الطعام). استهدف وقت تحضير 2:30–3:30 لكوب واحد. لو النزول أقل من دقيقتين نعّم. فوق 4 دقايق خشّن.",
       severity: "high"
     },
     {
       id: 3,
-      mistake: "Inconsistent pour (uneven or erratic)",
-      why: "Pouring in one spot, hitting the filter walls, or pouring too aggressively creates channels where water takes the easiest path. Some grounds get over-extracted (bitter) while others are barely touched (sour).",
-      fix: "Pour in slow, steady concentric circles starting from the center and spiraling outward, then back in. Keep the kettle spout close to the surface (2–4 cm above the bed). Maintain a consistent flow rate.",
+      mistake: "صب غير متساوي أو عشوائي",
+      why: "الصب بمكان واحد أو على جدار الفلتر أو بقوة زيادة يعمل قنوات — الماء ياخذ أسهل مسار. أجزاء تُستخلص زيادة (مرّة) وأجزاء ما تنلمس (حامضة).",
+      fix: "اصبّ بدوائر بطيئة وثابتة من المركز للخارج ثم ارجع. خلّ فوهة الغلاية قريبة من السطح (2–4 سم فوق البن). حافظ على سرعة صب ثابتة.",
       severity: "high"
     },
     {
       id: 4,
-      mistake: "Not using a scale",
-      why: "Eyeballing coffee and water amounts leads to wildly inconsistent ratios. A tablespoon of light roast weighs differently than dark roast. Without a scale, you cannot reproduce a good cup.",
-      fix: "Use a scale that reads to 0.1g. Weigh your coffee dose and measure water by weight (grams, not milliliters of volume). A 0.5g change in dose or 10g change in water is noticeable.",
+      mistake: "ما تستخدم ميزان",
+      why: "تقدير كمية البن والماء بالعين يعطي نسب غير ثابتة. ملعقة بن فاتح وزنها غير داكن. بدون ميزان ما تقدر تكرر كوب حلو.",
+      fix: "استخدم ميزان يقرأ لـ0.1g. وزن البن والماء بالجرامات (مو بالمل). تغيير 0.5g بالبن أو 10g بالماء محسوس بالطعم.",
       severity: "high"
     },
     {
       id: 5,
-      mistake: "Water temperature too low",
-      why: "Cool water under-extracts, producing sour, thin, grassy-tasting coffee. This is especially common with light roasts, which need hotter water to break down their denser cell structure.",
-      fix: "Use 90–96°C depending on roast level (see roast adjustments). Boiling water is fine for light roasts — it drops to ~94°C on contact with the grounds and ceramic dripper. Pre-heat your dripper and server.",
+      mistake: "حرارة ماء منخفضة",
+      why: "ماء بارد يستخلص ناقص ويعطي قهوة حامضة ورقيقة وطعمها عشبي. شائع خاصة مع التحميص الفاتح اللي يحتاج حرارة أعلى عشان يكسر بنيته الكثيفة.",
+      fix: "استخدم 90–96°C حسب التحميص. ماء مغلي ينفع للفاتح — ينزل لـ94°C لمّا يلمس البن والسيراميك. سخّن الدريبر والسيرفر قبل.",
       severity: "medium"
     },
     {
       id: 6,
-      mistake: "Not rinsing the paper filter",
-      why: "Unrinsed paper filters impart a papery, cardboard-like taste to the brew. The first few ounces of water through a dry filter carry paper dust and manufacturing residues.",
-      fix: "Place the filter in the V60, pour hot water through it to saturate and rinse, then discard the rinse water. This also pre-heats the dripper and server.",
+      mistake: "ما تشطف الفلتر الورقي",
+      why: "الفلتر بدون شطف يعطي طعم ورقي وكرتوني. أول ماء يمر من فلتر جاف يحمل غبار الورق ومخلفات التصنيع.",
+      fix: "حطّ الفلتر بالـV60 واصب ماء ساخن عليه وشطفه، ثم ارمِ ماء الشطف. هذا أيضاً يسخّن الدريبر والسيرفر.",
       severity: "medium"
     },
     {
       id: 7,
-      mistake: "Pouring onto the filter walls",
-      why: "Water hitting the paper filter bypasses the coffee bed entirely. It runs down the sides without extracting anything, diluting your final brew and creating an uneven bed shape.",
-      fix: "Keep your pour within the inner 2/3 of the coffee bed. Never intentionally pour onto the exposed paper above the coffee line. The bed should remain relatively flat throughout the brew.",
+      mistake: "الصب على جدار الفلتر",
+      why: "الماء اللي يضرب الورق يتجاوز طبقة البن كلها. ينزل على الجوانب بدون استخلاص شي، يخفف قهوتك ويخرب شكل الطبقة.",
+      fix: "خلّ صبّك ضمن الثلثين الداخليين من طبقة البن. لا تصب عمداً على الورق المكشوف فوق خط البن. الطبقة لازم تبقى مستوية نسبياً.",
       severity: "medium"
     },
     {
       id: 8,
-      mistake: "Using stale coffee",
-      why: "Coffee begins losing volatile aromatic compounds immediately after roasting, and rapidly after grinding. Pre-ground coffee from a supermarket shelf may be months old. Stale coffee tastes flat, papery, and dull.",
-      fix: "Use whole beans roasted within the last 2–4 weeks. Grind immediately before brewing. If the bloom is flat (no bubbling or expansion), the coffee is likely too old for optimal flavor.",
+      mistake: "استخدام بن قديم",
+      why: "البن يفقد المركبات العطرية المتطايرة فوراً بعد التحميص، وبسرعة بعد الطحن. البن الجاهز من السوبرماركت ممكن عمره شهور. بن قديم طعمه مسطح وباهت وورقي.",
+      fix: "استخدم حبوب كاملة محمّصة خلال آخر 2–4 أسابيع. اطحن مباشرة قبل التحضير. لو التفتيح مسطح (بدون فقاعات أو انتفاخ) — البن غالباً قديم.",
       severity: "medium"
     },
     {
       id: 9,
-      mistake: "Ignoring total brew time",
-      why: "Brew time is the simplest diagnostic for extraction. If you are not timing your brew, you have no reference point for adjusting grind size or pour technique.",
-      fix: "Use a timer (most coffee scales have one built in). For a single V60 cup (250–300ml), target 2:30–3:30 total including bloom. Log your times alongside taste notes to find your preferred window.",
+      mistake: "تجاهل وقت التحضير الكلي",
+      why: "وقت التحضير أبسط مؤشر للاستخلاص. لو ما تحسب الوقت، ما عندك نقطة مرجعية لتعديل الطحنة أو تقنية الصب.",
+      fix: "استخدم تايمر (أغلب موازين القهوة فيها واحد). لكوب V60 واحد (250–300ml)، استهدف 2:30–3:30 شامل التفتيح. سجّل أوقاتك مع ملاحظات الطعم.",
       severity: "medium"
     },
     {
       id: 10,
-      mistake: "Not adjusting for different coffees",
-      why: "Every coffee has different density, roast level, processing, and age. Using the same grind, temperature, and ratio for everything means most of your coffees are being brewed sub-optimally.",
-      fix: "Treat each new bag as a dial-in session. Brew your first cup with baseline parameters, taste critically, then adjust one variable at a time. Keep notes on what worked.",
+      mistake: "ما تعدّل لأنواع بن مختلفة",
+      why: "كل بن كثافته وتحميصه ومعالجته وعمره مختلف. استخدام نفس الطحنة والحرارة والنسبة لكل شي يعني أغلب قهوتك ما هي بأحسن حالاتها.",
+      fix: "عامل كل كيس جديد كجلسة ضبط. حضّر أول كوب بمتغيرات أساسية، تذوّق بتركيز، ثم عدّل متغير واحد كل مرة. سجّل وش نجح.",
       severity: "low"
     },
     {
       id: 11,
-      mistake: "Swirling or agitating too aggressively",
-      why: "While some agitation helps even extraction, too much creates a dense layer of fine particles (fines migration) at the bottom of the filter, causing clogging and stalling the drawdown.",
-      fix: "One gentle swirl after the bloom and optionally one after the final pour (the Rao spin) is enough. Avoid aggressive stirring or repeated swirling. If drawdown stalls, reduce agitation next time.",
+      mistake: "دوران أو تحريك عنيف",
+      why: "شوية تحريك يساعد الاستخلاص المتساوي، لكن كثرته تنقل الحبيبات الدقيقة (فاينز) لقاع الفلتر وتسبب انسداد وتوقف النزول.",
+      fix: "دوران واحد خفيف بعد التفتيح واختيارياً واحد بعد آخر صبة (Rao spin) كافي. تجنب التحريك العنيف أو الدوران المتكرر. لو النزول توقف، قلّل التحريك المرة الجاية.",
       severity: "low"
     },
     {
       id: 12,
-      mistake: "Brewing too much or too little for the dripper size",
-      why: "A V60 01 is designed for 1–2 cups (12–20g dose). Using too little coffee creates a thin bed with high bypass; too much coffee overflows or extracts unevenly due to depth.",
-      fix: "Match your dose to your dripper size. V60 01: 12–20g. V60 02: 18–30g. V60 03: 25–40g. If you need more coffee, use a larger dripper rather than overloading a small one.",
+      mistake: "تحضير كمية أكثر أو أقل من حجم الدريبر",
+      why: "V60 01 مصمم لكوب أو كوبين (12–20g). كمية بن أقل من اللازم تعمل طبقة رقيقة مع تجاوز كثير. كثيرة زيادة تطفح أو تستخلص بشكل غير متساوي بسبب العمق.",
+      fix: "طابق الجرعة مع حجم الدريبر. V60 01: 12–20g. V60 02: 18–30g. V60 03: 25–40g. لو تحتاج قهوة أكثر، استخدم دريبر أكبر بدل ما تزحم الصغير.",
       severity: "low"
     }
   ],
 
   // ──────────────────────────────────────────────
-  // METADATA
+  // البيانات الوصفية
   // ──────────────────────────────────────────────
   meta: {
-    version: "1.0.0",
+    version: "2.0.0",
     lastUpdated: "2026-03-01",
+    language: "ar-SA",
     sources: [
-      "Specialty Coffee Association (SCA) standards and protocols",
-      "James Hoffmann — The World Atlas of Coffee, V60 technique guides",
-      "Barista Hustle — Water for Coffee, extraction theory",
-      "Coffee ad Astra — brewing research by Jonathan Gagne",
-      "Third Wave Water — mineral composition guides",
-      "Royal Coffee — brew glossary and extraction concepts"
+      "معايير وبروتوكولات جمعية القهوة المختصة (SCA)",
+      "James Hoffmann — The World Atlas of Coffee، أدلة تقنية V60",
+      "Barista Hustle — Water for Coffee، نظرية الاستخلاص",
+      "Coffee ad Astra — أبحاث التحضير من Jonathan Gagne",
+      "Third Wave Water — أدلة تركيبة المعادن",
+      "Royal Coffee — مصطلحات التحضير ومفاهيم الاستخلاص"
     ]
   }
 };
