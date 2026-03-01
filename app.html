@@ -8,7 +8,7 @@
 <meta name="apple-mobile-web-app-title" content="V60 Masters">
 <meta name="theme-color" content="#1a0f08">
 <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☕</text></svg>">
-<title>V60 Masters</title>
+<title>V60 Masters - وصفات V60</title>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700;800&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
@@ -26,14 +26,11 @@
 --t1:#f0e8dc;--t2:#b8a894;--t3:#7a6b5c;--t4:#4a3f34;
 --sh1:0 1px 3px rgba(0,0,0,0.3);--sh2:0 4px 16px rgba(0,0,0,0.3);--sh3:0 8px 32px rgba(0,0,0,0.4);
 }
-body{
-font-family:'Cairo','Tajawal',sans-serif;background:var(--bg);color:var(--t1);
-line-height:1.6;min-height:100vh;min-height:100dvh;overflow-x:hidden;
-transition:background .3s,color .3s;padding-bottom:80px;
-}
+body{font-family:'Cairo','Tajawal',sans-serif;background:var(--bg);color:var(--t1);line-height:1.6;min-height:100vh;min-height:100dvh;overflow-x:hidden;transition:background .3s,color .3s;padding-bottom:80px}
 .en{font-family:'Inter','Cairo',sans-serif;direction:ltr;display:inline;unicode-bidi:embed}
-button,input,select{font-family:inherit}
+button,input,select,textarea{font-family:inherit}
 button{cursor:pointer;border:none;background:none}
+a{text-decoration:none;color:inherit}
 
 /* NAV */
 .nav{position:fixed;bottom:0;left:0;right:0;z-index:200;background:var(--card);border-top:1px solid var(--border);display:flex;padding:4px 0 max(env(safe-area-inset-bottom),6px);box-shadow:0 -1px 12px rgba(0,0,0,.06);transition:background .3s}
@@ -82,19 +79,19 @@ button{cursor:pointer;border:none;background:none}
 /* CARDS */
 .cw{padding:4px 20px 20px}
 .cg{display:flex;flex-direction:column;gap:12px}
-
 .cd{background:var(--card);border:1.5px solid var(--border);border-radius:var(--r);padding:16px;cursor:pointer;transition:all .2s;position:relative;overflow:hidden;box-shadow:var(--sh1)}
 .cd:active{transform:scale(.985)}
 .cd::before{content:'';position:absolute;top:0;right:0;bottom:0;width:4px}
 .cd.ht::before{background:var(--hot)}.cd.ic::before{background:var(--ice)}
-
 .cd-r1{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:8px}
 .cd-name{font-size:16px;font-weight:900;line-height:1.3}
 .cd-meth{font-size:11px;color:var(--t2);font-family:'Tajawal';margin-top:1px}
 .bgs{display:flex;gap:4px;flex-wrap:wrap;flex-shrink:0}
 .bg{font-size:8px;font-weight:800;padding:3px 8px;border-radius:12px;font-family:'Tajawal';letter-spacing:.2px}
+.b-hot{background:var(--hotBg);color:var(--hot)}.b-iced{background:var(--iceBg);color:var(--ice)}
+.b-ok{background:var(--okBg);color:var(--ok)}.b-warn{background:var(--warnBg);color:var(--warn)}
 
-/* COMMUNITY RATING */
+/* RATING */
 .rating{display:flex;align-items:center;gap:6px;margin:6px 0}
 .stars{color:var(--a3);font-size:13px;letter-spacing:1px;direction:ltr}
 .rating-txt{font-size:10px;color:var(--t3);font-family:'Tajawal'}
@@ -112,21 +109,20 @@ button{cursor:pointer;border:none;background:none}
 .cs b{display:block;font-size:15px;font-weight:900;line-height:1.2;font-family:'Inter'}
 .cs span{font-size:8px;color:var(--t3);font-family:'Tajawal';font-weight:700}
 
-/* YIELD PREVIEW */
+/* YIELD */
 .yield{display:flex;align-items:center;gap:8px;margin:6px 0;padding:8px 12px;background:var(--card2);border:1px solid var(--border2);border-radius:var(--r3)}
 .yield-cup{font-size:22px}
 .yield-info{flex:1}
 .yield b{font-size:13px;font-weight:800;display:block;line-height:1.2}
 .yield span{font-size:10px;color:var(--t3);font-family:'Tajawal'}
 
-/* MINI TL */
+/* MINI TIMELINE */
 .mtl{display:flex;align-items:center;padding:6px 8px;background:var(--bg);border-radius:var(--r3);margin:6px 0;overflow-x:auto;scrollbar-width:none;gap:0;transition:background .3s}.mtl::-webkit-scrollbar{display:none}
 .mt-s{display:flex;flex-direction:column;align-items:center;min-width:34px}
 .mt-w{font-weight:900;color:var(--a1);font-size:11px;font-family:'Inter'}
 .mt-d{width:7px;height:7px;border-radius:50%;background:var(--a2);margin:2px 0}
 .mt-t{color:var(--t3);font-size:8px;font-family:'Inter';direction:ltr}
 .mt-l{flex:1;height:2px;background:var(--border);min-width:8px}
-
 .cd-bot{display:flex;justify-content:space-between;align-items:center;margin-top:6px;padding-top:8px;border-top:1px solid var(--border)}
 .cd-meta{font-size:10px;color:var(--t3);font-family:'Tajawal'}
 .cd-acts{display:flex;gap:6px;align-items:center}
@@ -139,12 +135,12 @@ button{cursor:pointer;border:none;background:none}
 .empty b{display:block;font-size:40px;margin-bottom:8px}
 .empty h3{font-size:16px;color:var(--t1);margin-bottom:4px}
 
-/* ═══ DETAIL ═══ */
+/* DETAIL */
 .dh{padding:max(env(safe-area-inset-top),16px) 20px 16px;background:linear-gradient(155deg,#1a0f08,#3d2213);color:#faf5ed}
-.dh-back{background:none;border:none;color:rgba(255,255,255,.6);font-size:13px;font-family:'Cairo';font-weight:600;margin-bottom:6px;display:flex;align-items:center;gap:4px}
+.dh-back{background:none;border:none;color:rgba(255,255,255,.6);font-size:13px;font-family:'Cairo';font-weight:600;margin-bottom:6px;display:flex;align-items:center;gap:4px;cursor:pointer}
 .dh h2{font-size:20px;font-weight:900;font-family:'Cairo'}
 .dh-sub{font-size:12px;opacity:.6;font-family:'Tajawal';margin-top:2px}
-.dh-badges{display:flex;gap:4px;margin-top:6px}
+.dh-badges{display:flex;gap:4px;margin-top:6px;flex-wrap:wrap}
 .db{padding:0 20px 100px}
 
 /* SECTION CARD */
@@ -153,6 +149,13 @@ button{cursor:pointer;border:none;background:none}
 
 /* BIO */
 .bio{font-size:12px;color:var(--t2);background:var(--card2);padding:12px 16px;border-radius:var(--r2);line-height:1.8;font-family:'Tajawal';border-right:3px solid var(--a2);margin:12px 0;transition:background .3s}
+
+/* CUP SELECTOR */
+.cup-sel{display:flex;gap:6px;margin:12px 0;flex-wrap:wrap;align-items:center}
+.cup-btn{padding:8px 16px;border-radius:var(--r3);border:1.5px solid var(--border);background:var(--card);font-size:12px;font-weight:700;transition:all .15s;color:var(--t1)}
+.cup-btn.on{background:var(--a1);color:#fff;border-color:var(--a1)}
+.cup-custom{width:50px;padding:6px;border:1.5px solid var(--border);border-radius:var(--r3);font-family:'Inter';font-size:13px;text-align:center;font-weight:700;background:var(--card);color:var(--t1)}
+.cup-custom:focus{border-color:var(--a2);outline:none}
 
 /* FLAVOR DETAIL */
 .fl-row{display:flex;align-items:center;gap:8px;margin-bottom:8px}
@@ -166,7 +169,6 @@ button{cursor:pointer;border:none;background:none}
 .ig-i{display:flex;flex-direction:column}
 .ig-l{font-size:9px;font-weight:700;color:var(--t3);font-family:'Tajawal'}
 .ig-v{font-size:14px;font-weight:800}
-.ig-v .en{font-weight:800}
 
 /* WHAT YOU GET */
 .wyg{margin:12px 0;padding:16px;background:linear-gradient(135deg,var(--a1),#4a2510);border-radius:var(--r);color:#fff}
@@ -201,15 +203,21 @@ button{cursor:pointer;border:none;background:none}
 .s-ds{font-size:11px;color:var(--t2);font-family:'Tajawal';line-height:1.5}
 .s-wt{display:inline-flex;align-items:center;gap:3px;font-size:9px;color:var(--a2);font-weight:700;margin-top:3px;background:var(--warnBg);padding:2px 8px;border-radius:8px;font-family:'Tajawal'}
 
+/* NOTES */
+.notes-area{width:100%;min-height:80px;padding:12px;border:1.5px solid var(--border);border-radius:var(--r3);background:var(--card);color:var(--t1);font-family:'Cairo';font-size:13px;resize:vertical;line-height:1.6;transition:border-color .15s}
+.notes-area:focus{border-color:var(--a2);outline:none}
+.notes-saved{font-size:10px;color:var(--ok);font-family:'Tajawal';margin-top:4px;opacity:0;transition:opacity .3s}
+.notes-saved.show{opacity:1}
+
 /* BREW CTA */
-.bcta{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:15px;border:none;border-radius:var(--r);background:linear-gradient(135deg,var(--a1),var(--a2));color:#fff;font-size:15px;font-weight:800;font-family:'Cairo';margin:14px 0;box-shadow:0 4px 16px rgba(107,58,31,.3);transition:transform .1s}
+.bcta{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:15px;border:none;border-radius:var(--r);background:linear-gradient(135deg,var(--a1),var(--a2));color:#fff;font-size:15px;font-weight:800;font-family:'Cairo';margin:14px 0;box-shadow:0 4px 16px rgba(107,58,31,.3);transition:transform .1s;cursor:pointer}
 .bcta:active{transform:scale(.97)}
 
-/* ═══ BREW MODE ═══ */
+/* BREW MODE */
 .brew{position:fixed;inset:0;z-index:300;background:linear-gradient(180deg,#0f0a06,#1e1610);color:#faf5ed;display:none;flex-direction:column}
 .brew.on{display:flex}
 .brew-top{padding:max(env(safe-area-inset-top),14px) 20px 10px;display:flex;justify-content:space-between;align-items:center}
-.brew-x{background:none;border:none;color:rgba(255,255,255,.5);font-size:13px;font-family:'Cairo';font-weight:600}
+.brew-x{background:none;border:none;color:rgba(255,255,255,.5);font-size:13px;font-family:'Cairo';font-weight:600;cursor:pointer}
 .brew-nm{font-size:12px;font-weight:700;opacity:.7}
 .brew-c{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 20px}
 .brew-tm{font-size:72px;font-weight:900;font-family:'Inter';letter-spacing:-3px;direction:ltr;line-height:1}
@@ -225,12 +233,26 @@ button{cursor:pointer;border:none;background:none}
 .bd{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.12);transition:all .3s}
 .bd.dn{background:#2ecc71}.bd.cr{background:var(--a3);transform:scale(1.3)}
 .brew-bot{padding:14px 20px max(env(safe-area-inset-bottom),20px);display:flex;gap:10px}
-.brew-btn{flex:1;padding:14px;border:none;border-radius:var(--r2);font-size:15px;font-weight:800;font-family:'Cairo';transition:transform .1s}
+.brew-btn{flex:1;padding:14px;border:none;border-radius:var(--r2);font-size:15px;font-weight:800;font-family:'Cairo';transition:transform .1s;cursor:pointer}
 .brew-btn:active{transform:scale(.96)}
 .bnext{background:var(--a3);color:#1a0f08}
 .bpause{background:rgba(255,255,255,.08);color:#faf5ed}
 
-/* ═══ SUGGEST ═══ */
+/* BREW DONE RATING */
+.brew-done{position:fixed;inset:0;z-index:310;background:rgba(0,0,0,.7);backdrop-filter:blur(8px);display:none;justify-content:center;align-items:center}
+.brew-done.on{display:flex}
+.brew-done-card{background:var(--card);border-radius:var(--r);padding:28px 24px;width:90%;max-width:340px;text-align:center}
+.brew-done-card h2{font-size:20px;font-weight:900;margin-bottom:4px;color:var(--t1)}
+.brew-done-card p{font-size:12px;color:var(--t3);margin-bottom:16px}
+.rate-stars{display:flex;justify-content:center;gap:8px;margin-bottom:16px;direction:ltr}
+.rate-star{font-size:32px;color:var(--border);cursor:pointer;transition:color .15s}
+.rate-star.on{color:var(--a3)}
+.brew-note{width:100%;padding:10px;border:1.5px solid var(--border);border-radius:var(--r3);font-family:'Cairo';font-size:12px;min-height:60px;resize:vertical;margin-bottom:12px;background:var(--card);color:var(--t1)}
+.brew-note:focus{border-color:var(--a2);outline:none}
+.brew-save-btn{width:100%;padding:12px;background:linear-gradient(135deg,var(--a1),var(--a2));color:#fff;border:none;border-radius:var(--r2);font-size:14px;font-weight:800;font-family:'Cairo';cursor:pointer}
+.brew-skip{background:none;border:none;color:var(--t3);font-size:12px;margin-top:8px;cursor:pointer;font-family:'Tajawal'}
+
+/* SUGGEST OVERLAY */
 .sov{display:none;position:fixed;inset:0;z-index:250;background:rgba(0,0,0,.55);backdrop-filter:blur(5px);justify-content:center;align-items:flex-end}
 .sov.on{display:flex}
 .ssheet{background:var(--card);border-radius:20px 20px 0 0;width:100%;max-width:440px;padding:24px 20px max(env(safe-area-inset-bottom),28px);max-height:85dvh;overflow-y:auto;animation:su .3s ease;transition:background .3s}
@@ -240,22 +262,93 @@ button{cursor:pointer;border:none;background:none}
 .sq{margin-bottom:16px}
 .sq-l{font-size:12px;font-weight:800;margin-bottom:6px}
 .sq-os{display:flex;gap:6px;flex-wrap:wrap}
-.sq-o{padding:8px 14px;border-radius:var(--r3);border:1.5px solid var(--border);background:var(--card);font-size:12px;font-weight:700;font-family:'Cairo';transition:all .15s;color:var(--t1)}
+.sq-o{padding:8px 14px;border-radius:var(--r3);border:1.5px solid var(--border);background:var(--card);font-size:12px;font-weight:700;font-family:'Cairo';transition:all .15s;color:var(--t1);cursor:pointer}
 .sq-o.on{background:var(--a1);color:#fff;border-color:var(--a1)}
-.sgo{width:100%;padding:13px;border:none;border-radius:var(--r2);background:linear-gradient(135deg,var(--a1),var(--a2));color:#fff;font-size:14px;font-weight:800;font-family:'Cairo';margin-top:6px}
+.sgo{width:100%;padding:13px;border:none;border-radius:var(--r2);background:linear-gradient(135deg,var(--a1),var(--a2));color:#fff;font-size:14px;font-weight:800;font-family:'Cairo';margin-top:6px;cursor:pointer}
+
+/* LEARN SCREEN */
+.learn-pad{padding:14px 20px 20px}
+.learn-sec{margin-bottom:20px}
+.lc{background:var(--card);border:1.5px solid var(--border);border-radius:var(--r);padding:14px;margin-bottom:10px;box-shadow:var(--sh1);transition:background .3s}
+.lc h4{font-size:14px;font-weight:800;margin-bottom:6px}
+.lc-flav{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:6px}
+.lc-tag{font-size:9px;padding:3px 8px;border-radius:10px;background:var(--bg2);color:var(--t2);font-weight:700;font-family:'Tajawal'}
+.lc-meta{font-size:11px;color:var(--t3);font-family:'Tajawal';line-height:1.7}
+.lc-tip{font-size:11px;color:var(--a2);font-weight:700;margin-top:4px;font-family:'Tajawal'}
+
+/* GLOSSARY */
+.gl-item{padding:12px 0;border-bottom:1px solid var(--border)}
+.gl-item:last-child{border-bottom:none}
+.gl-en{font-size:14px;font-weight:800;font-family:'Inter'}
+.gl-ar{font-size:12px;color:var(--a2);font-weight:700;margin-right:8px}
+.gl-def{font-size:12px;color:var(--t2);font-family:'Tajawal';line-height:1.6;margin-top:2px}
+
+/* ROAST GUIDE */
+.roast-card{padding:16px;border-radius:var(--r);margin-bottom:10px;color:#fff}
+.roast-card h4{font-size:16px;font-weight:900;margin-bottom:8px}
+.roast-params{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.rp{background:rgba(255,255,255,.12);padding:8px;border-radius:var(--r3);text-align:center}
+.rp b{display:block;font-size:13px;font-weight:800;font-family:'Inter'}
+.rp span{font-size:9px;opacity:.7;font-family:'Tajawal'}
+
+/* TIPS */
+.tip-item{padding:12px;background:var(--card);border:1.5px solid var(--border);border-radius:var(--r);margin-bottom:8px;display:flex;gap:10px;align-items:flex-start;box-shadow:var(--sh1)}
+.tip-num{width:26px;height:26px;border-radius:50%;background:var(--a1);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;font-family:'Inter';flex-shrink:0}
+.tip-txt{font-size:12px;font-family:'Tajawal';line-height:1.7;color:var(--t2)}
+
+/* FIX SCREEN */
+.fix-pad{padding:14px 20px 20px}
+.fix-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:20px}
+.fix-btn{padding:14px 10px;border:1.5px solid var(--border);border-radius:var(--r);background:var(--card);text-align:center;cursor:pointer;transition:all .15s;box-shadow:var(--sh1)}
+.fix-btn:active{transform:scale(.96)}
+.fix-btn .fix-icon{font-size:24px;margin-bottom:4px}
+.fix-btn .fix-name{font-size:13px;font-weight:800}
+.fix-detail{display:none;background:var(--card);border:1.5px solid var(--border);border-radius:var(--r);padding:16px;margin-bottom:16px;box-shadow:var(--sh2);animation:fi .25s ease}
+.fix-detail.on{display:block}
+.fix-detail h3{font-size:15px;font-weight:900;margin-bottom:6px;color:var(--a2)}
+.fix-cause{font-size:12px;color:var(--t2);font-family:'Tajawal';margin-bottom:10px;padding:8px 12px;background:var(--bg2);border-radius:var(--r3);line-height:1.7}
+.fix-list{list-style:none;margin-bottom:10px}
+.fix-list li{padding:8px 12px;border-right:3px solid var(--a2);margin-bottom:6px;background:var(--card2);border-radius:0 var(--r3) var(--r3) 0;font-size:12px;font-family:'Tajawal';line-height:1.6}
+.fix-list .num{font-family:'Inter';font-weight:900;color:var(--a1);margin-left:6px}
+.fix-pro{font-size:11px;color:var(--ok);font-weight:700;padding:8px 12px;background:var(--okBg);border-radius:var(--r3);font-family:'Tajawal';line-height:1.6}
+
+/* BED ANALYSIS */
+.bed-item{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--border)}
+.bed-item:last-child{border-bottom:none}
+.bed-icon{font-size:20px;flex-shrink:0}
+.bed-txt{font-size:12px;font-family:'Tajawal';line-height:1.6}
+.bed-txt b{color:var(--t1)}
+
+/* MY BREWS */
+.log-entry{background:var(--card);border:1.5px solid var(--border);border-radius:var(--r);padding:14px;margin-bottom:8px;box-shadow:var(--sh1)}
+.log-entry .log-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}
+.log-entry .log-name{font-size:14px;font-weight:800}
+.log-entry .log-date{font-size:10px;color:var(--t3);font-family:'Inter';direction:ltr}
+.log-entry .log-stars{color:var(--a3);font-size:12px;direction:ltr;letter-spacing:1px}
+.log-entry .log-info{font-size:11px;color:var(--t3);font-family:'Tajawal'}
+.log-entry .log-note{font-size:12px;color:var(--t2);font-family:'Tajawal';margin-top:4px;padding-top:4px;border-top:1px solid var(--border)}
+.log-del{background:none;border:none;color:var(--hot);font-size:10px;cursor:pointer;font-family:'Tajawal';opacity:.6}
+.log-del:hover{opacity:1}
+
+/* SUB TABS */
+.stabs{display:flex;gap:0;margin-bottom:14px;background:var(--bg2);border-radius:var(--r3);overflow:hidden}
+.stab{flex:1;padding:10px;text-align:center;font-size:12px;font-weight:700;color:var(--t3);cursor:pointer;transition:all .15s;font-family:'Cairo'}
+.stab.on{background:var(--a1);color:#fff}
 
 /* RESPONSIVE */
-@media(min-width:700px){.cg{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}}
-@media(min-width:1100px){.cg{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:700px){.cg{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.fix-grid{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:1100px){.cg{grid-template-columns:repeat(3,1fr)}.fix-grid{grid-template-columns:repeat(5,1fr)}}
 </style>
 </head>
 <body>
-
 <nav class="nav">
 <button class="nb on" data-s="home"><svg viewBox="0 0 24 24"><path d="M3 12l9-9 9 9"/><path d="M9 21V12h6v9"/></svg>الرئيسية</button>
-<button class="nb" data-s="favs"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 000-7.78z"/></svg>المفضلة</button>
+<button class="nb" data-s="learn"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>تعلّم</button>
+<button class="nb" data-s="fix"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>أصلح</button>
+<button class="nb" data-s="mybrews"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 000-7.78z"/></svg>مفضلاتي</button>
 </nav>
 
+<!-- HOME -->
 <div class="scr on" id="home">
 <div class="hd">
 <div class="hd-row"><div><h1>وصفات <b>V60</b></h1><div class="hd-sub">13 وصفة موثّقة من 10 خبراء عالميين</div></div>
@@ -285,14 +378,61 @@ button{cursor:pointer;border:none;background:none}
 <div class="cw"><div class="cg" id="grid"></div></div>
 </div>
 
-<div class="scr" id="favs">
-<div class="hd"><div class="hd-row"><div><h1>&#10084; المفضلة</h1><div class="hd-sub">وصفاتك المحفوظة</div></div></div></div>
-<div class="cw" style="padding-top:16px"><div class="cg" id="fG"></div></div>
+<!-- LEARN -->
+<div class="scr" id="learn">
+<div class="hd"><div class="hd-row"><div><h1>&#128218; تعلّم</h1><div class="hd-sub">كل شي تحتاجه عن القهوة المقطّرة</div></div></div></div>
+<div class="learn-pad">
+<div class="chips" id="learnChips">
+<button class="ch on" data-v="origins">&#127759; المناشئ</button>
+<button class="ch" data-v="glossary">&#128214; المصطلحات</button>
+<button class="ch" data-v="roast">&#128293; درجات التحميص</button>
+<button class="ch" data-v="tips">&#128161; نصائح</button>
+</div>
+<div id="learnContent"></div>
+</div>
 </div>
 
+<!-- FIX -->
+<div class="scr" id="fix">
+<div class="hd"><div class="hd-row"><div><h1>&#128295; أصلح</h1><div class="hd-sub">وش المشكلة بقهوتك؟</div></div></div></div>
+<div class="fix-pad">
+<div id="fixDetail"></div>
+<div class="fix-grid" id="fixGrid"></div>
+<div class="sc" style="margin-top:16px">
+<h3>&#128270; تحليل قاع الفلتر (Bed Analysis)</h3>
+<div id="bedAnalysis"></div>
+</div>
+</div>
+</div>
+
+<!-- MY BREWS -->
+<div class="scr" id="mybrews">
+<div class="hd"><div class="hd-row"><div><h1>&#9749; مفضلاتي</h1><div class="hd-sub">وصفاتك وسجل تحضيرك</div></div></div></div>
+<div style="padding:14px 20px 0">
+<div class="stabs"><button class="stab on" data-sub="fav">&#10084; المفضلة</button><button class="stab" data-sub="log">&#128203; سجل التحضير</button></div>
+</div>
+<div class="cw"><div id="myContent"></div></div>
+</div>
+
+<!-- DETAIL -->
 <div class="scr" id="detail"></div>
+
+<!-- BREW -->
 <div class="brew" id="brew"></div>
 
+<!-- BREW DONE RATING -->
+<div class="brew-done" id="brewDone">
+<div class="brew-done-card">
+<h2>&#9749; كيف كانت القهوة؟</h2>
+<p>قيّم تحضيرك وسجّل ملاحظاتك</p>
+<div class="rate-stars" id="rateStars"></div>
+<textarea class="brew-note" id="brewNote" placeholder="ملاحظات... (اختياري)"></textarea>
+<button class="brew-save-btn" id="brewSaveBtn">&#128190; احفظ بالسجل</button>
+<button class="brew-skip" id="brewSkipBtn">تخطّي</button>
+</div>
+</div>
+
+<!-- SUGGEST -->
 <div class="sov" id="sov">
 <div class="ssheet">
 <h2>&#9749; اقترح لي وصفة</h2><p>جاوب الأسئلة وبنلاقي لك الأنسب</p>
@@ -301,107 +441,179 @@ button{cursor:pointer;border:none;background:none}
 <div class="sq"><div class="sq-l">مستواك؟</div><div class="sq-os" data-q="lv"><button class="sq-o" data-v="b">مبتدئ</button><button class="sq-o" data-v="a">خبير</button><button class="sq-o on" data-v="">عادي</button></div></div>
 <button class="sgo" id="sgo">اقترح لي &#8592;</button>
 </div></div>
-
 <script>
 const D=[
-{id:1,ex:"James Hoffmann",exA:"جيمس هوفمان",m:"Structured Even Extraction",mA:"الاستخلاص المتساوي",type:"hot",dose:30,water:500,ice:0,ratio:"1:16.7",rn:16.7,temp:97,tn:'«أعلى حرارة ممكنة» — Hario Europe: 97°C',ode:"4–5",oMin:4,oMax:5,time:"~3:30",ts:210,agit:"دوران + تحريك ملعقة + دوران",st:"موثّقة",diff:"مبتدئ",pop:5,fl:{sw:3,ac:3,bd:4,cl:5},bio:"بطل العالم باريستا 2007. مؤسس Square Mile Coffee. أشهر فيديو V60 على يوتيوب.",steps:[
+{id:1,ex:"James Hoffmann",m:"Structured Even Extraction",mA:"الاستخلاص المتساوي",type:"hot",dose:30,water:500,ice:0,ratio:"1:16.7",rn:16.7,temp:97,tn:'«أعلى حرارة ممكنة» — Hario Europe: 97°C',ode:"4-5",oMin:4,oMax:5,time:"~3:30",ts:210,agit:"دوران + تحريك ملعقة + دوران",st:"موثّقة",diff:"مبتدئ",pop:5,fl:{sw:3,ac:3,bd:4,cl:5},bio:"بطل العالم باريستا 2007. مؤسس Square Mile Coffee. أشهر فيديو V60 على يوتيوب.",steps:[
 {l:"التفتيح",add:60,total:60,t:"0:00",w:"45 ثانية",n:"حرّك الفلتر دوران عشان تتبلل الحبوب",tmp:97},
 {l:"الصبّة 1",add:240,total:300,t:"0:45",w:"30 ثانية صب",n:"صبّ حلزوني قوي من الوسط للخارج",tmp:97},
 {l:"الصبّة 2",add:200,total:500,t:"1:15",w:"30 ثانية صب",n:"صبّ هادي في الوسط",tmp:97},
-{l:"التحريك",add:0,total:500,t:"1:45",w:"تصفية ~1:45",n:"حرّك مع الساعة + عكسها، ثم دوران أخير"}
-]},
-{id:2,ex:"James Hoffmann",exA:"جيمس هوفمان",m:"Iced V60",mA:"V60 مثلّج",type:"iced",dose:32.5,water:300,ice:200,ratio:"~1:15.4",rn:15.4,temp:95,tn:"95°C",ode:"3.5–4.5",oMin:3.5,oMax:4.5,time:"~2:55",ts:175,agit:"",st:"موثّقة",diff:"مبتدئ",pop:4,fl:{sw:3,ac:4,bd:3,cl:4},bio:"نسبة ~1:15.4 مع 500g سائل (300 ماء + 200 ثلج).",steps:[
+{l:"التحريك",add:0,total:500,t:"1:45",w:"تصفية ~1:45",n:"حرّك مع الساعة + عكسها، ثم دوران أخير"}]},
+{id:2,ex:"James Hoffmann",m:"Iced V60",mA:"V60 مثلّج",type:"iced",dose:32.5,water:300,ice:200,ratio:"~1:15.4",rn:15.4,temp:95,tn:"95°C",ode:"3.5-4.5",oMin:3.5,oMax:4.5,time:"~2:55",ts:175,agit:"",st:"موثّقة",diff:"مبتدئ",pop:4,fl:{sw:3,ac:4,bd:3,cl:4},bio:"نسبة ~1:15.4 مع 500g سائل (300 ماء + 200 ثلج).",steps:[
 {l:"التجهيز",add:0,total:0,t:"—",w:"",n:"حط 200g ثلج في السيرفر",tmp:null},
 {l:"التفتيح",add:65,total:65,t:"0:00",w:"45 ثانية",n:"صبّ 65g وخلّه يتفتّح",tmp:95},
-{l:"الصبّة 1",add:235,total:300,t:"0:45",w:"تصفية ~2:10",n:"صبّ كل الماء. ينزل على الثلج.",tmp:95}
-]},
-{id:3,ex:"Tetsu Kasuya",exA:"تيتسو كاسويا",m:"4:6 Method",mA:"طريقة 4:6",type:"hot",dose:20,water:300,ice:0,ratio:"1:15",rn:15,temp:92,tn:"92°C (بطولة) / ~93°C (فاتحة)",ode:"5.5–6.5",oMin:5.5,oMax:6.5,time:"~3:30",ts:210,agit:"بدون",st:"موثّقة",diff:"مبتدئ",pop:5,fl:{sw:4,ac:3,bd:3,cl:3},bio:"بطل العالم Brewers Cup 2016 (اليابان). أول صبّتين (40%) = حلاوة/حموضة. آخر 3 (60%) = القوة.",steps:[
+{l:"الصبّة 1",add:235,total:300,t:"0:45",w:"تصفية ~2:10",n:"صبّ كل الماء. ينزل على الثلج.",tmp:95}]},
+{id:3,ex:"Tetsu Kasuya",m:"4:6 Method",mA:"طريقة 4:6",type:"hot",dose:20,water:300,ice:0,ratio:"1:15",rn:15,temp:92,tn:"92°C (بطولة) / ~93°C (فاتحة)",ode:"5.5-6.5",oMin:5.5,oMax:6.5,time:"~3:30",ts:210,agit:"بدون",st:"موثّقة",diff:"مبتدئ",pop:5,fl:{sw:4,ac:3,bd:3,cl:3},bio:"بطل العالم Brewers Cup 2016 (اليابان). أول صبّتين (40%) = حلاوة/حموضة. آخر 3 (60%) = القوة.",steps:[
 {l:"الصبّة 1",add:60,total:60,t:"0:00",w:"انتظر لين ينشف",n:"مبسّطة: 60g متساوية. البطولة: 50g",tmp:92},
 {l:"الصبّة 2",add:60,total:120,t:"~0:45",w:"انتظر لين ينشف",n:"البطولة: 70g",tmp:92},
 {l:"الصبّة 3",add:60,total:180,t:"~1:20",w:"انتظر لين ينشف",n:"",tmp:92},
 {l:"الصبّة 4",add:60,total:240,t:"~2:00",w:"انتظر لين ينشف",n:"",tmp:92},
-{l:"الصبّة 5",add:60,total:300,t:"~2:30",w:"تصفية ~1 دقيقة",n:"",tmp:92}
-]},
-{id:4,ex:"Tetsu Kasuya",exA:"تيتسو كاسويا",m:"Ice Brew",mA:"بروّ الثلج (تجريبية)",type:"iced",dose:50,water:100,ice:500,ratio:"1:12",rn:12,temp:0,tn:"بدون حرارة",ode:"—",oMin:null,oMax:null,time:"4–15 hrs",ts:null,agit:"بدون",st:"موثّقة",diff:"متقدم",pop:2,fl:{sw:5,ac:2,bd:5,cl:2},bio:'تجريبية — «ما تعطي نتائج ثابتة». استخلاص بارد بطيء.',steps:[
+{l:"الصبّة 5",add:60,total:300,t:"~2:30",w:"تصفية ~1 دقيقة",n:"",tmp:92}]},
+{id:4,ex:"Tetsu Kasuya",m:"Ice Brew",mA:"بروّ الثلج (تجريبية)",type:"iced",dose:50,water:100,ice:500,ratio:"1:12",rn:12,temp:0,tn:"بدون حرارة",ode:"—",oMin:null,oMax:null,time:"4-15 hrs",ts:null,agit:"بدون",st:"موثّقة",diff:"متقدم",pop:2,fl:{sw:5,ac:2,bd:5,cl:2},bio:'تجريبية — «ما تعطي نتائج ثابتة». استخلاص بارد بطيء.',steps:[
 {l:"التجهيز",add:0,total:0,t:"—",w:"",n:"50g بن خشن في V60",tmp:null},
 {l:"الثلج",add:500,total:500,t:"0:00",w:"",n:"500g ثلج مباشرة على البن",tmp:0},
-{l:"الماء",add:100,total:600,t:"0:01",w:"4–15 ساعة",n:"100g ماء بارد. خلّ الثلج يذوب.",tmp:0}
-]},
-{id:5,ex:"Scott Rao",exA:"سكوت راو",m:"Two-Pour Method",mA:"طريقة الصبّتين",type:"hot",dose:20,water:330,ice:0,ratio:"~1:16.5",rn:16.5,temp:97,tn:'97°C — «أعلى حرارة ممكنة»',ode:"4–5",oMin:4,oMax:5,time:"4:00–4:30",ts:255,agit:"دوران بعد كل صبّة",st:"موثّقة",diff:"متوسط",pop:4,fl:{sw:3,ac:3,bd:5,cl:4},bio:"مؤلف كتب علم القهوة. يستهدف استخلاص 22–24.5%. ينصح بـV60 بلاستيك.",steps:[
+{l:"الماء",add:100,total:600,t:"0:01",w:"4-15 ساعة",n:"100g ماء بارد. خلّ الثلج يذوب.",tmp:0}]},
+{id:5,ex:"Scott Rao",m:"Two-Pour Method",mA:"طريقة الصبّتين",type:"hot",dose:20,water:330,ice:0,ratio:"~1:16.5",rn:16.5,temp:97,tn:'97°C — «أعلى حرارة ممكنة»',ode:"4-5",oMin:4,oMax:5,time:"4:00-4:30",ts:255,agit:"دوران بعد كل صبّة",st:"موثّقة",diff:"متوسط",pop:4,fl:{sw:3,ac:3,bd:5,cl:4},bio:"مؤلف كتب علم القهوة. يستهدف استخلاص 22-24.5%. ينصح بـV60 بلاستيك.",steps:[
 {l:"التفتيح",add:60,total:60,t:"0:00",w:"40 ثانية",n:"دوران قوي بعد الصب",tmp:97},
 {l:"الصبّة 1",add:140,total:200,t:"0:40",w:"انتظر ~70% ينزل",n:"دوران خفيف",tmp:97},
-{l:"الصبّة 2",add:130,total:330,t:"~1:30",w:"تصفية ~2:30–3:00",n:"دوران خفيف. تصفية كاملة.",tmp:97}
-]},
-{id:6,ex:"Matt Winton",exA:"مات وينتون",m:"Five-Pour Method",mA:"طريقة الخمس صبّات",type:"hot",dose:20,water:300,ice:0,ratio:"1:15",rn:15,temp:93,tn:"93°C تفتيح / ~88°C باقي (كتلتين)",ode:"5–6",oMin:5,oMax:6,time:"~3:30",ts:210,agit:"بدون (ارتفاع الصب)",st:"موثّقة",diff:"متقدم",pop:3,fl:{sw:4,ac:4,bd:3,cl:4},bio:"بطل العالم Brewers Cup 2021. يعتمد ارتفاع الصب بدل التحريك.",steps:[
+{l:"الصبّة 2",add:130,total:330,t:"~1:30",w:"تصفية ~2:30-3:00",n:"دوران خفيف. تصفية كاملة.",tmp:97}]},
+{id:6,ex:"Matt Winton",m:"Five-Pour Method",mA:"طريقة الخمس صبّات",type:"hot",dose:20,water:300,ice:0,ratio:"1:15",rn:15,temp:93,tn:"93°C تفتيح / ~88°C باقي (كتلتين)",ode:"5-6",oMin:5,oMax:6,time:"~3:30",ts:210,agit:"بدون (ارتفاع الصب)",st:"موثّقة",diff:"متقدم",pop:3,fl:{sw:4,ac:4,bd:3,cl:4},bio:"بطل العالم Brewers Cup 2021. يعتمد ارتفاع الصب بدل التحريك.",steps:[
 {l:"الصبّة 1",add:60,total:60,t:"0:00",w:"لين يقارب ينشف",n:"93°C. صبّ من ارتفاع.",tmp:93},
 {l:"الصبّة 2",add:60,total:120,t:"~0:40",w:"لين يقارب ينشف",n:"غيّر لـ~88°C",tmp:88},
 {l:"الصبّة 3",add:60,total:180,t:"~1:15",w:"لين يقارب ينشف",n:"",tmp:88},
 {l:"الصبّة 4",add:60,total:240,t:"~1:50",w:"لين يقارب ينشف",n:"",tmp:88},
-{l:"الصبّة 5",add:60,total:300,t:"~2:25",w:"تصفية ~1 دقيقة",n:"",tmp:88}
-]},
-{id:7,ex:"Emi Fukahori",exA:"إيمي فوكاهوري",m:"Hybrid Immersion (GINA)",mA:"الطريقة الهجينة",type:"hot",dose:17,water:220,ice:0,ratio:"~1:12.9",rn:12.9,temp:80,tn:"80°C غمر / 95°C تقطير",ode:"—",oMin:null,oMax:null,time:"~2:55",ts:175,agit:"",st:"موثّقة",diff:"متقدم",pop:3,fl:{sw:5,ac:2,bd:4,cl:3},bio:"بطلة العالم Brewers Cup 2018. أول امرأة تفوز. GINA by Goat Story.",steps:[
+{l:"الصبّة 5",add:60,total:300,t:"~2:25",w:"تصفية ~1 دقيقة",n:"",tmp:88}]},
+{id:7,ex:"Emi Fukahori",m:"Hybrid Immersion (GINA)",mA:"الطريقة الهجينة",type:"hot",dose:17,water:220,ice:0,ratio:"~1:12.9",rn:12.9,temp:80,tn:"80°C غمر / 95°C تقطير",ode:"—",oMin:null,oMax:null,time:"~2:55",ts:175,agit:"",st:"موثّقة",diff:"متقدم",pop:3,fl:{sw:5,ac:2,bd:4,cl:3},bio:"بطلة العالم Brewers Cup 2018. أول امرأة تفوز. GINA by Goat Story.",steps:[
 {l:"المرحلة 1",add:50,total:50,t:"0:00",w:"غمر 45 ثانية",n:"الصمّام مقفل. 80°C.",tmp:80},
 {l:"المرحلة 2",add:100,total:150,t:"0:45",w:"تقطير 60 ثانية",n:"الصمّام مفتوح. 95°C.",tmp:95},
 {l:"المرحلة 3",add:70,total:220,t:"1:45",w:"غمر 45 ثانية",n:"الصمّام مقفل. 80°C.",tmp:80},
-{l:"التصفية",add:0,total:220,t:"2:30",w:"25 ثانية",n:"الصمّام مفتوح.",tmp:null}
-]},
-{id:8,ex:"Patrik Rolf",exA:"باتريك رولف",m:"April Coffee V60",mA:"طريقة April Coffee",type:"hot",dose:20,water:300,ice:0,ratio:"1:15",rn:15,temp:92,tn:"92°C",ode:"5.5–6.5",oMin:5.5,oMax:6.5,time:"~3:20",ts:205,agit:"صبّ دائري قوي",st:"موثّقة",diff:"متوسط",pop:3,fl:{sw:3,ac:4,bd:3,cl:5},bio:"مؤسس April Coffee كوبنهاغن. فضية Brewers Cup 2019.",steps:[
+{l:"التصفية",add:0,total:220,t:"2:30",w:"25 ثانية",n:"الصمّام مفتوح.",tmp:null}]},
+{id:8,ex:"Patrik Rolf",m:"April Coffee V60",mA:"طريقة April Coffee",type:"hot",dose:20,water:300,ice:0,ratio:"1:15",rn:15,temp:92,tn:"92°C",ode:"5.5-6.5",oMin:5.5,oMax:6.5,time:"~3:20",ts:205,agit:"صبّ دائري قوي",st:"موثّقة",diff:"متوسط",pop:3,fl:{sw:3,ac:4,bd:3,cl:5},bio:"مؤسس April Coffee كوبنهاغن. فضية Brewers Cup 2019.",steps:[
 {l:"الصبّة 1",add:50,total:50,t:"0:00",w:"40 ثانية",n:"صبّ دائري قوي",tmp:92},
 {l:"الصبّة 2",add:50,total:100,t:"0:40",w:"30 ثانية",n:"",tmp:92},
 {l:"الصبّة 3",add:50,total:150,t:"1:10",w:"30 ثانية",n:"",tmp:92},
 {l:"الصبّة 4",add:50,total:200,t:"1:40",w:"30 ثانية",n:"",tmp:92},
 {l:"الصبّة 5",add:50,total:250,t:"2:10",w:"30 ثانية",n:"",tmp:92},
-{l:"الصبّة 6",add:50,total:300,t:"2:40",w:"تصفية ~50 ثانية",n:"",tmp:92}
-]},
-{id:9,ex:"Lance Hedrick",exA:"لانس هيدريك",m:"Versatile V60",mA:"الوصفة المرنة",type:"hot",dose:20,water:340,ice:0,ratio:"1:17",rn:17,temp:100,tn:"100°C (غليان)",ode:"4–5",oMin:4,oMax:5,time:"~3:00",ts:180,agit:"دوران بعد كل صبّة",st:"موثّقة",diff:"مبتدئ",pop:4,fl:{sw:3,ac:3,bd:3,cl:4},bio:"يوتيوبر ومثقّف قهوة. ساهم بتصميم Fellow Ode Gen 2.",steps:[
+{l:"الصبّة 6",add:50,total:300,t:"2:40",w:"تصفية ~50 ثانية",n:"",tmp:92}]},
+{id:9,ex:"Lance Hedrick",m:"Versatile V60",mA:"الوصفة المرنة",type:"hot",dose:20,water:340,ice:0,ratio:"1:17",rn:17,temp:100,tn:"100°C (غليان)",ode:"4-5",oMin:4,oMax:5,time:"~3:00",ts:180,agit:"دوران بعد كل صبّة",st:"موثّقة",diff:"مبتدئ",pop:4,fl:{sw:3,ac:3,bd:3,cl:4},bio:"يوتيوبر ومثقّف قهوة. ساهم بتصميم Fellow Ode Gen 2.",steps:[
 {l:"الصبّة 1",add:50,total:50,t:"0:00",w:"30 ثانية",n:"دوران",tmp:100},
 {l:"الصبّة 2",add:50,total:100,t:"0:30",w:"30 ثانية",n:"دوران",tmp:100},
 {l:"الصبّة 3",add:120,total:220,t:"1:00",w:"30 ثانية",n:"دوران",tmp:100},
-{l:"الصبّة 4",add:120,total:340,t:"1:30",w:"تصفية ~1–2 دقيقة",n:"دوران",tmp:100}
-]},
-{id:10,ex:"Lance Hedrick",exA:"لانس هيدريك",m:"Ultimate Flash Brew",mA:"فلاش برو مثلّج",type:"iced",dose:20,water:240,ice:60,ratio:"~1:15",rn:15,temp:97,tn:"93–100°C",ode:"—",oMin:null,oMax:null,time:"~2:45",ts:178,agit:"خفيف",st:"موثّقة",diff:"متوسط",pop:3,fl:{sw:3,ac:4,bd:3,cl:5},bio:"نسبة ماء:ثلج 8:2. الثلج يُحرّك بالقهوة بعد التحضير.",steps:[
+{l:"الصبّة 4",add:120,total:340,t:"1:30",w:"تصفية ~1-2 دقيقة",n:"دوران",tmp:100}]},
+{id:10,ex:"Lance Hedrick",m:"Ultimate Flash Brew",mA:"فلاش برو مثلّج",type:"iced",dose:20,water:240,ice:60,ratio:"~1:15",rn:15,temp:97,tn:"93-100°C",ode:"—",oMin:null,oMax:null,time:"~2:45",ts:178,agit:"خفيف",st:"موثّقة",diff:"متوسط",pop:3,fl:{sw:3,ac:4,bd:3,cl:5},bio:"نسبة ماء:ثلج 8:2. الثلج يُحرّك بالقهوة بعد التحضير.",steps:[
 {l:"التفتيح",add:60,total:60,t:"0:00",w:"60 ثانية",n:"دقيقة كاملة تفتيح",tmp:97},
 {l:"الصبّة 1",add:90,total:150,t:"1:00",w:"45 ثانية",n:"",tmp:97},
 {l:"الصبّة 2",add:90,total:240,t:"1:45",w:"تصفية ~1 دقيقة",n:"",tmp:97},
-{l:"التبريد",add:0,total:240,t:"~2:45",w:"",n:"حرّك 60g ثلج بالقهوة لين 5–15°C. قدّم على ثلج جديد.",tmp:null}
-]},
-{id:11,ex:"Jonathan Gagné",exA:"جوناثان غانييه",m:"V60 Recipe",mA:"وصفة V60",type:"hot",dose:22,water:374,ice:0,ratio:"1:17",rn:17,temp:100,tn:"100°C (غليان)",ode:"4–5",oMin:4,oMax:5,time:"~4:03",ts:243,agit:"دوران بعد كل صبّة",st:"موثّقة",diff:"متوسط",pop:3,fl:{sw:3,ac:3,bd:4,cl:5},bio:'عالم فيزياء فلكية. مؤلف «The Physics of Filter Coffee». متأثر بـScott Rao.',steps:[
-{l:"التفتيح",add:77,total:77,t:"0:00",w:"~40 ثانية",n:"3.5× الجرعة",tmp:100},
+{l:"التبريد",add:0,total:240,t:"~2:45",w:"",n:"حرّك 60g ثلج بالقهوة لين 5-15°C. قدّم على ثلج جديد.",tmp:null}]},
+{id:11,ex:"Jonathan Gagné",m:"V60 Recipe",mA:"وصفة V60",type:"hot",dose:22,water:374,ice:0,ratio:"1:17",rn:17,temp:100,tn:"100°C (غليان)",ode:"4-5",oMin:4,oMax:5,time:"~4:03",ts:243,agit:"دوران بعد كل صبّة",st:"موثّقة",diff:"متوسط",pop:3,fl:{sw:3,ac:3,bd:4,cl:5},bio:'عالم فيزياء فلكية. مؤلف «The Physics of Filter Coffee». متأثر بـScott Rao.',steps:[
+{l:"التفتيح",add:77,total:77,t:"0:00",w:"~40 ثانية",n:"3.5x الجرعة",tmp:100},
 {l:"الصبّة 1",add:123,total:200,t:"~0:40",w:"لين ينزل أغلبه",n:"دوران",tmp:100},
-{l:"الصبّة 2",add:174,total:374,t:"~1:40",w:"تصفية ~2:20",n:"دوران",tmp:100}
-]},
-{id:12,ex:"Tim Wendelboe",exA:"تيم ويندلبو",m:"Staged Pour",mA:"الصبّ المرحلي",type:"hot",dose:32.5,water:500,ice:0,ratio:"1:15.4",rn:15.4,temp:98,tn:"~98°C (تقدير المجتمع)",ode:"3.5–5",oMin:3.5,oMax:5,time:"~3:15",ts:195,agit:"تحريك بالتفتيح",st:"جزئية",diff:"مبتدئ",pop:3,fl:{sw:4,ac:3,bd:4,cl:3},bio:"بطل العالم باريستا 2004. محمصة ومقهى في أوسلو.",steps:[
+{l:"الصبّة 2",add:174,total:374,t:"~1:40",w:"تصفية ~2:20",n:"دوران",tmp:100}]},
+{id:12,ex:"Tim Wendelboe",m:"Staged Pour",mA:"الصبّ المرحلي",type:"hot",dose:32.5,water:500,ice:0,ratio:"1:15.4",rn:15.4,temp:98,tn:"~98°C (تقدير المجتمع)",ode:"3.5-5",oMin:3.5,oMax:5,time:"~3:15",ts:195,agit:"تحريك بالتفتيح",st:"جزئية",diff:"مبتدئ",pop:3,fl:{sw:4,ac:3,bd:4,cl:3},bio:"بطل العالم باريستا 2004. محمصة ومقهى في أوسلو.",steps:[
 {l:"التفتيح",add:60,total:60,t:"0:00",w:"30 ثانية",n:"حرّك بالملعقة",tmp:98},
 {l:"الصبّة 1",add:140,total:200,t:"0:30",w:"لين ينزل أغلبه",n:"",tmp:98},
-{l:"الصبّة 2",add:300,total:500,t:"~1:15",w:"تصفية ~2:00",n:"صبّ دائري مستمر",tmp:98}
-]},
-{id:13,ex:"Ben Put",exA:"بن بوت",m:"Monogram Coffee V60",mA:"وصفة Monogram Coffee",type:"hot",dose:21,water:340,ice:0,ratio:"1:16",rn:16,temp:93,tn:"93°C (200°F)",ode:"4.5–5.5",oMin:4.5,oMax:5.5,time:"~2:45",ts:165,agit:"",st:"موثّقة",diff:"مبتدئ",pop:3,fl:{sw:4,ac:3,bd:3,cl:4},bio:"بطل كندا باريستا 7 مرات. مؤسس Monogram Coffee.",steps:[
+{l:"الصبّة 2",add:300,total:500,t:"~1:15",w:"تصفية ~2:00",n:"صبّ دائري مستمر",tmp:98}]},
+{id:13,ex:"Ben Put",m:"Monogram Coffee V60",mA:"وصفة Monogram Coffee",type:"hot",dose:21,water:340,ice:0,ratio:"1:16",rn:16,temp:93,tn:"93°C (200°F)",ode:"4.5-5.5",oMin:4.5,oMax:5.5,time:"~2:45",ts:165,agit:"",st:"موثّقة",diff:"مبتدئ",pop:3,fl:{sw:4,ac:3,bd:3,cl:4},bio:"بطل كندا باريستا 7 مرات. مؤسس Monogram Coffee.",steps:[
 {l:"التفتيح",add:50,total:50,t:"0:00",w:"30 ثانية",n:"",tmp:93},
 {l:"الصبّة 1",add:200,total:250,t:"0:30",w:"لين ينزل أغلبه",n:"",tmp:93},
-{l:"الصبّة 2",add:90,total:340,t:"~1:15",w:"تصفية ~1:15–1:45",n:"",tmp:93}
-]}
+{l:"الصبّة 2",add:90,total:340,t:"~1:15",w:"تصفية ~1:15-1:45",n:"",tmp:93}]}
+];
+
+// LEARN DATA
+const ORIGINS=[
+{flag:"\u{1F1EA}\u{1F1F9}",name:"Ethiopia",nameA:"اثيوبيا",flavors:["Fruity","Floral","Berry"],body:"Light-Medium",acid:"Bright",tip:"94-96\u00B0C, 45s bloom"},
+{flag:"\u{1F1E8}\u{1F1F4}",name:"Colombia",nameA:"كولومبيا",flavors:["Caramel","Nutty","Balanced"],body:"Medium-Full",acid:"Balanced",tip:"1:16 at 93\u00B0C"},
+{flag:"\u{1F1E7}\u{1F1F7}",name:"Brazil",nameA:"البرازيل",flavors:["Chocolate","Nutty","Low acid"],body:"Medium-Full",acid:"Low",tip:"90-92\u00B0C"},
+{flag:"\u{1F1F0}\u{1F1EA}",name:"Kenya",nameA:"كينيا",flavors:["Bright","Berry","Citrus"],body:"Medium-Full juicy",acid:"High",tip:"94-96\u00B0C, finer grind"},
+{flag:"\u{1F1EC}\u{1F1F9}",name:"Guatemala",nameA:"غواتيمالا",flavors:["Chocolate","Spice","Full body"],body:"Full",acid:"Medium",tip:"92-94\u00B0C, coarser"},
+{flag:"\u{1F1E8}\u{1F1F7}",name:"Costa Rica",nameA:"كوستا ريكا",flavors:["Honey","Citrus","Clean"],body:"Light-Medium",acid:"Bright",tip:"1:16 at 93\u00B0C"},
+{flag:"\u{1F1EE}\u{1F1E9}",name:"Indonesia",nameA:"اندونيسيا",flavors:["Earthy","Herbal","Full body"],body:"Heavy",acid:"Low",tip:"88-91\u00B0C, coarser"},
+{flag:"\u{1F1FE}\u{1F1EA}",name:"Yemen",nameA:"اليمن",flavors:["Wine","Chocolate","Complex"],body:"Medium-Full",acid:"Medium winey",tip:"93\u00B0C, 1:15"},
+{flag:"\u{1F1F5}\u{1F1E6}",name:"Panama",nameA:"بنما",flavors:["Jasmine","Bergamot","Tea-like"],body:"Light silky",acid:"Bright",tip:"92-94\u00B0C, gentle pours"},
+{flag:"\u{1F1F7}\u{1F1FC}",name:"Rwanda",nameA:"رواندا",flavors:["Citrus","Floral","Juicy"],body:"Medium silky",acid:"Bright",tip:"93-95\u00B0C, 1:16"}
+];
+
+const GLOSSARY=[
+{en:"Bloom",ar:"التفتيح",def:"ترطيب البن مبدئيا عشان يطلع غاز CO2 المحبوس"},
+{en:"Drawdown",ar:"التصفية",def:"مرحلة التصفية الأخيرة — الماء ينزل بالجاذبية"},
+{en:"Agitation",ar:"التحريك",def:"تحريك/دوران القهوة عشان تزيد الاستخلاص"},
+{en:"Channeling",ar:"المسارات",def:"الماء يلاقي مسارات سهلة ويتجاوز جزء من البن"},
+{en:"TDS",ar:"TDS",def:"Total Dissolved Solids — مقياس قوة القهوة بالنسبة المئوية"},
+{en:"Extraction",ar:"الاستخلاص",def:"إذابة مركبات النكهة من البن المطحون"},
+{en:"Bypass",ar:"التخفيف",def:"ماء يمر بدون ما يستخلص — يخفف القهوة"},
+{en:"Ratio",ar:"النسبة",def:"نسبة وزن البن للماء — مثال 1:16 يعني 1g بن لكل 16g ماء"},
+{en:"Grind Size",ar:"حجم الطحنة",def:"حجم حبيبات البن المطحون — يأثر على سرعة الاستخلاص"},
+{en:"Pour Rate",ar:"سرعة الصب",def:"سرعة إضافة الماء — تأثر على التحريك والاستخلاص"},
+{en:"Dialing In",ar:"الضبط",def:"تعديل المتغيرات (طحنة، حرارة، وقت) لين توصل للطعم المطلوب"},
+{en:"Body",ar:"القوام",def:"إحساس الثقل والكثافة في الفم — خفيف مثل الشاي أو ثقيل كريمي"},
+{en:"Acidity",ar:"الحموضة",def:"النكهة المنعشة الحيوية — مو حموضة المعدة"},
+{en:"Mouthfeel",ar:"الإحساس",def:"الإحساس الفيزيائي بالقهوة في الفم"},
+{en:"Finish",ar:"النهاية",def:"الطعم اللي يبقى بعد ما تبلع القهوة"},
+{en:"First Crack",ar:"الفرقعة الأولى",def:"صوت فرقعة أثناء التحميص عند ~196°C — بداية التحميص الفاتح"},
+{en:"Degassing",ar:"التنفيس",def:"خروج غاز CO2 من البن بعد التحميص — أفضل فترة 7-30 يوم"},
+{en:"Washed",ar:"مغسول",def:"معالجة يتم فيها إزالة الفاكهة قبل التجفيف — نكهة نظيفة"},
+{en:"Natural",ar:"طبيعي",def:"معالجة يجفف فيها البن داخل الكرزة — نكهة فاكهية أقوى"},
+{en:"Specialty Coffee",ar:"القهوة المختصة",def:"بن حاصل على 80+ نقطة من SCA — أعلى جودة"}
+];
+
+const FIXES=[
+{icon:"\u{1F34B}",name:"حامضة",nameEn:"Sour",cause:"استخلاص ناقص (Under-extraction) — الماء ما استخلص نكهات كافية من البن",fixes:["اطحن أنعم — أهم خطوة","ارفع حرارة الماء (93-96\u00B0C)","طوّل وقت التحضير","زد التحريك (دوران/تقليب)"],pro:"جرّب تعدّل الطحنة أول شي — غالبا هي السبب الأول"},
+{icon:"\u{1F616}",name:"مرّة",nameEn:"Bitter",cause:"استخلاص زايد (Over-extraction) — الماء استخلص مركبات مرّة زيادة",fixes:["اطحن أخشن — أهم خطوة","نزّل حرارة الماء (90-93\u00B0C)","قصّر وقت التحضير","قلّل التحريك"],pro:"المرارة الخفيفة طبيعية — المشكلة لو كانت قاسية أو جافة"},
+{icon:"\u{1F4A7}",name:"خفيفة/مائية",nameEn:"Watery",cause:"TDS منخفض — القهوة ضعيفة ومخففة",fixes:["زد كمية البن","اطحن أنعم","قلّل النسبة (مثلا 1:15 بدل 1:17)"],pro:"لو تحب قهوة خفيفة بس بنكهة، جرّب نسبة 1:17 مع طحنة أنعم"},
+{icon:"\u{1F4AA}",name:"قوية مرة",nameEn:"Too strong",cause:"TDS عالي — كثافة القهوة عالية زيادة",fixes:["قلّل كمية البن","زد كمية الماء","ارفع النسبة (مثلا 1:17 بدل 1:15)"],pro:"القوة غير الاستخلاص — ممكن تكون قوية وحلوة بنفس الوقت"},
+{icon:"\u{1F6AB}",name:"بدون حلاوة",nameEn:"No sweetness",cause:"الاستخلاص ما وصل للمنطقة الحلوة (sweet spot)",fixes:["جرّب نسبة 1:16","عدّل الطحنة لين تحس بالحلاوة","استخدم حرارة 93-96\u00B0C","تأكد البن طازج (7-21 يوم)"],pro:"الحلاوة تجي بعد الحموضة وقبل المرارة — اضبط الاستخلاص بالضبط"},
+{icon:"\u{1FAE0}",name:"قابضة",nameEn:"Astringent",cause:"استخلاص التانينات — إحساس جفاف بالفم مثل الشاي القوي",fixes:["اطحن أخشن","نزّل حرارة الماء","اشطف الفلتر كويس","قلّل وقت الغمر"],pro:"القبض يختلف عن المرارة — القبض إحساس فيزيائي بالجفاف"},
+{icon:"\u{1F573}",name:"فاضية",nameEn:"Hollow",cause:"استخلاص زايد مع تخفيف — النكهة ضعيفة ومسطحة",fixes:["زد كمية البن","اطحن أخشن شوي","قلّل كمية الماء"],pro:"الفراغ يعني استخلصت كثير بس خففت — وازن بين الاثنين"},
+{icon:"\u{1F9C2}",name:"مالحة",nameEn:"Salty",cause:"استخلاص ناقص شديد — ملوحة من الأملاح المعدنية",fixes:["اطحن أنعم بشكل كبير","ارفع الحرارة لـ96\u00B0C+","طوّل التفتيح","تأكد الماء مناسب (TDS 50-150)"],pro:"الملوحة بالقهوة نادرة — لو موجودة يعني الاستخلاص ناقص جدا"},
+{icon:"\u{1F33F}",name:"عشبية",nameEn:"Grassy",cause:"استخلاص ناقص أو تحميص ناقص (underdeveloped)",fixes:["اطحن أنعم","ارفع الحرارة","تأكد من جودة التحميص","جرّب بن من محمصة ثانية"],pro:"النكهة العشبية أحيانا من التحميص مو من التحضير — جرّب بن ثاني"},
+{icon:"\u{1F525}",name:"محروقة",nameEn:"Burnt",cause:"تحميص غامق + حرارة ماء عالية = مركبات محروقة",fixes:["نزّل الحرارة لـ88\u00B0C","اطحن أخشن","قصّر الوقت","استخدم بن بتحميص أفتح"],pro:"البن الغامق يحتاج معاملة ألطف — حرارة أقل ووقت أقصر"}
+];
+
+const BEDS=[
+{icon:"\u2705",txt:"<b>سطح مستوي</b> = استخلاص متساوي — هذا اللي تبيه!"},
+{icon:"\u274C",txt:"<b>حفرة بالوسط</b> = channeling — الماء يمر من الوسط بس. الحل: صب على كل السطح"},
+{icon:"\u274C",txt:"<b>بن عالي على الجوانب</b> = صب على الجوانب. الحل: ركّز الصب بالوسط"},
+{icon:"\u274C",txt:"<b>سطح طيني</b> = طحنة ناعمة زيادة. الحل: اطحن أخشن"},
+{icon:"\u274C",txt:"<b>نزل سريع جدا (أقل من 2 دقيقة)</b> = طحنة خشنة زيادة. الحل: اطحن أنعم"}
+];
+
+const TIPS=[
+"ما تشطف الفلتر — الشطف يزيل طعم الورق ويسخّن الأداة",
+"تستخدم بن مطحون جاهز — اطحن طازج دايم، الفرق واضح جدا",
+"ما تستخدم ميزان — بدون ميزان مستحيل تضبط النتيجة",
+"حرارة الماء منخفضة — لازم 90\u00B0C على الأقل للقهوة الفاتحة",
+"تصبّ على الجوانب — خلّ الماء على البن مو الفلتر",
+"بن قديم — استخدم بن 7-30 يوم من التحميص",
+"تتجاهل وقت التحضير — الوقت مؤشر مهم على صحة الاستخلاص",
+"ما تسوي تفتيح — التفتيح يطلع الغاز ويسوّي استخلاص متساوي",
+"تحريك زيادة — التحريك الزيادة يسبب استخلاص زايد ومرارة",
+"حجم الفلتر غلط — 01 لكوب واحد، 02 لـ1-4 أكواب"
 ];
 
 // STATE
 let favs=JSON.parse(localStorage.getItem('v60f')||'[]');
-let aT='',curS='home';
+let brewLog=JSON.parse(localStorage.getItem('v60log')||'[]');
+let aT='',curS='home',curSub='fav',learnSub='origins';
+let curCups=1,curScale=1,curRecipeId=null;
+let brewRating=0,brewRecipeForLog=null;
+let wakeLockObj=null,audioCtx=null;
 const $=id=>document.getElementById(id);
 
 // NAV
-document.querySelectorAll('.nb').forEach(b=>b.onclick=()=>{showS(b.dataset.s);if(b.dataset.s==='favs')rFav()});
-function showS(id){curS=id;document.querySelectorAll('.scr').forEach(s=>s.classList.toggle('on',s.id===id));document.querySelectorAll('.nb').forEach(b=>b.classList.toggle('on',b.dataset.s===id));scrollTo(0,0)}
+document.querySelectorAll('.nb').forEach(b=>b.onclick=()=>{
+showS(b.dataset.s);
+if(b.dataset.s==='mybrews')renderMyBrews();
+if(b.dataset.s==='learn')renderLearn();
+if(b.dataset.s==='fix')renderFix();
+});
+
+function showS(id){
+curS=id;
+document.querySelectorAll('.scr').forEach(s=>s.classList.toggle('on',s.id===id));
+document.querySelectorAll('.nb').forEach(b=>b.classList.toggle('on',b.dataset.s===id));
+if(id!=='detail')scrollTo(0,0);
+}
 
 // THEME
-$('thB').onclick=()=>{const d=document.body.dataset.theme==='dark'?'':'dark';document.body.dataset.theme=d;localStorage.setItem('v60t',d)};
-if(localStorage.getItem('v60t')==='dark')document.body.dataset.theme='dark';
+$('thB').onclick=()=>{const d=document.body.dataset.theme==='dark'?'':'dark';document.body.dataset.theme=d;localStorage.setItem('v60t',d);$('thB').innerHTML=d?'&#9788;':'&#9789;'};
+if(localStorage.getItem('v60t')==='dark'){document.body.dataset.theme='dark';$('thB').innerHTML='&#9788;'}
 
-// FILTERS
+// HOME FILTERS
 document.querySelectorAll('#tF .ch').forEach(c=>c.onclick=()=>{document.querySelectorAll('#tF .ch').forEach(x=>x.classList.remove('on'));c.classList.add('on');aT=c.dataset.v;render()});
 $('fE').onchange=$('fR').onchange=$('fS').onchange=render;
 const exps=[...new Set(D.map(r=>r.ex))];
 exps.forEach(e=>{const o=document.createElement('option');o.value=e;o.textContent=e;$('fE').appendChild(o)});
 
-function cups(r){const liq=(r.water+(r.ice||0))*.94;return Math.round(liq/120*10)/10}
+function cups(r){return Math.round((r.water+(r.ice||0))*.94/120*10)/10}
 function yieldML(r){return Math.round((r.water+(r.ice||0))*.94)}
 
 function getF(){
@@ -423,158 +635,357 @@ else res.sort((a,b)=>b.pop-a.pop);
 return res;
 }
 
-function flB(v,mx,c){return`<div class="fl-m"><div class="fl-m-bar"><div class="fl-m-fill" style="width:${v/mx*100}%;background:${c}"></div></div></div>`}
-function mtl(r){const ps=r.steps.filter(s=>s.add>0);if(!ps.length)return'';let h='<div class="mtl">';ps.forEach((s,i)=>{if(i)h+='<div class="mt-l"></div>';h+=`<div class="mt-s"><span class="mt-w">${s.total}g</span><div class="mt-d"></div><span class="mt-t">${s.t}</span></div>`});return h+'</div>'}
-function starsHTML(p){return'&#9733;'.repeat(p)+'&#9734;'.repeat(5-p)}
+function flB(v,mx,c){return'<div class="fl-m"><div class="fl-m-bar"><div class="fl-m-fill" style="width:'+v/mx*100+'%;background:'+c+'"></div></div></div>'}
+function mtl(r){const ps=r.steps.filter(s=>s.add>0);if(!ps.length)return'';let h='<div class="mtl">';ps.forEach((s,i)=>{if(i)h+='<div class="mt-l"></div>';h+='<div class="mt-s"><span class="mt-w">'+s.total+'g</span><div class="mt-d"></div><span class="mt-t">'+s.t+'</span></div>'});return h+'</div>'}
+function starsHTML(p){return'\u2605'.repeat(p)+'\u2606'.repeat(5-p)}
 
 function cardH(r){
 const f=r.fl,pc=r.steps.filter(s=>s.add>0).length,iF=favs.includes(r.id);
 const ym=yieldML(r),yc=cups(r);
-return`
-<div class="cd ${r.type==='iced'?'ic':'ht'}" data-id="${r.id}">
-<div class="cd-r1">
-<div><div class="cd-name"><span class="en">${r.ex}</span></div><div class="cd-meth">${r.mA}</div></div>
-<div class="bgs">
-<span class="bg ${r.type==='iced'?'b-iced':'b-hot'}">${r.type==='iced'?'مثلّج':'حار'}</span>
-<span class="bg" style="background:var(--bg2);color:var(--t2)">${r.diff}</span>
-</div></div>
-<div class="rating"><span class="stars">${starsHTML(r.pop)}</span><span class="rating-txt">شعبية المجتمع</span></div>
-<div class="fl-mini">
-${flB(f.sw,5,'#e74c3c')}<span class="fl-m-l">حلاوة</span>
-${flB(f.ac,5,'#f1c40f')}<span class="fl-m-l">حموضة</span>
-${flB(f.bd,5,'#8b4513')}<span class="fl-m-l">قوام</span>
-${flB(f.cl,5,'#3498db')}<span class="fl-m-l">صفاء</span>
-</div>
-<div class="cd-stats">
-<div class="cs"><b>${r.dose}g</b><span>البن</span></div>
-<div class="cs"><b><span class="en">${r.ratio}</span></b><span>النسبة</span></div>
-<div class="cs"><b>${r.temp||'—'}°</b><span>الحرارة</span></div>
-<div class="cs"><b><span class="en">${r.time}</span></b><span>الوقت</span></div>
-</div>
-<div class="yield">
-<div class="yield-cup">&#9749;</div>
-<div class="yield-info"><b>~${ym}ml ≈ ${yc>=2?Math.round(yc):yc} كوب</b><span>${r.dose}g بن → ${r.water}g ماء${r.ice?' + '+r.ice+'g ثلج':''} → ${ym}ml قهوة جاهزة</span></div>
-</div>
-${mtl(r)}
-<div class="cd-bot">
-<span class="cd-meta">${pc} صبّة · <span class="en">Ode ${r.ode}</span></span>
-<div class="cd-acts">
-<button class="fb ${iF?'on':''}" onclick="event.stopPropagation();tFav(${r.id})">${iF?'&#10084;':'&#9825;'}</button>
-<button class="bb" onclick="event.stopPropagation();startB(${r.id})">&#9749; حضّر</button>
-</div></div></div>`}
+return'<div class="cd '+(r.type==='iced'?'ic':'ht')+'" data-id="'+r.id+'">'+
+'<div class="cd-r1"><div><div class="cd-name"><span class="en">'+r.ex+'</span></div><div class="cd-meth">'+r.mA+'</div></div>'+
+'<div class="bgs"><span class="bg '+(r.type==='iced'?'b-iced':'b-hot')+'">'+(r.type==='iced'?'مثلّج':'حار')+'</span>'+
+'<span class="bg" style="background:var(--bg2);color:var(--t2)">'+r.diff+'</span></div></div>'+
+'<div class="rating"><span class="stars">'+starsHTML(r.pop)+'</span><span class="rating-txt">شعبية المجتمع</span></div>'+
+'<div class="fl-mini">'+
+flB(f.sw,5,'#e74c3c')+'<span class="fl-m-l">حلاوة</span>'+
+flB(f.ac,5,'#f1c40f')+'<span class="fl-m-l">حموضة</span>'+
+flB(f.bd,5,'#8b4513')+'<span class="fl-m-l">قوام</span>'+
+flB(f.cl,5,'#3498db')+'<span class="fl-m-l">صفاء</span></div>'+
+'<div class="cd-stats">'+
+'<div class="cs"><b><span class="en">'+r.dose+'g</span></b><span>البن</span></div>'+
+'<div class="cs"><b><span class="en">'+r.ratio+'</span></b><span>النسبة</span></div>'+
+'<div class="cs"><b><span class="en">'+(r.temp||'\u2014')+'\u00B0</span></b><span>الحرارة</span></div>'+
+'<div class="cs"><b><span class="en">'+r.time+'</span></b><span>الوقت</span></div></div>'+
+'<div class="yield"><div class="yield-cup">\u2615</div>'+
+'<div class="yield-info"><b><span class="en">~'+ym+'ml</span> \u2248 '+(yc>=2?Math.round(yc):yc)+' كوب</b>'+
+'<span><span class="en">'+r.dose+'g</span> بن \u2192 <span class="en">'+r.water+'g</span> ماء'+(r.ice?' + <span class="en">'+r.ice+'g</span> ثلج':'')+' \u2192 <span class="en">'+ym+'ml</span> قهوة</span></div></div>'+
+mtl(r)+
+'<div class="cd-bot"><span class="cd-meta"><span class="en">'+pc+'</span> صبّة \u00B7 <span class="en">Ode '+r.ode+'</span></span>'+
+'<div class="cd-acts"><button class="fb '+(iF?'on':'')+'" onclick="event.stopPropagation();tFav('+r.id+')">'+(iF?'\u2764':'\u2661')+'</button>'+
+'<button class="bb" onclick="event.stopPropagation();openD('+r.id+')">\u2615 حضّر</button></div></div></div>'}
 
-function render(){const f=getF();const g=$('grid');$('rc').textContent=f.length+' وصفة';
-if(!f.length){g.innerHTML='<div class="empty"><b>&#9749;</b><h3>ما لقينا وصفات</h3><p>عدّل الفلاتر</p></div>';return}
+function render(){
+const f=getF();const g=$('grid');
+$('rc').textContent=f.length+' وصفة';
+if(!f.length){g.innerHTML='<div class="empty"><b>\u2615</b><h3>ما لقينا وصفات</h3><p>عدّل الفلاتر</p></div>';return}
 g.innerHTML=f.map(cardH).join('');
-g.querySelectorAll('.cd').forEach(c=>c.onclick=()=>openD(+c.dataset.id))}
+g.querySelectorAll('.cd').forEach(c=>c.onclick=()=>openD(+c.dataset.id));
+}
 
 // FAVS
-function tFav(id){if(favs.includes(id))favs=favs.filter(x=>x!==id);else favs.push(id);localStorage.setItem('v60f',JSON.stringify(favs));render();if(curS==='favs')rFav()}
-function rFav(){const g=$('fG'),fr=D.filter(r=>favs.includes(r.id));
-if(!fr.length){g.innerHTML='<div class="empty"><b>&#9825;</b><h3>ما عندك مفضلات</h3><p>اضغط القلب &#9825; على أي وصفة</p></div>';return}
-g.innerHTML=fr.map(cardH).join('');g.querySelectorAll('.cd').forEach(c=>c.onclick=()=>openD(+c.dataset.id))}
+function tFav(id){if(favs.includes(id))favs=favs.filter(x=>x!==id);else favs.push(id);localStorage.setItem('v60f',JSON.stringify(favs));render();if(curS==='mybrews')renderMyBrews()}
+
+// MY BREWS
+document.querySelectorAll('.stab').forEach(t=>t.onclick=()=>{
+document.querySelectorAll('.stab').forEach(x=>x.classList.remove('on'));t.classList.add('on');curSub=t.dataset.sub;renderMyBrews()});
+
+function renderMyBrews(){
+const c=$('myContent');
+if(curSub==='fav'){
+const fr=D.filter(r=>favs.includes(r.id));
+if(!fr.length){c.innerHTML='<div class="empty"><b>\u2661</b><h3>ما عندك مفضلات</h3><p>اضغط القلب \u2661 على أي وصفة</p></div>';return}
+c.innerHTML='<div class="cg">'+fr.map(cardH).join('')+'</div>';
+c.querySelectorAll('.cd').forEach(cd=>cd.onclick=()=>openD(+cd.dataset.id));
+} else {
+if(!brewLog.length){c.innerHTML='<div class="empty"><b>\u{1F4CB}</b><h3>ما عندك تحضيرات</h3><p>حضّر وصفة وقيّمها عشان تنحفظ هنا</p></div>';return}
+c.innerHTML=brewLog.slice().reverse().map((e,i)=>{
+const ri=brewLog.length-1-i;
+return'<div class="log-entry"><div class="log-top"><span class="log-name">'+e.recipeName+'</span><span class="log-date">'+e.date+'</span></div>'+
+'<div class="log-stars">'+starsHTML(e.rating)+'</div>'+
+'<div class="log-info"><span class="en">'+e.dose+'g</span> بن</div>'+
+(e.note?'<div class="log-note">'+e.note+'</div>':'')+
+'<button class="log-del" onclick="delLog('+ri+')">حذف</button></div>'}).join('');
+}
+}
+
+function delLog(i){brewLog.splice(i,1);localStorage.setItem('v60log',JSON.stringify(brewLog));renderMyBrews()}
+
+// LEARN
+document.querySelectorAll('#learnChips .ch').forEach(c=>c.onclick=()=>{
+document.querySelectorAll('#learnChips .ch').forEach(x=>x.classList.remove('on'));c.classList.add('on');learnSub=c.dataset.v;renderLearn()});
+
+function renderLearn(){
+const c=$('learnContent');
+if(learnSub==='origins'){
+c.innerHTML=ORIGINS.map(o=>
+'<div class="lc"><h4>'+o.flag+' <span class="en">'+o.name+'</span> — '+o.nameA+'</h4>'+
+'<div class="lc-flav">'+o.flavors.map(f=>'<span class="lc-tag">'+f+'</span>').join('')+'</div>'+
+'<div class="lc-meta">القوام: '+o.body+' \u00B7 الحموضة: '+o.acid+'</div>'+
+'<div class="lc-tip">\u{1F4A1} '+o.tip+'</div></div>').join('');
+} else if(learnSub==='glossary'){
+c.innerHTML='<div class="sc">'+GLOSSARY.map(g=>
+'<div class="gl-item"><span class="gl-en en">'+g.en+'</span> <span class="gl-ar">'+g.ar+'</span>'+
+'<div class="gl-def">'+g.def+'</div></div>').join('')+'</div>';
+} else if(learnSub==='roast'){
+c.innerHTML=
+'<div class="roast-card" style="background:linear-gradient(135deg,#C4956A,#a07850)"><h4>\u2600 فاتحة (Light)</h4><div class="roast-params">'+
+'<div class="rp"><b>94-96\u00B0C</b><span>الحرارة</span></div>'+
+'<div class="rp"><b>Medium-Fine</b><span>الطحنة</span></div>'+
+'<div class="rp"><b>1:15-1:16</b><span>النسبة</span></div>'+
+'<div class="rp"><b>40-50s</b><span>تفتيح</span></div>'+
+'<div class="rp"><b>3:00-3:45</b><span>الوقت الكلي</span></div>'+
+'<div class="rp"><b>Fruity/Floral</b><span>النكهات المتوقعة</span></div></div></div>'+
+'<div class="roast-card" style="background:linear-gradient(135deg,#8B5E3C,#6b4530)"><h4>\u26C5 متوسطة (Medium)</h4><div class="roast-params">'+
+'<div class="rp"><b>91-94\u00B0C</b><span>الحرارة</span></div>'+
+'<div class="rp"><b>Medium</b><span>الطحنة</span></div>'+
+'<div class="rp"><b>1:15-1:17</b><span>النسبة</span></div>'+
+'<div class="rp"><b>30-40s</b><span>تفتيح</span></div>'+
+'<div class="rp"><b>2:30-3:30</b><span>الوقت الكلي</span></div>'+
+'<div class="rp"><b>Caramel/Nutty</b><span>النكهات المتوقعة</span></div></div></div>'+
+'<div class="roast-card" style="background:linear-gradient(135deg,#3E2723,#2c1b18)"><h4>\u{1F319} غامقة (Dark)</h4><div class="roast-params">'+
+'<div class="rp"><b>88-91\u00B0C</b><span>الحرارة</span></div>'+
+'<div class="rp"><b>Medium-Coarse</b><span>الطحنة</span></div>'+
+'<div class="rp"><b>1:16-1:18</b><span>النسبة</span></div>'+
+'<div class="rp"><b>25-35s</b><span>تفتيح</span></div>'+
+'<div class="rp"><b>2:15-3:00</b><span>الوقت الكلي</span></div>'+
+'<div class="rp"><b>Chocolate/Smoky</b><span>النكهات المتوقعة</span></div></div></div>';
+} else if(learnSub==='tips'){
+c.innerHTML=TIPS.map((t,i)=>
+'<div class="tip-item"><div class="tip-num">'+(i+1)+'</div><div class="tip-txt">'+t+'</div></div>').join('');
+}
+}
+
+// FIX
+let activeFix=-1;
+function renderFix(){
+$('fixGrid').innerHTML=FIXES.map((f,i)=>
+'<div class="fix-btn" onclick="toggleFix('+i+')"><div class="fix-icon">'+f.icon+'</div><div class="fix-name">'+f.name+'</div></div>').join('');
+$('bedAnalysis').innerHTML=BEDS.map(b=>
+'<div class="bed-item"><div class="bed-icon">'+b.icon+'</div><div class="bed-txt">'+b.txt+'</div></div>').join('');
+$('fixDetail').innerHTML='';activeFix=-1;
+}
+
+function toggleFix(i){
+if(activeFix===i){$('fixDetail').innerHTML='';$('fixDetail').classList.remove('on');activeFix=-1;return}
+activeFix=i;const f=FIXES[i];
+$('fixDetail').innerHTML=
+'<h3>'+f.icon+' '+f.name+' ('+f.nameEn+')</h3>'+
+'<div class="fix-cause">'+f.cause+'</div>'+
+'<ol class="fix-list">'+f.fixes.map((fx,j)=>'<li><span class="num">'+(j+1)+'.</span> '+fx+'</li>').join('')+'</ol>'+
+'<div class="fix-pro">\u{1F4A1} '+f.pro+'</div>';
+$('fixDetail').classList.add('on');
+$('fixDetail').scrollIntoView({behavior:'smooth',block:'nearest'});
+}
 
 // DETAIL
 function openD(id){
 const r=D.find(x=>x.id===id);if(!r)return;
-const f=r.fl,ym=yieldML(r),yc=cups(r);
-const stH=r.steps.map(s=>`<div class="stp">
-<div class="s-t">${s.t}</div>
-<div class="s-sc"><div class="s-sv">${s.total}g</div>${s.add?'<div class="s-add">+'+s.add+'g</div>':''}</div>
-<div class="s-bd"><div class="s-lb">${s.l}${s.tmp?' <small>@ '+s.tmp+'°C</small>':''}</div>
-${s.n?'<div class="s-ds">'+s.n+'</div>':''}
-${s.w?'<div class="s-wt">&#9202; '+s.w+'</div>':''}</div></div>`).join('');
-
-$('detail').innerHTML=`
-<div class="dh">
-<button class="dh-back" onclick="showS('home')">&#8594; رجوع</button>
-<h2><span class="en">${r.ex}</span></h2>
-<div class="dh-sub">${r.mA}</div>
-<div class="dh-badges"><span class="bg ${r.type==='iced'?'b-iced':'b-hot'}">${r.type==='iced'?'مثلّج':'حار'}</span><span class="bg" style="background:rgba(255,255,255,.12);color:#fff">${r.diff}</span><span class="bg ${r.st==='موثّقة'?'b-ok':'b-warn'}">${r.st}</span></div>
-</div><div class="db">
-<div class="bio">${r.bio}</div>
-
-<div class="wyg">
-<h3>&#127861; وش بتحصل بالضبط</h3>
-<div class="wyg-grid">
-<div class="wyg-i"><b>${r.dose}g</b><span>بن مطحون</span></div>
-<div class="wyg-i"><b>${r.water}g</b><span>ماء${r.ice?' + '+r.ice+'g ثلج':''}</span></div>
-<div class="wyg-i"><b>~${ym}ml</b><span>قهوة جاهزة</span></div>
-<div class="wyg-i"><b>${r.temp||'—'}°C</b><span>حرارة الماء</span></div>
-<div class="wyg-i"><b>${r.ratio}</b><span>النسبة</span></div>
-<div class="wyg-i"><b>~${yc>=2?Math.round(yc):yc}</b><span>كوب</span></div>
-</div></div>
-
-<div class="sc">
-<h3>&#127912; الطعم المتوقّع</h3>
-<div class="fl-row"><span class="fl-lbl">الحلاوة</span><div class="fl-tr"><div class="fl-f" style="width:${f.sw*20}%;background:#e74c3c"></div></div><span class="fl-v">${f.sw}/5</span></div>
-<div class="fl-row"><span class="fl-lbl">الحموضة</span><div class="fl-tr"><div class="fl-f" style="width:${f.ac*20}%;background:#f1c40f"></div></div><span class="fl-v">${f.ac}/5</span></div>
-<div class="fl-row"><span class="fl-lbl">القوام</span><div class="fl-tr"><div class="fl-f" style="width:${f.bd*20}%;background:#8b4513"></div></div><span class="fl-v">${f.bd}/5</span></div>
-<div class="fl-row"><span class="fl-lbl">الصفاء</span><div class="fl-tr"><div class="fl-f" style="width:${f.cl*20}%;background:#3498db"></div></div><span class="fl-v">${f.cl}/5</span></div>
-</div>
-
-<div class="sc">
-<h3>&#128203; المواصفات</h3>
-<div class="ig">
-<div class="ig-i"><span class="ig-l">البن</span><span class="ig-v"><span class="en">${r.dose}g</span></span></div>
-<div class="ig-i"><span class="ig-l">الماء${r.ice?' + ثلج':''}</span><span class="ig-v"><span class="en">${r.water}g${r.ice?' + '+r.ice+'g':''}
-</span></span></div>
-<div class="ig-i"><span class="ig-l">النسبة</span><span class="ig-v"><span class="en">${r.ratio}</span></span></div>
-<div class="ig-i"><span class="ig-l">الحرارة</span><span class="ig-v">${r.tn}</span></div>
-<div class="ig-i"><span class="ig-l">Ode Gen 2</span><span class="ig-v"><span class="en">${r.ode}</span></span></div>
-<div class="ig-i"><span class="ig-l">الوقت</span><span class="ig-v"><span class="en">${r.time}</span></span></div>
-${r.agit?'<div class="ig-i" style="grid-column:1/-1"><span class="ig-l">التحريك</span><span class="ig-v">'+r.agit+'</span></div>':''}
-</div></div>
-
-<div class="calc">
-<h3>&#128290; حاسبة الجرعة — عدّل على كيفك</h3>
-<div class="calc-r"><span class="calc-lab">عندي</span><input class="calc-in" type="number" id="cI" value="${r.dose}" min="5" max="100" step="0.5"><span class="calc-lab">g بن</span></div>
-<div class="calc-out" id="cO"></div>
-</div>
-
-<div class="sc">
-<h3>&#128203; خطوة بخطوة — الميزان + التوقيت</h3>
-${stH}
-</div>
-<button class="bcta" onclick="startB(${r.id})">&#9749; ابدأ التحضير بالمؤقت</button>
-</div>`;
-showS('detail');
-const ci=$('cI');
-const uc=()=>{const nd=parseFloat(ci.value)||r.dose,sc=nd/r.dose,nw=Math.round(r.water*sc),ni=r.ice?Math.round(r.ice*sc):0,ny=Math.round((nw+ni)*.94),bl=r.steps.find(s=>s.l.includes('تفتيح')||s.l.includes('المرحلة'));
-$('cO').innerHTML=`
-<div class="co-i"><b>${nw}g</b><span>ماء</span></div>
-${ni?'<div class="co-i"><b>'+ni+'g</b><span>ثلج</span></div>':''}
-<div class="co-i"><b>~${ny}ml</b><span>قهوة جاهزة</span></div>
-${bl?'<div class="co-i"><b>'+Math.round(bl.add*sc)+'g</b><span>تفتيح</span></div>':''}
-`};ci.oninput=uc;uc();
+curRecipeId=id;curCups=1;curScale=1;
+const ym=yieldML(r);
+renderDetail(r,1);
+showS('detail');scrollTo(0,0);
 }
 
-// BREW
-let bT=null,bS=0,bP=false,bR=null,bI=0;
-function startB(id){bR=D.find(x=>x.id===id);if(!bR)return;bI=0;bS=0;bP=false;$('brew').classList.add('on');rBS();clearInterval(bT);bT=setInterval(()=>{if(!bP){bS++;rBT()}},1000)}
-function rBS(){const r=bR,s=r.steps[bI];
-$('brew').innerHTML=`
-<div class="brew-top"><button class="brew-x" onclick="xB()">&#10005; إغلاق</button><span class="brew-nm">${r.ex} — ${r.mA}</span></div>
-<div class="brew-c">
-<div class="brew-tm" id="bTD">00:00</div>
-<div class="brew-sc">
-<div class="brew-sv">${s.total}g</div>
-<div class="brew-sl">الميزان لازم يوصل</div>
-${s.add?'<div class="brew-sa">+ '+s.add+'g أضف الحين</div>':''}
-</div>
-<div class="brew-sn">${s.l}${s.tmp?' @ '+s.tmp+'°C':''}</div>
-${s.n?'<div class="brew-sd">'+s.n+'</div>':''}
-${s.w?'<div class="brew-sw">&#9202; '+s.w+'</div>':''}
-<div class="brew-dots">${r.steps.map((_,i)=>'<div class="bd '+(i<bI?'dn':i===bI?'cr':'')+'"></div>').join('')}</div>
-</div>
-<div class="brew-bot">
-<button class="brew-btn bpause" onclick="tBP()">${bP?'&#9654; كمّل':'&#10074;&#10074; وقّف'}</button>
-<button class="brew-btn bnext" onclick="nBS()">${bI<r.steps.length-1?'التالي &#8592;':'&#10003; خلصت!'}</button>
-</div>`;rBT()}
+function renderDetail(r,sc){
+const f=r.fl,ym=yieldML(r),ymS=Math.round(ym*sc);
+const doseS=Math.round(r.dose*sc*10)/10;
+const waterS=Math.round(r.water*sc);
+const iceS=r.ice?Math.round(r.ice*sc):0;
+const cupsS=Math.round(ymS/120*10)/10;
+const savedNote=localStorage.getItem('v60n_'+r.id)||'';
+
+const stH=r.steps.map(s=>{
+const totalS=Math.round(s.total*sc);
+const addS=Math.round(s.add*sc);
+return'<div class="stp">'+
+'<div class="s-t"><span class="en">'+s.t+'</span></div>'+
+'<div class="s-sc"><div class="s-sv"><span class="en">'+totalS+'g</span></div>'+(addS?'<div class="s-add"><span class="en">+'+addS+'g</span></div>':'')+'</div>'+
+'<div class="s-bd"><div class="s-lb">'+s.l+(s.tmp?' <small>@ <span class="en">'+s.tmp+'\u00B0C</span></small>':'')+'</div>'+
+(s.n?'<div class="s-ds">'+s.n+'</div>':'')+
+(s.w?'<div class="s-wt">\u23F2 '+s.w+'</div>':'')+'</div></div>'}).join('');
+
+$('detail').innerHTML=
+'<div class="dh">'+
+'<button class="dh-back" onclick="showS(\'home\')">\u2192 رجوع</button>'+
+'<h2><span class="en">'+r.ex+'</span></h2>'+
+'<div class="dh-sub">'+r.mA+'</div>'+
+'<div class="dh-badges"><span class="bg '+(r.type==='iced'?'b-iced':'b-hot')+'">'+(r.type==='iced'?'مثلّج':'حار')+'</span>'+
+'<span class="bg" style="background:rgba(255,255,255,.12);color:#fff">'+r.diff+'</span>'+
+'<span class="bg '+(r.st==='موثّقة'?'b-ok':'b-warn')+'">'+r.st+'</span></div></div>'+
+'<div class="db">'+
+'<div class="bio">'+r.bio+'</div>'+
+
+'<div class="sc"><h3>\u2615 عدد الأكواب</h3>'+
+'<div class="cup-sel">'+
+'<button class="cup-btn '+(curCups===1?'on':'')+'" onclick="setCups('+r.id+',1)"><span class="en">1</span> كوب</button>'+
+'<button class="cup-btn '+(curCups===2?'on':'')+'" onclick="setCups('+r.id+',2)"><span class="en">2</span> كوب</button>'+
+'<button class="cup-btn '+(curCups===3?'on':'')+'" onclick="setCups('+r.id+',3)"><span class="en">3</span> كوب</button>'+
+'<input class="cup-custom en" type="number" min="0.5" max="10" step="0.5" value="'+(curCups>3?curCups:'')+'" placeholder="..." oninput="setCustomCups('+r.id+',this.value)">'+
+'</div></div>'+
+
+'<div class="wyg"><h3>\u{1F375} وش بتحصل بالضبط</h3>'+
+'<div class="wyg-grid">'+
+'<div class="wyg-i"><b><span class="en">'+doseS+'g</span></b><span>بن مطحون</span></div>'+
+'<div class="wyg-i"><b><span class="en">'+waterS+'g</span></b><span>ماء'+(iceS?' + <span class="en">'+iceS+'g</span> ثلج':'')+'</span></div>'+
+'<div class="wyg-i"><b><span class="en">~'+ymS+'ml</span></b><span>قهوة جاهزة</span></div>'+
+'<div class="wyg-i"><b><span class="en">'+(r.temp||'\u2014')+'\u00B0C</span></b><span>حرارة الماء</span></div>'+
+'<div class="wyg-i"><b><span class="en">'+r.ratio+'</span></b><span>النسبة</span></div>'+
+'<div class="wyg-i"><b><span class="en">~'+(cupsS>=2?Math.round(cupsS):cupsS)+'</span></b><span>كوب</span></div></div></div>'+
+
+'<div class="sc"><h3>\u{1F3A8} الطعم المتوقّع</h3>'+
+'<div class="fl-row"><span class="fl-lbl">الحلاوة</span><div class="fl-tr"><div class="fl-f" style="width:'+f.sw*20+'%;background:#e74c3c"></div></div><span class="fl-v en">'+f.sw+'/5</span></div>'+
+'<div class="fl-row"><span class="fl-lbl">الحموضة</span><div class="fl-tr"><div class="fl-f" style="width:'+f.ac*20+'%;background:#f1c40f"></div></div><span class="fl-v en">'+f.ac+'/5</span></div>'+
+'<div class="fl-row"><span class="fl-lbl">القوام</span><div class="fl-tr"><div class="fl-f" style="width:'+f.bd*20+'%;background:#8b4513"></div></div><span class="fl-v en">'+f.bd+'/5</span></div>'+
+'<div class="fl-row"><span class="fl-lbl">الصفاء</span><div class="fl-tr"><div class="fl-f" style="width:'+f.cl*20+'%;background:#3498db"></div></div><span class="fl-v en">'+f.cl+'/5</span></div></div>'+
+
+'<div class="sc"><h3>\u{1F4CB} المواصفات</h3>'+
+'<div class="ig">'+
+'<div class="ig-i"><span class="ig-l">البن</span><span class="ig-v"><span class="en">'+doseS+'g</span></span></div>'+
+'<div class="ig-i"><span class="ig-l">الماء'+(iceS?' + ثلج':'')+'</span><span class="ig-v"><span class="en">'+waterS+'g'+(iceS?' + '+iceS+'g':'')+'</span></span></div>'+
+'<div class="ig-i"><span class="ig-l">النسبة</span><span class="ig-v"><span class="en">'+r.ratio+'</span></span></div>'+
+'<div class="ig-i"><span class="ig-l">الحرارة</span><span class="ig-v">'+r.tn+'</span></div>'+
+'<div class="ig-i"><span class="ig-l"><span class="en">Ode Gen 2</span></span><span class="ig-v"><span class="en">'+r.ode+'</span></span></div>'+
+'<div class="ig-i"><span class="ig-l">الوقت</span><span class="ig-v"><span class="en">'+r.time+'</span></span></div>'+
+(r.agit?'<div class="ig-i" style="grid-column:1/-1"><span class="ig-l">التحريك</span><span class="ig-v">'+r.agit+'</span></div>':'')+
+'</div></div>'+
+
+'<div class="calc"><h3>\u{1F522} حاسبة الجرعة — عدّل على كيفك</h3>'+
+'<div class="calc-r"><span class="calc-lab">عندي</span><input class="calc-in en" type="number" id="cI" value="'+doseS+'" min="5" max="100" step="0.5"><span class="calc-lab">g بن</span></div>'+
+'<div class="calc-out" id="cO"></div></div>'+
+
+'<div class="sc"><h3>\u{1F4CB} خطوة بخطوة — الميزان + التوقيت</h3>'+stH+'</div>'+
+
+'<div class="sc"><h3>\u{1F4DD} ملاحظاتك الشخصية</h3>'+
+'<textarea class="notes-area" id="pNote" placeholder="سجّل ملاحظاتك هنا... (طعم، تعديلات، أفكار)">'+savedNote+'</textarea>'+
+'<div class="notes-saved" id="noteSaved">\u2705 تم الحفظ</div></div>'+
+
+'<button class="bcta" onclick="startB('+r.id+')">\u2615 ابدأ التحضير بالمؤقت</button></div>';
+
+// Calc
+const ci=$('cI');
+const uc=()=>{
+const nd=parseFloat(ci.value)||r.dose;
+const csc=nd/r.dose;
+const nw=Math.round(r.water*csc),ni=r.ice?Math.round(r.ice*csc):0,ny=Math.round((nw+ni)*.94);
+const bl=r.steps.find(s=>s.l.includes('تفتيح')||s.l.includes('المرحلة'));
+$('cO').innerHTML=
+'<div class="co-i"><b><span class="en">'+nw+'g</span></b><span>ماء</span></div>'+
+(ni?'<div class="co-i"><b><span class="en">'+ni+'g</span></b><span>ثلج</span></div>':'')+
+'<div class="co-i"><b><span class="en">~'+ny+'ml</span></b><span>قهوة جاهزة</span></div>'+
+(bl?'<div class="co-i"><b><span class="en">'+Math.round(bl.add*csc)+'g</span></b><span>تفتيح</span></div>':'');
+};ci.oninput=uc;uc();
+
+// Notes auto-save
+const pn=$('pNote');
+let noteTimer;
+pn.oninput=()=>{clearTimeout(noteTimer);noteTimer=setTimeout(()=>{localStorage.setItem('v60n_'+r.id,pn.value);const ns=$('noteSaved');ns.classList.add('show');setTimeout(()=>ns.classList.remove('show'),1500)},600)};
+}
+
+function setCups(id,n){
+const r=D.find(x=>x.id===id);if(!r)return;
+curCups=n;
+const ym=yieldML(r);
+curScale=(n*200)/ym;
+renderDetail(r,curScale);
+}
+
+function setCustomCups(id,v){
+const n=parseFloat(v);if(!n||n<=0)return;
+const r=D.find(x=>x.id===id);if(!r)return;
+curCups=n;
+const ym=yieldML(r);
+curScale=(n*200)/ym;
+renderDetail(r,curScale);
+}
+
+// AUDIO BEEP
+function beep(){
+try{
+if(!audioCtx)audioCtx=new(window.AudioContext||window.webkitAudioContext)();
+const o=audioCtx.createOscillator();const g=audioCtx.createGain();
+o.connect(g);g.connect(audioCtx.destination);
+o.frequency.value=880;o.type='sine';
+g.gain.setValueAtTime(0.3,audioCtx.currentTime);
+g.gain.exponentialRampToValueAtTime(0.001,audioCtx.currentTime+0.15);
+o.start(audioCtx.currentTime);o.stop(audioCtx.currentTime+0.15);
+}catch(e){}
+}
+
+// WAKE LOCK
+async function requestWake(){try{if('wakeLock' in navigator)wakeLockObj=await navigator.wakeLock.request('screen')}catch(e){}}
+function releaseWake(){try{if(wakeLockObj){wakeLockObj.release();wakeLockObj=null}}catch(e){}}
+
+// BREW TIMER
+let bT=null,bS=0,bP=false,bR=null,bI=0,bScale=1;
+
+function startB(id){
+const r=D.find(x=>x.id===id);if(!r)return;
+bR=r;bI=0;bS=0;bP=false;
+bScale=curRecipeId===id?curScale:1;
+$('brew').classList.add('on');
+requestWake();
+rBS();
+clearInterval(bT);
+bT=setInterval(()=>{if(!bP){bS++;rBT()}},1000);
+}
+
+function rBS(){
+const r=bR,s=r.steps[bI];
+const totalS=Math.round(s.total*bScale);
+const addS=Math.round(s.add*bScale);
+$('brew').innerHTML=
+'<div class="brew-top"><button class="brew-x" onclick="xB()">\u2715 إغلاق</button><span class="brew-nm"><span class="en">'+r.ex+'</span> \u2014 '+r.mA+'</span></div>'+
+'<div class="brew-c">'+
+'<div class="brew-tm" id="bTD">00:00</div>'+
+'<div class="brew-sc">'+
+'<div class="brew-sv"><span class="en">'+totalS+'g</span></div>'+
+'<div class="brew-sl">الميزان لازم يوصل</div>'+
+(addS?'<div class="brew-sa"><span class="en">+ '+addS+'g</span> أضف الحين</div>':'')+
+'</div>'+
+'<div class="brew-sn">'+s.l+(s.tmp?' @ <span class="en">'+s.tmp+'\u00B0C</span>':'')+'</div>'+
+(s.n?'<div class="brew-sd">'+s.n+'</div>':'')+
+(s.w?'<div class="brew-sw">\u23F2 '+s.w+'</div>':'')+
+'<div class="brew-dots">'+r.steps.map((_,i)=>'<div class="bd '+(i<bI?'dn':i===bI?'cr':'')+'"></div>').join('')+'</div>'+
+'</div>'+
+'<div class="brew-bot">'+
+'<button class="brew-btn bpause" onclick="tBP()">'+(bP?'\u25B6 كمّل':'\u23F8 وقّف')+'</button>'+
+'<button class="brew-btn bnext" onclick="nBS()">'+(bI<r.steps.length-1?'التالي \u2190':'\u2713 خلصت!')+'</button>'+
+'</div>';
+rBT();
+}
+
 function rBT(){const e=$('bTD');if(!e)return;e.textContent=String(Math.floor(bS/60)).padStart(2,'0')+':'+String(bS%60).padStart(2,'0')}
-function nBS(){if(bI<bR.steps.length-1){bI++;rBS()}else xB()}
+function nBS(){if(bI<bR.steps.length-1){bI++;beep();rBS()}else{finishBrew()}}
 function tBP(){bP=!bP;rBS()}
-function xB(){clearInterval(bT);$('brew').classList.remove('on')}
+
+function xB(){clearInterval(bT);$('brew').classList.remove('on');releaseWake()}
+
+function finishBrew(){
+clearInterval(bT);$('brew').classList.remove('on');releaseWake();beep();
+brewRecipeForLog=bR;brewRating=0;
+// Show rating overlay
+const rs=$('rateStars');
+rs.innerHTML='';
+for(let i=1;i<=5;i++){
+const s=document.createElement('span');
+s.className='rate-star';s.textContent='\u2606';s.dataset.v=i;
+s.onclick=function(){
+brewRating=+this.dataset.v;
+rs.querySelectorAll('.rate-star').forEach((st,j)=>{st.textContent=j<brewRating?'\u2605':'\u2606';st.classList.toggle('on',j<brewRating)});
+};
+rs.appendChild(s);
+}
+$('brewNote').value='';
+$('brewDone').classList.add('on');
+}
+
+$('brewSaveBtn').onclick=()=>{
+if(!brewRecipeForLog)return;
+const entry={
+date:new Date().toLocaleDateString('en-GB'),
+recipeId:brewRecipeForLog.id,
+recipeName:brewRecipeForLog.ex+' - '+brewRecipeForLog.mA,
+dose:Math.round(brewRecipeForLog.dose*bScale*10)/10,
+rating:brewRating||3,
+note:$('brewNote').value.trim()
+};
+brewLog.push(entry);
+localStorage.setItem('v60log',JSON.stringify(brewLog));
+$('brewDone').classList.remove('on');
+};
+
+$('brewSkipBtn').onclick=()=>{$('brewDone').classList.remove('on')};
 
 // SUGGEST
 let sA={type:'',str:'',lv:''};
@@ -593,7 +1004,9 @@ return true;
 pool.sort((a,b)=>b.pop-a.pop);
 $('sov').classList.remove('on');openD(pool[0].id)};
 
-render();
+// INIT
+render();renderLearn();renderFix();
 </script>
+
 </body>
 </html>
