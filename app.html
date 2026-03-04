@@ -7,7 +7,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="V60 Masters">
 <meta name="theme-color" content="#1a0f08">
-<meta name="description" content="دليلك الشامل لتحضير أفضل قهوة V60 — 23 وصفة موثّقة من خبراء عالميين">
+<meta name="description" content="دليلك الشامل لتحضير أفضل قهوة V60 — 20 وصفة موثّقة من 15+ خبير عالمي">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icons/icon-192.svg">
 <title>V60 Masters - وصفات V60</title>
@@ -563,6 +563,48 @@ a{text-decoration:none;color:inherit}
 .onboard-skip{color:rgba(255,255,255,.35);font-size:12px;padding:10px;position:relative;z-index:1;transition:color .2s}
 .onboard-skip:hover{color:rgba(255,255,255,.6)}
 
+/* ─── CALIBRATION WIZARD ─── */
+#calibWizard{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.6);backdrop-filter:blur(8px);z-index:1000;display:none;align-items:center;justify-content:center;padding:16px}
+#calibWizard.on{display:flex}
+#calibWizard .modal-content{background:var(--card);border-radius:var(--r);padding:24px;max-width:480px;width:100%;max-height:85vh;overflow-y:auto;animation:su .3s ease;box-shadow:var(--sh3)}
+#calibWizard .modal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+#calibWizard .close-btn{background:none;border:none;font-size:28px;color:var(--t3);cursor:pointer;padding:4px}
+.calib-nav{display:flex;justify-content:space-between;align-items:center;margin-top:24px;padding-top:16px;border-top:1px solid var(--border)}
+.calib-step{animation:fi .3s ease}
+.burr-btn{flex:1;padding:12px;border-radius:var(--r3);border:2px solid var(--border);background:var(--card);cursor:pointer;font-family:Cairo;font-weight:700;transition:all .2s}
+.burr-btn.active{border-color:var(--a2);background:var(--a2);color:#fff}
+.btn-primary{padding:10px 24px;background:var(--a2);color:#fff;border:none;border-radius:var(--r3);font-family:Cairo;font-weight:700;cursor:pointer;transition:all .15s}
+.btn-primary:active{transform:scale(.96)}
+.btn-secondary{padding:10px 24px;background:var(--bg2);color:var(--t2);border:none;border-radius:var(--r3);font-family:Cairo;font-weight:700;cursor:pointer;transition:all .15s}
+.btn-secondary:active{transform:scale(.96)}
+
+/* ─── ODE GRINDER ADVICE BOX ─── */
+.ode-advice{margin-top:12px;padding:12px 14px;background:linear-gradient(135deg,var(--card2),var(--bg2));border:1.5px solid var(--a3);border-radius:var(--r3);display:flex;gap:10px;align-items:flex-start}
+.ode-advice-icon{font-size:20px;flex-shrink:0;margin-top:2px}
+.ode-advice-txt{font-size:11px;color:var(--t2);line-height:1.8;font-family:'Tajawal'}
+.ode-advice-title{font-size:11px;font-weight:800;color:var(--a1);margin-bottom:4px;font-family:'Inter'}
+
+/* ─── EXPERT AVATAR ─── */
+.expert-avatar{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--a1),var(--a2));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:18px;font-family:Inter;flex-shrink:0;box-shadow:0 2px 8px rgba(198,124,78,.3)}
+
+/* ─── ENHANCED FLAVOR BARS ─── */
+.fl-bar-enhanced{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.fl-bar-enhanced .fl-bar-label{width:50px;font-size:12px;color:var(--t3);font-family:Cairo}
+.fl-bar-enhanced .fl-bar-track{flex:1;height:8px;background:var(--border);border-radius:4px;overflow:hidden}
+.fl-bar-enhanced .fl-bar-fill{height:100%;border-radius:4px;transition:width .8s ease-out}
+.fl-bar-enhanced .fl-bar-val{font-size:12px;font-weight:700;font-family:Inter;width:24px;text-align:center}
+
+/* ─── FLAVOR TAGS ─── */
+.flavor-tags-wrap{margin:14px 0}
+.flavor-tags-title{font-size:12px;font-weight:700;color:var(--t2);margin-bottom:8px;font-family:Cairo}
+.flavor-tags-info{font-size:10px;color:var(--t3);margin-bottom:6px;font-family:Cairo}
+.flavor-tags{display:flex;flex-wrap:wrap;gap:6px}
+.flavor-tag{padding:6px 14px;border-radius:20px;border:1.5px solid var(--border);background:var(--card);font-size:11px;font-weight:700;color:var(--t2);cursor:pointer;transition:all .25s;font-family:Cairo;user-select:none}
+.flavor-tag.active,.flavor-tag.selected{background:var(--a1);color:#fff;border-color:var(--a1);box-shadow:0 2px 8px rgba(198,124,78,.25)}
+.flavor-tag.active::before,.flavor-tag.selected::before{content:'\2713 ';font-size:10px}
+.flavor-tag:active{transform:scale(.94)}
+.flavor-tag.maxed{opacity:.4;pointer-events:none}
+
 /* ─── TOAST ─── */
 .toast-container{position:fixed;top:max(env(safe-area-inset-top),14px);left:50%;transform:translateX(-50%);z-index:800;display:flex;flex-direction:column;gap:10px;width:90%;max-width:400px;pointer-events:none}
 .toast{padding:14px 18px;border-radius:var(--r2);font-size:12px;font-weight:700;display:flex;align-items:center;gap:10px;animation:toastIn .35s ease;pointer-events:auto;box-shadow:var(--sh3);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
@@ -650,7 +692,7 @@ body{padding:0;background:#fff;color:#000;font-size:11pt}
 <div class="scr on" id="home">
 <div class="hd">
 <div class="steam-wrap"><div class="steam-w"></div><div class="steam-w"></div><div class="steam-w"></div></div>
-<div class="hd-row"><div><h1>وصفات <b>V60</b></h1><div class="hd-sub">13 وصفة موثّقة من 10 خبراء عالميين</div></div>
+<div class="hd-row"><div><h1>وصفات <b>V60</b></h1><div class="hd-sub">20 وصفة موثّقة من 15+ خبير عالمي</div></div>
 <div class="hd-btns"><button class="ib theme-toggle" id="thB">&#9789;</button></div></div>
 </div>
 <!-- Hero: Recipe of the Day -->
@@ -785,6 +827,7 @@ body{padding:0;background:#fff;color:#000;font-size:11pt}
 <tr><td><span class="en">Cold Brew</span></td><td class="en">9–11</td></tr>
 </table>
 <div class="tool-disclaimer">&#9888; جميع الإعدادات تقديرية من تجارب المجتمع — ليست رسمية من <span class="en">Fellow</span>. الجهاز فيه 31 خطوة (~3 نقرات لكل رقم). نطاق الميكرون التقريبي: ~275–1,160.</div>
+<button onclick="openCalibWizard()" style="display:block;width:100%;margin-top:12px;padding:12px;background:linear-gradient(135deg,var(--a1),var(--a2));color:#fff;border:none;border-radius:var(--r3);font-family:Cairo;font-weight:700;font-size:13px;cursor:pointer;transition:all .15s">&#9881; معالج المعايرة خطوة بخطوة</button>
 </div>
 
 <div class="tool-card" id="toolYield">
@@ -820,6 +863,21 @@ body{padding:0;background:#fff;color:#000;font-size:11pt}
 <div id="toolCmpTable"></div>
 </div>
 
+<div class="tool-card" id="toolScaling">
+<h4>&#128208; حاسبة التوسيع</h4>
+<div id="scalingContent"></div>
+</div>
+
+<div class="tool-card" id="toolRoastGuide">
+<h4>&#128293; دليل التحميص</h4>
+<div id="roastGuideContent"></div>
+</div>
+
+<div class="tool-card" id="toolSettings">
+<h4>&#9881; الإعدادات والتفضيلات</h4>
+<div id="settingsContent"></div>
+</div>
+
 </div>
 </div>
 </div>
@@ -852,6 +910,10 @@ body{padding:0;background:#fff;color:#000;font-size:11pt}
 <div class="rate-stars" id="rateStars"></div>
 <input class="brew-grind en" id="brewGrind" type="text" placeholder="إعداد الطحنة (اختياري)">
 <textarea class="brew-note" id="brewNote" placeholder="ملاحظات... (اختياري)"></textarea>
+<div class="flavor-tags-wrap" style="text-align:right">
+<div class="flavor-tags-title">&#127818; نكهات مميزة <span style="font-size:10px;color:var(--t3);font-weight:400">(اختياري — حتى 5)</span></div>
+<div class="flavor-tags" id="quickFlavorTags"></div>
+</div>
 <div id="tastingFormSlot"></div>
 <div id="beanSelectorSlot" style="margin:8px 0"></div>
 <button class="brew-save-btn" id="brewSaveBtn">&#128190; احفظ بالسجل</button>
@@ -6249,11 +6311,11 @@ const D = [
     dose: 30, water: 500, ice: 0,
     ratio: "1:16.7", rn: 16.7,
     temp: 97, tn: '\"أعلى حرارة ممكنة\" — Hario Europe: 97\u00B0C',
-    ode: "4-5", oMin: 4, oMax: 5,
+    ode: "4-5", oMin: 4, oMax: 5, odeSsp: "5-6",
     time: "~3:30", ts: 210,
     agit: "دوران + تحريك ملعقة + دوران",
     st: "موثّقة", diff: "مبتدئ", pop: 5,
-    fl: { sw: 3, ac: 3, bd: 4, cl: 5 },
+    fl: { sw: 4, ac: 3, bd: 3, cl: 5 },
     bio: "بطل العالم باريستا 2007. مؤسس Square Mile Coffee. أشهر فيديو V60 على يوتيوب.",
     bioLong: "James Hoffmann بطل العالم باريستا 2007 ومؤسس Square Mile Coffee Roasters في لندن. فيديو وصفته على يوتيوب تجاوز 15 مليون مشاهدة وصار المرجع الأول لمستخدمي V60 حول العالم. كتابه The World Atlas of Coffee من أهم المراجع في عالم القهوة المختصة.",
     videoUrl: "https://www.youtube.com/watch?v=AI4ynXzkSQo",
@@ -6277,7 +6339,7 @@ const D = [
     dose: 32.5, water: 300, ice: 200,
     ratio: "~1:15.4", rn: 15.4,
     temp: 95, tn: "95\u00B0C",
-    ode: "3.5-4.5", oMin: 3.5, oMax: 4.5,
+    ode: "3.5-4.5", oMin: 3.5, oMax: 4.5, odeSsp: "5-6",
     time: "~2:55", ts: 175,
     agit: "",
     st: "موثّقة", diff: "مبتدئ", pop: 4,
@@ -6304,7 +6366,7 @@ const D = [
     dose: 20, water: 300, ice: 0,
     ratio: "1:15", rn: 15,
     temp: 92, tn: '92\u00B0C (بطولة) / ~93\u00B0C (فاتحة)',
-    ode: "5.5-6.5", oMin: 5.5, oMax: 6.5,
+    ode: "5.5-6.5", oMin: 5.5, oMax: 6.5, odeSsp: "8-9",
     time: "~3:30", ts: 210,
     agit: "بدون",
     st: "موثّقة", diff: "مبتدئ", pop: 5,
@@ -6360,7 +6422,7 @@ const D = [
     dose: 20, water: 330, ice: 0,
     ratio: "~1:16.5", rn: 16.5,
     temp: 97, tn: '97\u00B0C — \"أعلى حرارة ممكنة\"',
-    ode: "4-5", oMin: 4, oMax: 5,
+    ode: "4-5", oMin: 4, oMax: 5, odeSsp: "5-7",
     time: "4:00-4:30", ts: 255,
     agit: "دوران بعد كل صبّة",
     st: "موثّقة", diff: "متوسط", pop: 4,
@@ -6387,7 +6449,7 @@ const D = [
     dose: 20, water: 300, ice: 0,
     ratio: "1:15", rn: 15,
     temp: 93, tn: '93\u00B0C تفتيح / ~88\u00B0C باقي (كتلتين)',
-    ode: "5-6", oMin: 5, oMax: 6,
+    ode: "5-6", oMin: 5, oMax: 6, odeSsp: "6-7",
     time: "~3:30", ts: 210,
     agit: "بدون (ارتفاع الصب)",
     st: "موثّقة", diff: "متقدم", pop: 3,
@@ -6416,7 +6478,7 @@ const D = [
     dose: 17, water: 220, ice: 0,
     ratio: "~1:12.9", rn: 12.9,
     temp: 80, tn: '80\u00B0C غمر / 95\u00B0C تقطير',
-    ode: "\u2014", oMin: null, oMax: null,
+    ode: "\u2014", oMin: null, oMax: null, odeSsp: "\u2014",
     time: "~2:55", ts: 175,
     agit: "",
     st: "موثّقة", diff: "متقدم", pop: 3,
@@ -6444,7 +6506,7 @@ const D = [
     dose: 20, water: 300, ice: 0,
     ratio: "1:15", rn: 15,
     temp: 92, tn: "92\u00B0C",
-    ode: "5.5-6.5", oMin: 5.5, oMax: 6.5,
+    ode: "5.5-6.5", oMin: 5.5, oMax: 6.5, odeSsp: "7-8",
     time: "~3:20", ts: 205,
     agit: "صبّ دائري قوي",
     st: "موثّقة", diff: "متوسط", pop: 3,
@@ -6474,7 +6536,7 @@ const D = [
     dose: 20, water: 340, ice: 0,
     ratio: "1:17", rn: 17,
     temp: 100, tn: '100\u00B0C (غليان)',
-    ode: "4-5", oMin: 4, oMax: 5,
+    ode: "4-5", oMin: 4, oMax: 5, odeSsp: "6-7",
     time: "~3:00", ts: 180,
     agit: "دوران بعد كل صبّة",
     st: "موثّقة", diff: "مبتدئ", pop: 4,
@@ -6502,7 +6564,7 @@ const D = [
     dose: 20, water: 240, ice: 60,
     ratio: "~1:15", rn: 15,
     temp: 97, tn: '93-100\u00B0C',
-    ode: "\u2014", oMin: null, oMax: null,
+    ode: "\u2014", oMin: null, oMax: null, odeSsp: "\u2014",
     time: "~2:45", ts: 178,
     agit: "خفيف",
     st: "موثّقة", diff: "متوسط", pop: 3,
@@ -6530,7 +6592,7 @@ const D = [
     dose: 22, water: 374, ice: 0,
     ratio: "1:17", rn: 17,
     temp: 100, tn: '100\u00B0C (غليان)',
-    ode: "4-5", oMin: 4, oMax: 5,
+    ode: "4-5", oMin: 4, oMax: 5, odeSsp: "5-6",
     time: "~4:03", ts: 243,
     agit: "دوران بعد كل صبّة",
     st: "موثّقة", diff: "متوسط", pop: 3,
@@ -6557,7 +6619,7 @@ const D = [
     dose: 32.5, water: 500, ice: 0,
     ratio: "1:15.4", rn: 15.4,
     temp: 98, tn: '~98\u00B0C (تقدير المجتمع)',
-    ode: "3.5-5", oMin: 3.5, oMax: 5,
+    ode: "3.5-5", oMin: 3.5, oMax: 5, odeSsp: "5-7",
     time: "~3:15", ts: 195,
     agit: "تحريك بالتفتيح",
     st: "جزئية", diff: "مبتدئ", pop: 3,
@@ -6584,7 +6646,7 @@ const D = [
     dose: 21, water: 340, ice: 0,
     ratio: "1:16", rn: 16,
     temp: 93, tn: '93\u00B0C (200\u00B0F)',
-    ode: "4.5-5.5", oMin: 4.5, oMax: 5.5,
+    ode: "4.5-5.5", oMin: 4.5, oMax: 5.5, odeSsp: "6-7",
     time: "~2:45", ts: 165,
     agit: "",
     st: "موثّقة", diff: "مبتدئ", pop: 3,
@@ -6600,6 +6662,204 @@ const D = [
       { l: "التفتيح", add: 50, total: 50, t: "0:00", w: "30 ثانية", n: "", tmp: 93 },
       { l: "الصبّة 1", add: 200, total: 250, t: "0:30", w: "لين ينزل أغلبه", n: "", tmp: 93 },
       { l: "الصبّة 2", add: 90, total: 340, t: "~1:15", w: "تصفية ~1:15-1:45", n: "", tmp: 93 }
+    ]
+  },
+  {
+    id: 14,
+    ex: "James Hoffmann",
+    m: "Better 1 Cup V60",
+    mA: "الكوب الواحد المحسّنة",
+    type: "hot",
+    dose: 15, water: 250, ice: 0,
+    ratio: "1:16.7", rn: 16.7,
+    temp: 100, tn: 'ماء مغلي — \"أعلى حرارة أفضل\"',
+    ode: "3.5-4.5", oMin: 3.5, oMax: 4.5, odeSsp: "5-6",
+    time: "~3:00", ts: 180,
+    agit: "Swirl بعد كل صبّة",
+    st: "موثّقة", diff: "مبتدئ", pop: 4,
+    fl: { sw: 4, ac: 3, bd: 2, cl: 5 },
+    bio: "تحديث 2022 — مصممة خصيصاً لكوب واحد. صبّات نبضية بدلاً من الصب المستمر.",
+    bioLong: "James Hoffmann حدّث وصفته الشهيرة سنة 2022 بعد ما كثير ناس قالوا إن الوصفة الأصلية ما تشتغل زين لكوب واحد صغير. الحل: صبّات نبضية (pulse pours) بدلاً من صبّتين كبيرتين. كل صبّة 50g مع توقف قصير بينهم — هالطريقة تضمن استخلاص متساوي حتى مع كمية صغيرة.",
+    videoUrl: "https://www.youtube.com/watch?v=1oB1oDrDkHM",
+    bestFor: ["كوب واحد فقط", "روتين الصبح السريع", "تحميص فاتح"],
+    bestBeans: ["إثيوبيا مغسولة", "كينيا AA", "كولومبيا فاتحة"],
+    tags: ["hoffmann", "هوفمان", "1 cup", "كوب واحد", "pulse", "نبضي", "مبتدئ"],
+    theory: "الصبّات النبضية تمنع تجمّع الماء في قنوات — مهم جداً في الكميات الصغيرة حيث هامش الخطأ أقل. كل صبّة تستخلص طبقة جديدة من النكهة.",
+    steps: [
+      { l: "التفتيح", add: 50, total: 50, t: "0:00", w: "45 ثانية", n: "بلوم كبير 3.3× — حرّك V60 بلطف", tmp: 100 },
+      { l: "صبّة 2", add: 50, total: 100, t: "0:45", w: "10 ثوان توقف", n: "صب 50g ثم توقف", tmp: 100 },
+      { l: "صبّة 3", add: 50, total: 150, t: "1:05", w: "10 ثوان توقف", n: "صب 50g ثم توقف", tmp: 100 },
+      { l: "صبّة 4", add: 50, total: 200, t: "1:25", w: "10 ثوان توقف", n: "صب 50g ثم توقف", tmp: 100 },
+      { l: "صبّة 5", add: 50, total: 250, t: "1:45", w: "تصفية ~1:15", n: "آخر صبّة — خلّها تنزل بالكامل", tmp: 100 }
+    ]
+  },
+  {
+    id: 15,
+    ex: "Matt Perger",
+    m: "Barista Hustle V60",
+    mA: "طريقة مات بيرقر",
+    type: "hot",
+    dose: 12, water: 200, ice: 0,
+    ratio: "1:16.7", rn: 16.7,
+    temp: 97, tn: "97\u00B0C — حرارة عالية لاستخلاص أقصى",
+    ode: "3-4", oMin: 3, oMax: 4, odeSsp: "4-5",
+    time: "~2:20", ts: 140,
+    agit: "تحريك قوي في البلوم + Perger Tap",
+    st: "موثّقة", diff: "متوسط", pop: 3,
+    fl: { sw: 5, ac: 3, bd: 2, cl: 5 },
+    bio: "بطل العالم للبروينق 2012، مؤسس Barista Hustle — طحنة ناعمة جداً وتحريك قوي.",
+    bioLong: "Matt Perger فاز ببطولة العالم World Brewers Cup 2012 باستخدام V60 بطحنة ناعمة جداً. فلسفته: معظم الاستخلاص يأتي من الجزيئات الأصغر من 110 ميكرون. الطحنة الناعمة تزيد مساحة السطح = استخلاص أعلى = حلاوة أكثر. ابتكر 'Perger Tap' — نقرة خفيفة على V60 قبل النزول الأخير لتسوية القاع.",
+    videoUrl: "",
+    bestFor: ["كوب صغير مركّز", "استخلاص عالي جداً", "تحميص فاتح جداً"],
+    bestBeans: ["إثيوبيا ييرغاشيف", "كينيا AA", "بنما قيشا"],
+    tags: ["perger", "بيرقر", "barista hustle", "fine grind", "ناعم", "بطولة عالم"],
+    theory: "الطحنة الناعمة تزيد مساحة السطح للاستخلاص بشكل كبير. التحريك القوي في البلوم يضمن تشبّع كامل. Perger Tap يسوّي القاع لمنع القنوات — كل حبّة تتعرّض لنفس كمية الماء.",
+    steps: [
+      { l: "التفتيح", add: 50, total: 50, t: "0:00", w: "30 ثانية", n: "حرّك بقوة (stir like a bandit)!", tmp: 97 },
+      { l: "الصبّة 2", add: 50, total: 100, t: "0:30", w: "30 ثانية", n: "حلزوني من المركز للخارج", tmp: 97 },
+      { l: "الصبّة 3", add: 100, total: 200, t: "1:00", w: "تصفية ~1:20", n: "صب + Perger Tap (نقرة + هزّة خفيفة)", tmp: 97 }
+    ]
+  },
+  {
+    id: 16,
+    ex: "Nicole Battefeld",
+    m: "Five Pour Daily",
+    mA: "الخمس صبّات اليومية",
+    type: "hot",
+    dose: 20, water: 300, ice: 0,
+    ratio: "1:15", rn: 15,
+    temp: 93, tn: "93\u00B0C",
+    ode: "4-5", oMin: 4, oMax: 5, odeSsp: "5-6",
+    time: "3:00-3:30", ts: 210,
+    agit: "لا — الصب الدائري البطيء يكفي",
+    st: "موثّقة", diff: "مبتدئ", pop: 3,
+    fl: { sw: 4, ac: 3, bd: 3, cl: 4 },
+    bio: "بطلة ألمانيا للباريستا 2018 — روتين يومي ثابت يعمل مع أي بن.",
+    bioLong: "Nicole Battefeld بطلة ألمانيا للباريستا 2018 طوّرت هالوصفة كروتين يومي 'ما يخذل'. الفكرة: خمس صبّات متساوية بالضبط (60g × 5) بدون تمييز البلوم عن باقي الصبّات. تشتغل مع كل أنواع البن — فاتح، متوسط، غامق — وكل أنواع المعالجة. فلسفتها: 'النكهة الصادقة' بدون تعقيد.",
+    videoUrl: "",
+    bestFor: ["روتين يومي ثابت", "أي نوع بن", "بساطة بدون تعقيد"],
+    bestBeans: ["أي نوع بن", "فاتح ومتوسط", "طبيعي ومغسول"],
+    tags: ["battefeld", "باتيفيلد", "five pour", "خمس صبات", "يومي", "daily", "مبتدئ"],
+    theory: "خمس صبّات متساوية — كل وحدة تستخلص بالتساوي بدون ما تميّز البلوم. الانتظار بين كل صبّة حتى يجف القاع تقريباً يضمن إن كل طبقة تتعرّض لنفس الظروف. النتيجة: نكهة نظيفة ومتوازنة بغض النظر عن نوع البن.",
+    steps: [
+      { l: "صبّة 1", add: 60, total: 60, t: "0:00", w: "لين يجف تقريباً", n: "دائرية بطيئة — لا تمييز بلوم", tmp: 93 },
+      { l: "صبّة 2", add: 60, total: 120, t: "0:35", w: "لين يجف تقريباً", n: "دائرية بطيئة", tmp: 93 },
+      { l: "صبّة 3", add: 60, total: 180, t: "1:10", w: "لين يجف تقريباً", n: "دائرية بطيئة", tmp: 93 },
+      { l: "صبّة 4", add: 60, total: 240, t: "1:45", w: "لين يجف تقريباً", n: "دائرية بطيئة", tmp: 93 },
+      { l: "صبّة 5", add: 60, total: 300, t: "2:20", w: "تصفية كاملة", n: "آخر صبّة — خلّها تنزل بالكامل", tmp: 93 }
+    ]
+  },
+  {
+    id: 17,
+    ex: "CAFEC",
+    m: "Osmotic Flow",
+    mA: "التدفق الأسموزي",
+    type: "hot",
+    dose: 20, water: 250, ice: 0,
+    ratio: "1:12.5", rn: 12.5,
+    temp: 90, tn: "90\u00B0C — حرارة منخفضة للتحميص الغامق",
+    ode: "4-5", oMin: 4, oMax: 5, odeSsp: "5-6",
+    time: "3:30-4:00+", ts: 240,
+    agit: "لا — صب بطيء جداً من نقطة واحدة فقط",
+    st: "موثّقة", diff: "متقدم", pop: 2,
+    fl: { sw: 3, ac: 1, bd: 5, cl: 2 },
+    bio: "طريقة يابانية تقليدية من CAFEC (Sanyo Sangyo) — أقوى جسم وأكمل قوام.",
+    bioLong: "أقدم فلسفة تحضير يابانية. بدلاً من خلط الماء مع البن (slurry)، الماء يمر عبر القاع بالتدفق الأسموزي — مثل الفلترة البطيئة. القاعدة الذهبية: لا تكسر القبة اللي تتكوّن أثناء البلوم أبداً! European Coffee Trip وصفوها بأنها 'الأقوى مرارة والأكمل جسماً' — ليست سلبية بل خاصية مميزة لعشّاق القهوة القوية.",
+    videoUrl: "",
+    bestFor: ["تحميص متوسط-غامق", "قهوة قوية بجسم كامل", "أسلوب تقليدي ياباني"],
+    bestBeans: ["برازيل طبيعي", "كولومبيا غامق", "إندونيسيا سومطرة", "إثيوبيا طبيعي غامق"],
+    tags: ["osmotic", "أسموزي", "cafec", "ياباني", "تقليدي", "قوي", "جسم كامل", "full body", "متقدم"],
+    theory: "الماء لا يختلط مع البن — يمر عبره بفرق التركيز (الأسموزية). تخيّل الفرق بين نقع الشاي وتمرير الماء عبره. الصب من نقطة واحدة في المركز يحافظ على القبة = قنوات تصفية طبيعية = قهوة بجسم كامل وكثافة.",
+    steps: [
+      { l: "التفتيح", add: 50, total: 50, t: "0:00", w: "30 ثانية", n: "صب متساوي على كل القاع — لا تكسر بعدها", tmp: 90 },
+      { l: "صب أسموزي 1", add: 50, total: 100, t: "0:30", w: "~45 ثانية", n: "صب بطيء جداً من نقطة المركز فقط", tmp: 90 },
+      { l: "صب أسموزي 2", add: 50, total: 150, t: "1:15", w: "~45 ثانية", n: "استمر من المركز — دوائر صغيرة جداً", tmp: 90 },
+      { l: "صب أسموزي 3", add: 50, total: 200, t: "2:00", w: "~45 ثانية", n: "حافظ على القبة — لا تضغط على الماء", tmp: 90 },
+      { l: "صب أسموزي 4", add: 50, total: 250, t: "2:45", w: "تصفية كاملة", n: "آخر صبّة من المركز — خلّها تنزل ببطء", tmp: 90 }
+    ]
+  },
+  {
+    id: 18,
+    ex: "Melodrip",
+    m: "Low-Agitation Drip",
+    mA: "ميلودريب — صب بدون اضطراب",
+    type: "hot",
+    dose: 20, water: 300, ice: 0,
+    ratio: "1:15", rn: 15,
+    temp: 95, tn: "95\u00B0C",
+    ode: "3-4", oMin: 3, oMax: 4, odeSsp: "4-5",
+    time: "~3:00", ts: 180,
+    agit: "لا — جهاز Melodrip يوزّع الماء كقطرات خفيفة",
+    st: "موثّقة", diff: "متقدم", pop: 2,
+    fl: { sw: 4, ac: 4, bd: 2, cl: 5 },
+    bio: "جهاز Melodrip يفرّق الماء لقطرات — وضوح نكهة لا يُضاهى.",
+    bioLong: "جهاز Melodrip يحوّل تيار الماء إلى قطرات خفيفة تسقط على القاع بدون أي اضطراب. النتيجة: الجزيئات الناعمة ما تتعلّق في الماء، الفلتر ما ينسد، والاستخلاص يصير أنظف بكثير. يسمّوها 'طريقة الأوديوفايل' — كل نكهة منفصلة وواضحة مثل ما تسمع كل آلة في أغنية. الطحنة أنعم من المعتاد لتعويض قلة الاضطراب.",
+    videoUrl: "",
+    bestFor: ["تحميص فاتح جداً", "قهوة أحادية المصدر فاخرة", "وضوح نكهة مطلق"],
+    bestBeans: ["إثيوبيا طبيعي", "قيشا", "كينيا فاتح جداً"],
+    tags: ["melodrip", "ميلودريب", "low agitation", "وضوح", "clarity", "متقدم", "advanced"],
+    theory: "تقليل الاضطراب = تقليل الجزيئات المعلّقة = فلتر أنظف = استخلاص أوضح. الطحنة أنعم لتعويض قلة الحركة — فرق مساحة السطح يعوّض فرق الاضطراب. النتيجة: كل مركّب نكهة يظهر بوضوح كامل.",
+    steps: [
+      { l: "التفتيح", add: 70, total: 70, t: "0:00", w: "40 ثانية", n: "بدون Melodrip — صب مباشر للتشبّع السريع", tmp: 95 },
+      { l: "صبّة Melodrip 1", add: 70, total: 140, t: "0:40", w: "~35 ثانية", n: "عبر جهاز Melodrip — قطرات خفيفة", tmp: 95 },
+      { l: "صبّة Melodrip 2", add: 70, total: 210, t: "1:15", w: "~35 ثانية", n: "انتظر حتى 1cm فوق القاع ثم صب", tmp: 95 },
+      { l: "صبّة Melodrip 3", add: 90, total: 300, t: "1:50", w: "تصفية ~1:10", n: "آخر صبّة عبر Melodrip حتى 300g", tmp: 95 }
+    ]
+  },
+  {
+    id: 19,
+    ex: "طريقة يابانية كلاسيكية",
+    m: "Japanese Iced V60 (60/40)",
+    mA: "V60 مثلّج ياباني كلاسيكي",
+    type: "iced",
+    dose: 20, water: 180, ice: 120,
+    ratio: "1:15", rn: 15,
+    temp: 96, tn: "96\u00B0C — حرارة عالية لتعويض قلة الماء",
+    ode: "3-4", oMin: 3, oMax: 4, odeSsp: "4-5",
+    time: "2:00-2:30", ts: 150,
+    agit: "خفيف — صب لطيف فقط",
+    st: "موثّقة", diff: "متوسط", pop: 4,
+    fl: { sw: 3, ac: 5, bd: 2, cl: 4 },
+    bio: "الطريقة اليابانية الكلاسيكية — 60% ماء ساخن + 40% ثلج. أفضل قهوة مثلّجة.",
+    bioLong: "Flash Brew = صب قهوة ساخنة مباشرة على ثلج. النسبة الذهبية: 60% ماء ساخن + 40% ثلج في الإبريق تحت V60. الماء الساخن يستخلص النكهات والثلج يبرّدها فوراً — يحبس الروائح المتطايرة اللي تضيع في الكولد برو. النتيجة: مثلّج بنكهة فاكهية ساطعة ما تحصلها بأي طريقة ثانية.",
+    videoUrl: "",
+    bestFor: ["صيف", "تحميص فاتح فاكهي", "بن طبيعي أحادي المصدر"],
+    bestBeans: ["إثيوبيا طبيعي", "كينيا", "كوستاريكا عسلي", "بنما"],
+    tags: ["iced", "مثلّج", "japanese", "ياباني", "flash brew", "فلاش", "صيف", "60/40"],
+    theory: "60/40 نسبة الماء/الثلج تعطي أفضل توازن بين التركيز والتخفيف. الطحنة أنعم من المعتاد لأن كمية الماء أقل — نحتاج استخلاص أكثر من ماء أقل. التبريد الفوري يحبس المركّبات العطرية المتطايرة — لهذا الفلاش برو ألذ من الكولد برو.",
+    steps: [
+      { l: "تجهيز", add: 0, total: 0, t: "", w: "—", n: "ضع 120g ثلج في الإبريق تحت V60" },
+      { l: "التفتيح", add: 60, total: 60, t: "0:00", w: "30 ثانية", n: "بلوم على البن — الثلج تحت", tmp: 96 },
+      { l: "الصبّة 2", add: 60, total: 120, t: "0:30", w: "~30 ثانية", n: "صبّة دائرية", tmp: 96 },
+      { l: "الصبّة 3", add: 60, total: 180, t: "1:00", w: "تصفية ~1:00", n: "آخر صبّة — حرّك حتى يذوب كل الثلج", tmp: 96 }
+    ]
+  },
+  {
+    id: 20,
+    ex: "Lance Hedrick",
+    m: "Daily Two Pours (Double Bloom)",
+    mA: "الصبّتين اليومية — بلوم مزدوج",
+    type: "hot",
+    dose: 20, water: 340, ice: 0,
+    ratio: "1:17", rn: 17,
+    temp: 100, tn: "ماء مغلي",
+    ode: "4.5-5.5", oMin: 4.5, oMax: 5.5, odeSsp: "6-7",
+    time: "~3:00", ts: 180,
+    agit: "Swirl بعد كل صبّة",
+    st: "موثّقة", diff: "متوسط", pop: 4,
+    fl: { sw: 4, ac: 4, bd: 2, cl: 5 },
+    bio: "يوتيوبر القهوة الأشهر — ابتكر تقنية البلوم المزدوج الثورية.",
+    bioLong: "Lance Hedrick يوتيوبر متخصص في القهوة وشارك بتصميم طاحونة Fellow Ode Gen 2. ابتكر تقنية 'البلوم المزدوج' — صبّتين صغيرتين بدلاً من بلوم واحد. البلوم الأول يطلق CO2 الأساسي، والثاني يضمن تشبّع كامل. إذا بعد البلوم الأول القاع يبان جاف ومتشقق — البلوم الثاني ضروري. يفضّل TDS منخفض (1.4) لأنه يعطي 'طبقات نكهة' واضحة ومنفصلة.",
+    videoUrl: "",
+    bestFor: ["استخدام يومي", "تحميص فاتح-متوسط", "قهوة مغسولة"],
+    bestBeans: ["إثيوبيا مغسولة", "كولومبيا", "غواتيمالا"],
+    tags: ["hedrick", "هيدريك", "double bloom", "بلوم مزدوج", "daily", "يومي", "two pours"],
+    theory: "البلوم المزدوج = إطلاق CO2 على مرحلتين. البن الطازج فيه غاز كثير — بلوم واحد ما يكفي لإخراجه كله. البلوم الثاني يتأكد إن ما فيه جيوب غاز تمنع الماء من الوصول للبن. TDS منخفض يفصل النكهات بدلاً من مزجها — تحس بكل نكهة لحالها.",
+    steps: [
+      { l: "بلوم 1", add: 50, total: 50, t: "0:00", w: "30 ثانية", n: "صب 50g + Swirl قوي", tmp: 100 },
+      { l: "بلوم 2", add: 50, total: 100, t: "0:30", w: "30 ثانية", n: "صب 50g ثاني + Swirl — لإخراج باقي CO2", tmp: 100 },
+      { l: "صبّة رئيسية 1", add: 120, total: 220, t: "1:00", w: "~20 ثانية", n: "120g بسرعة خلف المركز + Swirl", tmp: 100 },
+      { l: "صبّة رئيسية 2", add: 120, total: 340, t: "1:30", w: "تصفية ~1:30", n: "120g بسرعة + Swirl خفيف — خلّها تنزل", tmp: 100 }
     ]
   }
 ];
@@ -6622,6 +6882,39 @@ const TIPS = [
   "ما تسوي تفتيح — التفتيح يطلع الغاز ويسوّي استخلاص متساوي",
   "تحريك زيادة — التحريك الزيادة يسبب استخلاص زايد ومرارة",
   "حجم الفلتر غلط — 01 لكوب واحد، 02 لـ1-4 أكواب"
+];
+
+// ─── ROAST LEVEL ADJUSTMENT GUIDE ────────────────────────────────────────────
+const ROAST_GUIDE = {
+  light: { nameAr:"تحميص فاتح", temp:"100°C (مغلي)", grind:"ناعم-متوسط", odeStock:"3–4.5", odeSsp:"4–6", ratio:"1:16–1:17", agitation:"عالي", time:"3:00–3:30", goal:"استخلاص أقصى لسحب الحلاوة والفاكهة من حبوب كثيفة", tips:["استخدم ماء مغلي دائماً","طحنة أنعم من المعتاد","لا تخاف من التحريك القوي","وقت أطول = استخلاص أكثر"] },
+  medium: { nameAr:"تحميص متوسط", temp:"93–96°C", grind:"متوسط-ناعم", odeStock:"4–5", odeSsp:"5–7", ratio:"1:15–1:16", agitation:"متوسط", time:"3:00–3:30", goal:"توازن بين الجسم والحلاوة والوضوح", tips:["حرارة متوسطة-عالية","طحنة قياسية","تحريك معتدل"] },
+  dark: { nameAr:"تحميص غامق", temp:"88–92°C", grind:"متوسط إلى متوسط-خشن", odeStock:"5–7", odeSsp:"7–9", ratio:"1:13–1:15", agitation:"خفيف (صب لطيف)", time:"2:20–3:00", goal:"تجنّب المرارة، حافظ على نكهة الشوكولاتة والمكسرات", tips:["خفّض الحرارة!","طحنة أخشن","وقت أقصر","صب لطيف بدون تحريك"] }
+};
+
+// ─── SCALING GUIDE ───────────────────────────────────────────────────────────
+const SCALING_GUIDE = [
+  {cups:1,label:"كوب صغير",dose:"12–15g",water:"200–250g",ratio:"1:16–1:17",v60:"01 أو 02",grindAdj:"قياسي",time:"2:20–3:00"},
+  {cups:1,label:"كوب قياسي",dose:"18–20g",water:"300–340g",ratio:"1:15–1:17",v60:"02",grindAdj:"قياسي",time:"3:00–3:30"},
+  {cups:2,label:"كوبين",dose:"25–30g",water:"400–500g",ratio:"1:16–1:17",v60:"02",grindAdj:"أخشن قليلاً",time:"3:30–4:30"},
+  {cups:3,label:"ثلاث كبايات",dose:"36–40g",water:"600–660g",ratio:"1:16–1:17",v60:"03",grindAdj:"أخشن بوضوح",time:"4:00–5:00"}
+];
+
+// ─── WATER QUALITY GUIDE ─────────────────────────────────────────────────────
+const WATER_GUIDE = {
+  sca:{tds:"150 mg/L",range:"75–250 mg/L",ph:"6.5–7.5"},
+  ideal:{tds:"75–150 mg/L",alkalinity:"~40 mg/L",note:"الأفضل لوضوح وحلاوة القهوة"},
+  tooSoft:{tds:"أقل من 50",effect:"قهوة ضعيفة بدون جسم أو حلاوة"},
+  tooHard:{tds:"أكثر من 250",effect:"استخلاص ضعيف، نكهة مسطّحة"},
+  tips:["فلتر Brita أو BWT يكفي لمعظم الناس","تجنّب ماء مقطّر بدون معادن","ماء الصنبور المفلتر أفضل من ماء القوارير غالباً","Third Wave Water لنتائج مضبوطة"]
+};
+
+// ─── ADVANCED TECHNIQUES ─────────────────────────────────────────────────────
+const TECHNIQUES = [
+  {id:"rao-spin",nameAr:"لفّة راو (Rao Spin)",desc:"إمسك V60 كامل ولفّه — قوي أثناء البلوم (2-3 لفّات)، خفيف بعد كل صبّة (أقل من لفّة). يسوّي القاع ويمنع القنوات.",when:"بعد البلوم وبعد كل صبّة",risk:"لفّ كثير = انسداد"},
+  {id:"perger-tap",nameAr:"نقرة بيرقر (Perger Tap)",desc:"قبل النزول الأخير، انقر V60 نقرة خفيفة + هزّة. يسوّي القاع بدون اضطراب.",when:"قبل النزول الأخير فقط",risk:"قليل جداً"},
+  {id:"double-bloom",nameAr:"بلوم مزدوج (Double Bloom)",desc:"صبّتين صغيرتين بدلاً من بلوم واحد. الأولى تطلق CO2 الأساسي، الثانية تضمن تشبّع كامل. ضروري مع بن طازج جداً.",when:"دائماً — خصوصاً مع بن طازج (أقل من 10 أيام)",risk:"لا يوجد"},
+  {id:"nest",nameAr:"تقنية العش (Nest / Gagné)",desc:"أدخل عصا رفيعة في مركز البن واصنع دوائر متوسّعة = خندق عميق. يضمن تشبّع متساوي من أول ثانية.",when:"قبل الصب — تحضير القاع",risk:"لا يوجد"},
+  {id:"swirl-vs-stir",nameAr:"اللف مقابل التحريك",desc:"اللف (Swirl) = حركة دائرية لـ V60 كامل. التحريك (Stir) = ملعقة داخل الماء. اللف أكثر لطفاً وأقل خطورة من التحريك.",when:"حسب الوصفة — اللف أكثر أماناً",risk:"التحريك القوي قد يسبب استخلاص زائد"}
 ];
 
 // ─── GRINDER CROSS-REFERENCE ─────────────────────────────────────────────────
@@ -6821,7 +7114,7 @@ function cardH(r, idx) {
     '<div class="yield-info"><b><span class="en">~' + ym + 'ml</span> \u2248 ' + (yc >= 2 ? Math.round(yc) : yc) + ' كوب</b>' +
     '<span><span class="en">' + r.dose + 'g</span> بن \u2192 <span class="en">' + r.water + 'g</span> ماء' + (r.ice ? ' + <span class="en">' + r.ice + 'g</span> ثلج' : '') + ' \u2192 <span class="en">' + ym + 'ml</span> قهوة</span></div></div>' +
     mtl(r) +
-    '<div class="cd-bot"><span class="cd-meta"><span class="en">' + pc + '</span> صبّة \u00B7 <span class="en">Ode ' + r.ode + '</span></span>' +
+    '<div class="cd-bot"><span class="cd-meta"><span class="en">' + pc + '</span> صبّة \u00B7 <span class="en">Ode ' + r.ode + '</span>' + (r.odeSsp ? ' \u00B7 <span class="en" style="color:var(--a2)">SSP ' + r.odeSsp + '</span>' : '') + '</span>' +
     '<div class="cd-acts"><button class="fb ' + (iF ? 'on' : '') + '" onclick="event.stopPropagation();tFav(' + r.id + ')">' + (iF ? '\u2764' : '\u2661') + '</button>' +
     '<button class="bb" onclick="event.stopPropagation();startB(' + r.id + ')">\u2615 حضّر</button></div></div></div>';
 }
@@ -6915,8 +7208,10 @@ function renderDetail(r, scale) {
   d.innerHTML =
     '<div class="dh">' +
     '<button class="dh-back" onclick="showS(\'home\');render()">\u2190 رجوع</button>' +
-    '<h2><span class="en">' + r.ex + '</span></h2>' +
-    '<div class="dh-sub">' + r.mA + ' \u2022 <span class="en">' + r.m + '</span></div>' +
+    '<div style="display:flex;align-items:center;gap:12px;margin:8px 0 4px">' +
+    '<div style="width:48px;height:48px;min-width:48px;border-radius:50%;background:linear-gradient(135deg,var(--a1),var(--a2));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:18px;font-family:Inter;box-shadow:0 2px 8px rgba(198,124,78,0.3)">' + r.ex.split(' ').map(function(w){return w[0]}).join('').substring(0,2) + '</div>' +
+    '<div><h2 style="margin:0;font-size:clamp(18px,5vw,22px)"><span class="en">' + r.ex + '</span></h2>' +
+    '<div class="dh-sub" style="margin-top:2px">' + r.mA + ' \u2022 <span class="en">' + r.m + '</span></div></div></div>' +
     '<div class="dh-badges">' +
     '<span class="bg ' + (r.type === 'iced' ? 'b-iced' : 'b-hot') + '">' + (r.type === 'iced' ? 'مثلّج' : 'حار') + '</span>' +
     '<span class="bg b-ok">' + r.st + '</span>' +
@@ -6960,7 +7255,8 @@ function renderDetail(r, scale) {
     '<div class="ig-i"><span class="ig-l">الحرارة</span><span class="ig-v en">' + (r.temp || '\u2014') + '\u00B0C</span></div>' +
     '<div class="ig-i"><span class="ig-l">الوقت</span><span class="ig-v en">' + r.time + '</span></div>' +
     '<div class="ig-i"><span class="ig-l">التحريك</span><span class="ig-v">' + (r.agit || 'بدون') + '</span></div>' +
-    '<div class="ig-i"><span class="ig-l">Ode Gen 2</span><span class="ig-v en">' + r.ode + '</span></div>' +
+    '<div class="ig-i"><span class="ig-l">Ode Stock</span><span class="ig-v en">' + r.ode + '</span></div>' +
+    (r.odeSsp ? '<div class="ig-i"><span class="ig-l">Ode SSP</span><span class="ig-v en">' + r.odeSsp + '</span></div>' : '') +
     '<div class="ig-i"><span class="ig-l">الصعوبة</span><span class="ig-v">' + r.diff + '</span></div>' +
     '</div>' +
     // Grind Dial
@@ -6972,8 +7268,9 @@ function renderDetail(r, scale) {
     (typeof renderCostBadge === 'function' ? renderCostBadge(r.dose) : '') +
     '</div>' +
 
-    // Flavor bars
+    // Flavor radar + bars
     '<div class="sc"><h3>\u{1F3A8} ملف النكهة</h3>' +
+    (typeof renderFlavorRadar === 'function' ? '<div style="display:flex;justify-content:center;margin-bottom:12px">' + renderFlavorRadar(r.fl, 180) + '</div>' : '') +
     flRow('حلاوة', r.fl.sw, '#e74c3c') +
     flRow('حموضة', r.fl.ac, '#f1c40f') +
     flRow('قوام', r.fl.bd, '#8b4513') +
@@ -7336,6 +7633,14 @@ function finishBrew() {
       tastingSlot.innerHTML = renderTastingForm();
       if (typeof initTastingFormListeners === 'function') initTastingFormListeners();
     }
+    // Inject quick flavor tag picker
+    var qft = $('quickFlavorTags');
+    if (qft) {
+      var QUICK_FLAVOR_TAGS = ['\u{1F34A} فاكهي','\u{1F36B} شوكولاتي','\u{1F330} مكسرات','\u{1F33A} زهري','\u{1F36F} حلو','\u{1F34B} حامض','\u2615 مر','\u{1F4A7} نظيف','\u{1F95B} كريمي','\u{1F525} مدخن','\u{1F36F} عسلي','\u{1F33F} توابل'];
+      qft.innerHTML = QUICK_FLAVOR_TAGS.map(function(t) {
+        return '<button type="button" class="flavor-tag" onclick="this.classList.toggle(\'active\');var a=this.parentNode.querySelectorAll(\'.active\');if(a.length>5){this.classList.remove(\'active\')}">' + t + '</button>';
+      }).join('');
+    }
     // Inject bean selector
     var beanSlot = $('beanSelectorSlot');
     if (beanSlot && typeof renderBeanSelector === 'function') {
@@ -7408,6 +7713,17 @@ if ($('brewSaveBtn')) {
       }
     }
 
+    // Save quick flavor tags
+    var qft = $('quickFlavorTags');
+    if (qft) {
+      var activeTags = [];
+      qft.querySelectorAll('.flavor-tag.active').forEach(function(btn) { activeTags.push(btn.textContent.trim()); });
+      if (activeTags.length) {
+        if (!entry.tasting) entry.tasting = {};
+        entry.tasting.quickTags = activeTags;
+      }
+    }
+
     // Link selected bean
     var beanSel = $('beanSelector');
     if (beanSel && beanSel.value) {
@@ -7447,7 +7763,8 @@ function initLearnChips() {
     { v: 'water', label: '\u{1F4A7} جودة الماء' },
     { v: 'mistakes', label: '\u26A0\uFE0F أخطاء شائعة' },
     { v: 'variables', label: '\u{1F527} متغيرات التحضير' },
-    { v: 'seasonal', label: '\u{1F326}\uFE0F نصائح موسمية' }
+    { v: 'seasonal', label: '\u{1F326}\uFE0F نصائح موسمية' },
+    { v: 'techniques', label: '\u{1F3AF} تقنيات متقدمة' }
   ];
   extraChips.forEach(ch => {
     const btn = document.createElement('button');
@@ -7481,6 +7798,7 @@ function renderLearn() {
     case 'mistakes': c.innerHTML = renderMistakes(); break;
     case 'variables': c.innerHTML = renderVariables(); break;
     case 'seasonal': c.innerHTML = renderSeasonal(); break;
+    case 'techniques': c.innerHTML = renderTechniquesSection(); break;
     default: c.innerHTML = renderOrigins();
   }
 }
@@ -7651,6 +7969,32 @@ function renderFixGrid() {
   ).join('');
 }
 
+// ─── ODE GRINDER DIAGNOSIS ADVICE ───
+const odeFixAdvice = {
+  bitter: "طاحونة Ode Gen 2: أدر القرص 1-2 نقرة عكس عقارب الساعة (أخشن). إذا عندك SSP MP، جرّب 2-3 نقرات.",
+  sour: "طاحونة Ode Gen 2: أدر القرص 1-2 نقرة مع عقارب الساعة (أنعم). إذا عندك SSP MP، جرّب 1-2 نقرة.",
+  weak: "طاحونة Ode Gen 2: أنعم نقرة واحدة. أيضاً تأكد إنك تطحن كمية كافية (18-20g).",
+  bland: "طاحونة Ode Gen 2: جرّب أنعم + ماء أسخن. أحياناً البن قديم — جرّب بن أطزج (7-21 يوم من التحميص).",
+  over: "طاحونة Ode Gen 2: أخشن 2-3 نقرات + حرارة أقل (92\u00B0C بدلاً من 100\u00B0C).",
+  astringent: "طاحونة Ode Gen 2: أخشن 1-2 نقرة. تأكد الفلتر مبلول كويس والماء مو حار زيادة.",
+  watery: "طاحونة Ode Gen 2: أنعم 2-3 نقرات. زِد كمية البن أو قلّل الماء."
+};
+
+function getOdeAdviceHtml(problemId) {
+  var advice = odeFixAdvice[problemId];
+  if (!advice) {
+    if (problemId && problemId.indexOf('bitter') >= 0) advice = odeFixAdvice.bitter;
+    else if (problemId && problemId.indexOf('sour') >= 0) advice = odeFixAdvice.sour;
+    else if (problemId && problemId.indexOf('weak') >= 0) advice = odeFixAdvice.weak;
+    else if (problemId && problemId.indexOf('bland') >= 0) advice = odeFixAdvice.bland;
+    else if (problemId && problemId.indexOf('over') >= 0) advice = odeFixAdvice.over;
+    else if (problemId && problemId.indexOf('astringent') >= 0) advice = odeFixAdvice.astringent;
+    else if (problemId && problemId.indexOf('water') >= 0) advice = odeFixAdvice.watery;
+  }
+  if (!advice) return '';
+  return '<div class="ode-advice"><div class="ode-advice-icon">\u2699\uFE0F</div><div><div class="ode-advice-title">Fellow Ode Gen 2</div><div class="ode-advice-txt">' + advice + '</div></div></div>';
+}
+
 function showFixDetail(id) {
   const problems = (typeof TASTE_PROBLEMS !== 'undefined') ? TASTE_PROBLEMS : [];
   const p = problems.find(x => x.id === id);
@@ -7670,7 +8014,8 @@ function showFixDetail(id) {
     '<h3>' + p.icon + ' ' + p.symptom + '</h3>' +
     '<div class="fix-cause">' + p.cause + '</div>' +
     '<ul class="fix-list">' + p.fixes.map(f => '<li><span class="num">' + f.priority + '</span> ' + f.action + '</li>').join('') + '</ul>' +
-    '<div class="fix-pro">\u{1F4A1} ' + p.tip + '</div>';
+    '<div class="fix-pro">\u{1F4A1} ' + p.tip + '</div>' +
+    getOdeAdviceHtml(id);
   fd.classList.add('on');
   fd.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
@@ -7767,6 +8112,7 @@ function showDiagResult(resultId) {
     '<div class="fix-cause">' + p.cause + '</div>' +
     '<ul class="fix-list">' + p.fixes.map(f => '<li><span class="num">' + f.priority + '</span> ' + f.action + '</li>').join('') + '</ul>' +
     '<div class="fix-pro">\u{1F4A1} ' + p.tip + '</div>' +
+    getOdeAdviceHtml(resultId) +
     '<button class="bcta" style="margin-top:12px" onclick="resetDiag()">\u{1F504} تشخيص جديد</button>';
 }
 
@@ -7899,6 +8245,11 @@ function renderTools() {
     toolsContainer.appendChild(ctCard);
     if (typeof initCostTracker === 'function') initCostTracker();
   }
+
+  // Render new tool panels
+  if (typeof renderScalingCalc === 'function') renderScalingCalc();
+  if (typeof renderRoastGuide === 'function') renderRoastGuide();
+  if (typeof renderSettingsPanel === 'function') renderSettingsPanel();
 
   // Initial calcs
   calcRatio(); calcIced(); calcYield(); calcCaffeine();
@@ -8095,6 +8446,21 @@ function renderStats(c) {
     return { name: r ? r.ex + ' - ' + r.mA : 'Unknown', count: recipeCount[id] };
   });
 
+  // Most used grind setting
+  const grindCount = {};
+  brewLog.forEach(e => { if (e.grind) grindCount[e.grind] = (grindCount[e.grind] || 0) + 1; });
+  const topGrind = Object.keys(grindCount).sort((a, b) => grindCount[b] - grindCount[a])[0] || '\u2014';
+
+  // Favorite expert
+  const expertCount = {};
+  brewLog.forEach(e => { const r = D.find(x => x.id === e.recipeId); if (r) expertCount[r.ex] = (expertCount[r.ex] || 0) + 1; });
+  const topExpert = Object.keys(expertCount).sort((a, b) => expertCount[b] - expertCount[a])[0] || '\u2014';
+
+  // Top flavor tags
+  const tagCount = {};
+  brewLog.forEach(e => { if (e.tasting && e.tasting.flavorTags) e.tasting.flavorTags.forEach(t => { tagCount[t] = (tagCount[t] || 0) + 1; }); });
+  const topTags = Object.keys(tagCount).sort((a, b) => tagCount[b] - tagCount[a]).slice(0, 3);
+
   c.innerHTML = '<div class="sc"><h3>\u{1F4CA} الإحصائيات</h3>' +
     '<div class="ig">' +
     '<div class="ig-i"><span class="ig-l">إجمالي التحضيرات</span><span class="ig-v en">' + totalBrews + '</span></div>' +
@@ -8103,6 +8469,9 @@ function renderStats(c) {
     '<div class="ig-i"><span class="ig-l">هالأسبوع</span><span class="ig-v en">' + thisWeek + '</span></div>' +
     '<div class="ig-i"><span class="ig-l">هالشهر</span><span class="ig-v en">' + thisMonth + '</span></div>' +
     '<div class="ig-i"><span class="ig-l">الأكثر تحضيراً</span><span class="ig-v" style="font-size:12px">' + (topRecipe ? topRecipe.mA : '\u2014') + '</span></div>' +
+    '<div class="ig-i"><span class="ig-l">أكثر طحنة مستخدمة</span><span class="ig-v en" style="font-size:12px">' + topGrind + '</span></div>' +
+    '<div class="ig-i"><span class="ig-l">الخبير المفضل</span><span class="ig-v en" style="font-size:12px">' + topExpert + '</span></div>' +
+    (topTags.length ? '<div class="ig-i"><span class="ig-l">نكهات متكررة</span><span class="ig-v" style="font-size:11px">' + topTags.join(' \u00B7 ') + '</span></div>' : '') +
     '</div></div>' +
 
     // Rating distribution
@@ -8254,9 +8623,10 @@ function initOnboard() {
   }
 
   const steps = [
-    { icon: '\u2615', title: 'مرحباً بـ V60 Masters', desc: '13 وصفة موثّقة من 10 خبراء عالميين — اختار وصفتك وحضّرها بالمؤقت المدمج' },
+    { icon: '\u2615', title: 'مرحباً بـ V60 Masters', desc: '20 وصفة موثّقة من 15+ خبير عالمي — اختار وصفتك وحضّرها بالمؤقت المدمج' },
     { icon: '\u{1F4DA}', title: 'تعلّم كل شي', desc: 'مناشئ القهوة، المصطلحات، درجات التحميص، جودة الماء — كل شي تحتاجه في مكان واحد' },
-    { icon: '\u{1F527}', title: 'أصلح قهوتك', desc: 'وصف المشكلة وبنعطيك الحل. معالج تشخيص تفاعلي + بوصلة الاستخلاص' }
+    { icon: '\u{1F527}', title: 'أصلح قهوتك', desc: 'وصف المشكلة وبنعطيك الحل. معالج تشخيص تفاعلي + بوصلة الاستخلاص' },
+    { icon: '\u2699\uFE0F', title: 'طاحونتك', desc: 'عندك Fellow Ode Gen 2؟ كل وصفة فيها إعداد الطحنة المضبوط — Stock و SSP MP. معالج معايرة خطوة بخطوة.' }
   ];
 
   let step = 0;
@@ -8438,6 +8808,212 @@ try {
 
 } catch (e) {
   console.error('V60 Masters init error:', e);
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// ─── FLAVOR RADAR CHART ──────────────────────────────────────────────────
+// ═══════════════════════════════════════════════════════════════════════════
+function renderFlavorRadar(fl, size) {
+  if (!fl) return '';
+  size = size || 160;
+  var cx = size/2, cy = size/2, r = size/2 - 22;
+  var labels = [
+    {key:'sw', ar:'حلاوة', angle: -90},
+    {key:'ac', ar:'حموضة', angle: 0},
+    {key:'bd', ar:'جسم', angle: 90},
+    {key:'cl', ar:'وضوح', angle: 180}
+  ];
+  var grid = '';
+  for (var i = 1; i <= 5; i++) {
+    var gr = r * i / 5;
+    var pts = labels.map(function(l) {
+      var rad = l.angle * Math.PI / 180;
+      return (cx + gr * Math.cos(rad)) + ',' + (cy + gr * Math.sin(rad));
+    }).join(' ');
+    grid += '<polygon points="' + pts + '" fill="none" stroke="var(--border)" stroke-width="0.5" opacity="' + (i===5?0.8:0.3) + '"/>';
+  }
+  var dataPts = labels.map(function(l) {
+    var val = (fl[l.key] || 0) / 5;
+    var rad = l.angle * Math.PI / 180;
+    return (cx + r * val * Math.cos(rad)) + ',' + (cy + r * val * Math.sin(rad));
+  }).join(' ');
+  var dots = labels.map(function(l) {
+    var val = (fl[l.key] || 0) / 5;
+    var rad = l.angle * Math.PI / 180;
+    return '<circle cx="' + (cx + r * val * Math.cos(rad)) + '" cy="' + (cy + r * val * Math.sin(rad)) + '" r="4" fill="var(--a1)"/>';
+  }).join('');
+  var lbls = labels.map(function(l) {
+    var rad = l.angle * Math.PI / 180;
+    return '<text x="' + (cx + (r + 16) * Math.cos(rad)) + '" y="' + (cy + (r + 16) * Math.sin(rad)) + '" text-anchor="middle" dominant-baseline="middle" fill="var(--t2)" font-size="11" font-family="Cairo" font-weight="700">' + l.ar + '</text>';
+  }).join('');
+  return '<div style="text-align:center;margin:12px 0">' +
+    '<svg width="' + size + '" height="' + size + '" viewBox="0 0 ' + size + ' ' + size + '">' +
+    grid +
+    '<polygon points="' + dataPts + '" fill="var(--a1)" fill-opacity="0.15" stroke="var(--a1)" stroke-width="2"/>' +
+    dots + lbls +
+    '</svg></div>';
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// ─── CALIBRATION WIZARD ─────────────────────────────────────────────────
+// ═══════════════════════════════════════════════════════════════════════════
+var CALIB_STEPS = [
+  {title:"تفريغ الطاحونة",icon:"\u{1F9F9}",instruction:"أفرغ حجرة الطحن بالكامل. أزل أي بقايا بن قديم من الغرفة والمحور.",tip:"نظافة الطاحونة مهمة قبل المعايرة — البقايا تأثر على النتيجة"},
+  {title:"الوصول لنقطة الصفر",icon:"\u2699\uFE0F",instruction:"شغّل الطاحونة بدون بن. أدر القرص ببطء باتجاه عقارب الساعة (أنعم) حتى تسمع صوت احتكاك الأقراص (chirp). هذي نقطة الصفر.",tip:"الصوت لازم يكون واضح — احتكاك معدن على معدن"},
+  {title:"ضبط البداية",icon:"\u{1F527}",instruction:"لأقراص Gen 2 Stock: أدر القرص نقرة واحدة عكس عقارب الساعة.\n\nلأقراص SSP MP: أدر القرص 5 نقرات عكس عقارب الساعة.",tip:"الدليل المطبوع تحت غطاء الحوض غلط — مبني على أقراص الجيل الأول!"},
+  {title:"اختبار الطحنة",icon:"\u2615",instruction:"اطحن 18g بن. ابدأ من الإعداد 5 لـ V60.\n\nحضّر كوب اختبار:\n\u2022 18g بن، 300g ماء، 93°C\n\u2022 صب واحد مع Swirl\n\u2022 الوقت المستهدف: 3:00–3:30",tip:"إذا نزل بسرعة (أقل من 2:30) \u2192 أنعم نقرة. إذا بطيء (أكثر من 4:00) \u2192 أخشن نقرة."},
+  {title:"ضبط دقيق بالطعم",icon:"\u{1F445}",instruction:"\u{1F616} مرّة / قابضة \u2192 أخشن نقرة (عكس عقارب الساعة)\n\u{1F61D} حامضة / ضعيفة \u2192 أنعم نقرة (مع عقارب الساعة)\n\u{1F60B} متوازنة وحلوة \u2192 ثبّت الإعداد!",tip:"كل نقرة \u2248 25 ميكرون فرق. عدّل نقرة واحدة بس كل مرة."},
+  {title:"سجّل الإعداد",icon:"\u2705",instruction:"مبروك! سجّل الإعداد المضبوط.\n\nالإعداد يتغير حسب:\n\u2022 نوع البن (فاتح = أنعم، غامق = أخشن)\n\u2022 عمر البن (طازج = أخشن قليلاً)\n\u2022 الرطوبة (رطوبة عالية = أخشن)",tip:"الاحتفاظ في Ode Gen 2 حوالي 0.1g بفضل تقنية مضادة للكهرباء الساكنة"}
+];
+
+var calibCurrent = 0;
+
+function openCalibWizard() {
+  var el = document.getElementById('calibModal');
+  if (!el) {
+    el = document.createElement('div');
+    el.id = 'calibModal';
+    el.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.6);z-index:1000;display:flex;align-items:center;justify-content:center;padding:16px;animation:fi .3s';
+    el.innerHTML = '<div style="background:var(--card);border-radius:var(--r);padding:24px;max-width:480px;width:100%;max-height:85vh;overflow-y:auto">' +
+      '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px"><h2 style="font-size:18px;font-weight:900">معايرة Fellow Ode Gen 2</h2><button onclick="document.getElementById(\'calibModal\').remove()" style="background:none;border:none;font-size:28px;color:var(--t3);cursor:pointer">\u00D7</button></div>' +
+      '<div id="calibStepContent"></div>' +
+      '<div style="display:flex;justify-content:space-between;align-items:center;margin-top:24px;padding-top:16px;border-top:1px solid var(--border)">' +
+      '<button id="calibPrevBtn" onclick="calibNav(-1)" style="padding:10px 24px;background:var(--bg2);color:var(--t2);border:none;border-radius:var(--r3);font-family:Cairo;font-weight:700;cursor:pointer">السابق</button>' +
+      '<span id="calibProg" style="font-size:13px;color:var(--t3);font-weight:700">1/6</span>' +
+      '<button id="calibNextBtn" onclick="calibNav(1)" style="padding:10px 24px;background:var(--a1);color:#fff;border:none;border-radius:var(--r3);font-family:Cairo;font-weight:700;cursor:pointer">التالي</button>' +
+      '</div></div>';
+    document.body.appendChild(el);
+  } else {
+    el.style.display = 'flex';
+  }
+  calibCurrent = 0;
+  renderCalibContent();
+}
+
+function calibNav(dir) {
+  if (calibCurrent === CALIB_STEPS.length - 1 && dir === 1) {
+    var inp = document.getElementById('calibSaveInput');
+    if (inp) localStorage.setItem('v60_ode_setting', inp.value);
+    document.getElementById('calibModal').remove();
+    toast('\u2705 تم حفظ إعداد الطاحونة!');
+    return;
+  }
+  calibCurrent = Math.max(0, Math.min(CALIB_STEPS.length - 1, calibCurrent + dir));
+  renderCalibContent();
+}
+
+function renderCalibContent() {
+  var s = CALIB_STEPS[calibCurrent];
+  var el = document.getElementById('calibStepContent');
+  if (!el) return;
+  el.innerHTML = '<div style="animation:fi .3s">' +
+    '<div style="font-size:48px;text-align:center;margin-bottom:16px">' + s.icon + '</div>' +
+    '<h3 style="text-align:center;margin-bottom:12px;font-size:18px">' + s.title + '</h3>' +
+    '<p style="white-space:pre-line;line-height:1.8;margin-bottom:16px;font-size:14px">' + s.instruction + '</p>' +
+    (s.tip ? '<div style="background:var(--warnBg);border-right:3px solid var(--warn);padding:12px 16px;border-radius:var(--r3);margin-top:12px;font-size:13px"><strong>\u{1F4A1} نصيحة:</strong> ' + s.tip + '</div>' : '') +
+    (calibCurrent === CALIB_STEPS.length - 1 ? '<div style="margin-top:16px;text-align:center"><label style="display:block;margin-bottom:8px;font-weight:700">إعدادك المضبوط:</label><input type="number" id="calibSaveInput" step="0.5" min="1" max="11" value="' + (localStorage.getItem('v60_ode_setting') || '5') + '" style="width:100px;padding:12px;text-align:center;font-size:24px;font-weight:800;border-radius:var(--r3);border:2px solid var(--a1);font-family:Inter;background:var(--bg2)"></div>' : '') +
+    '</div>';
+  var prog = document.getElementById('calibProg');
+  if (prog) prog.textContent = (calibCurrent + 1) + '/' + CALIB_STEPS.length;
+  var prev = document.getElementById('calibPrevBtn');
+  if (prev) prev.style.visibility = calibCurrent === 0 ? 'hidden' : 'visible';
+  var next = document.getElementById('calibNextBtn');
+  if (next) next.textContent = calibCurrent === CALIB_STEPS.length - 1 ? '\u2705 حفظ' : 'التالي';
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// ─── ROAST GUIDE RENDERER ───────────────────────────────────────────────
+// ═══════════════════════════════════════════════════════════════════════════
+function renderRoastGuide() {
+  if (typeof ROAST_GUIDE === 'undefined') return '';
+  var colors = {light:'#d4913f',medium:'#8B6F47',dark:'#3d2213'};
+  return Object.keys(ROAST_GUIDE).map(function(key) {
+    var g = ROAST_GUIDE[key];
+    return '<div style="background:var(--bg2);padding:16px;border-radius:var(--r3);margin-bottom:12px;border-right:3px solid ' + colors[key] + '">' +
+      '<div style="font-weight:800;font-size:16px;margin-bottom:4px;color:' + colors[key] + '">' + g.nameAr + '</div>' +
+      '<div style="font-size:12px;color:var(--t3);margin-bottom:8px">' + g.goal + '</div>' +
+      '<div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;font-size:12px">' +
+      '<div><span style="color:var(--t3)">الحرارة:</span> ' + g.temp + '</div>' +
+      '<div><span style="color:var(--t3)">الطحنة:</span> ' + g.grind + '</div>' +
+      '<div><span style="color:var(--t3)">ODE Stock:</span> <span class="en">' + g.odeStock + '</span></div>' +
+      '<div><span style="color:var(--t3)">ODE SSP:</span> <span class="en">' + g.odeSsp + '</span></div>' +
+      '<div><span style="color:var(--t3)">النسبة:</span> ' + g.ratio + '</div>' +
+      '<div><span style="color:var(--t3)">الوقت:</span> ' + g.time + '</div>' +
+      '</div>' +
+      '<div style="margin-top:8px">' + g.tips.map(function(t) { return '<span style="display:inline-block;background:var(--card);padding:3px 8px;border-radius:14px;margin:2px;font-size:10px">' + t + '</span>'; }).join('') + '</div>' +
+      '</div>';
+  }).join('');
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// ─── SCALING CALCULATOR RENDERER ────────────────────────────────────────
+// ═══════════════════════════════════════════════════════════════════════════
+function renderScalingCalc() {
+  if (typeof SCALING_GUIDE === 'undefined') return '';
+  return SCALING_GUIDE.map(function(g) {
+    return '<div style="background:var(--bg2);padding:14px;border-radius:var(--r3);margin-bottom:10px;border-right:3px solid var(--a1)">' +
+      '<div style="font-weight:800;font-size:16px;margin-bottom:6px">' + g.label + '</div>' +
+      '<div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;font-size:12px">' +
+      '<div><span style="color:var(--t3)">الجرعة:</span> ' + g.dose + '</div>' +
+      '<div><span style="color:var(--t3)">الماء:</span> ' + g.water + '</div>' +
+      '<div><span style="color:var(--t3)">النسبة:</span> ' + g.ratio + '</div>' +
+      '<div><span style="color:var(--t3)">V60:</span> ' + g.v60 + '</div>' +
+      '<div><span style="color:var(--t3)">الطحنة:</span> ' + g.grindAdj + '</div>' +
+      '<div><span style="color:var(--t3)">الوقت:</span> ' + g.time + '</div>' +
+      '</div></div>';
+  }).join('') +
+  '<div style="background:var(--warnBg);padding:10px 14px;border-radius:var(--r3);font-size:12px;margin-top:8px"><strong>\u{1F4A1}</strong> لما تزيد الكمية، خلّي الطحنة أخشن. النسبة تظل ثابتة.</div>';
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// ─── TECHNIQUES RENDERER ────────────────────────────────────────────────
+// ═══════════════════════════════════════════════════════════════════════════
+function renderTechniquesSection() {
+  if (typeof TECHNIQUES === 'undefined') return '';
+  return TECHNIQUES.map(function(t) {
+    return '<div style="background:var(--bg2);padding:14px;border-radius:var(--r3);margin-bottom:10px">' +
+      '<div style="font-weight:800;font-size:15px;margin-bottom:6px">' + t.nameAr + '</div>' +
+      '<p style="color:var(--t2);line-height:1.7;font-size:13px;margin-bottom:8px">' + t.desc + '</p>' +
+      '<div style="display:flex;gap:8px;font-size:11px">' +
+      '<span style="background:var(--okBg);color:var(--ok);padding:3px 10px;border-radius:14px">متى: ' + t.when + '</span>' +
+      '<span style="background:var(--warnBg);color:var(--warn);padding:3px 10px;border-radius:14px">خطر: ' + t.risk + '</span>' +
+      '</div></div>';
+  }).join('');
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// ─── SETTINGS PANEL ─────────────────────────────────────────────────────
+// ═══════════════════════════════════════════════════════════════════════════
+function renderSettingsPanel() {
+  var s = safeJSON('v60_settings', {});
+  return '<div style="display:grid;gap:16px">' +
+    '<div><label style="font-weight:700;margin-bottom:6px;display:block;font-size:14px">الطاحونة:</label>' +
+    '<select onchange="saveV60Setting(\'grinder\',this.value)" style="width:100%;padding:10px;border-radius:var(--r3);border:1.5px solid var(--border);background:var(--card);font-family:Cairo;font-size:13px">' +
+    '<option value="ode-stock"' + (s.grinder==='ode-stock'?' selected':'') + '>Fellow Ode Gen 2 (Stock)</option>' +
+    '<option value="ode-ssp"' + (s.grinder==='ode-ssp'?' selected':'') + '>Fellow Ode Gen 2 (SSP MP)</option>' +
+    '<option value="comandante"' + (s.grinder==='comandante'?' selected':'') + '>Comandante C40</option>' +
+    '<option value="1zpresso"' + (s.grinder==='1zpresso'?' selected':'') + '>1Zpresso</option>' +
+    '<option value="timemore"' + (s.grinder==='timemore'?' selected':'') + '>Timemore</option>' +
+    '<option value="other"' + (s.grinder==='other'?' selected':'') + '>أخرى</option>' +
+    '</select></div>' +
+    '<div><label style="font-weight:700;margin-bottom:6px;display:block;font-size:14px">الجرعة الافتراضية (g):</label>' +
+    '<input type="number" value="' + (s.dose||18) + '" onchange="saveV60Setting(\'dose\',this.value)" style="width:100%;padding:10px;border-radius:var(--r3);border:1.5px solid var(--border);background:var(--card);font-family:Inter;font-size:15px"></div>' +
+    '<div><label style="font-weight:700;margin-bottom:6px;display:block;font-size:14px">النسبة المفضلة:</label>' +
+    '<select onchange="saveV60Setting(\'ratio\',this.value)" style="width:100%;padding:10px;border-radius:var(--r3);border:1.5px solid var(--border);background:var(--card);font-family:Cairo;font-size:13px">' +
+    '<option value="15"' + (s.ratio==='15'?' selected':'') + '>1:15</option>' +
+    '<option value="16"' + (s.ratio==='16'||!s.ratio?' selected':'') + '>1:16</option>' +
+    '<option value="16.7"' + (s.ratio==='16.7'?' selected':'') + '>1:16.7</option>' +
+    '<option value="17"' + (s.ratio==='17'?' selected':'') + '>1:17</option>' +
+    '</select></div>' +
+    '<button onclick="openCalibWizard()" style="width:100%;padding:12px;background:linear-gradient(135deg,var(--a1),var(--a2));color:#fff;border:none;border-radius:var(--r2);font-family:Cairo;font-weight:700;font-size:14px;cursor:pointer">\u2699\uFE0F معايرة الطاحونة خطوة بخطوة</button>' +
+    '</div>';
+}
+
+function saveV60Setting(key, val) {
+  var s = safeJSON('v60_settings', {});
+  s[key] = val;
+  localStorage.setItem('v60_settings', JSON.stringify(s));
+  toast('\u2705 تم حفظ الإعداد');
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
