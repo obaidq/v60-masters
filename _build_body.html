@@ -1,0 +1,245 @@
+<!-- NAV -->
+<nav class="nav">
+<button class="nb on" data-s="home"><svg viewBox="0 0 24 24"><path d="M3 12l9-9 9 9"/><path d="M9 21V12h6v9"/></svg>الرئيسية</button>
+<button class="nb" data-s="learn"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>تعلّم</button>
+<button class="nb" data-s="fix"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>أصلح</button>
+<button class="nb" data-s="tools"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6M9 13h6M9 17h4"/></svg>أدوات</button>
+<button class="nb" data-s="mybrews"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 000-7.78z"/></svg>مفضلاتي</button>
+</nav>
+
+<!-- HOME -->
+<div class="scr on" id="home">
+<div class="hd">
+<div class="steam-wrap"><div class="steam-w"></div><div class="steam-w"></div><div class="steam-w"></div></div>
+<div class="hd-row"><div><h1>وصفات <b>V60</b></h1><div class="hd-sub">13 وصفة موثّقة من 10 خبراء عالميين</div></div>
+<div class="hd-btns"><button class="ib" id="thB">&#9789;</button></div></div>
+</div>
+<div class="stats">
+<div class="st"><b class="en" data-count="13">13</b><span>وصفة</span></div>
+<div class="st"><b class="en" data-count="10">10</b><span>خبير</span></div>
+<div class="st"><b class="en" data-count="12">12</b><span>موثّقة</span></div>
+<div class="st"><b class="en" data-count="3">3</b><span>مثلّجة</span></div>
+</div>
+<div class="search-wrap" id="searchWrap">
+<span class="search-icon">&#128269;</span>
+<input type="text" id="searchInput" placeholder="ابحث عن وصفة أو خبير..." autocomplete="off">
+<span class="search-clear" id="searchClear">&times;</span>
+</div>
+<div class="sug" id="sugO"><div class="sug-i">&#9749;</div><div><h3>محتار وش تحضّر؟</h3><p>جاوب الأسئلة ونرشّح لك أفضل 3</p></div></div>
+<div class="chips" id="tF">
+<button class="ch on" data-v="">الكل</button>
+<button class="ch" data-v="hot">&#9728; حار</button>
+<button class="ch" data-v="iced">&#10052; مثلّج</button>
+<button class="ch" data-v="beg">&#127793; مبتدئ</button>
+<button class="ch" data-v="adv">&#127941; متقدم</button>
+<button class="ch" data-v="top">&#11088; الأشهر</button>
+</div>
+<div class="frow">
+<select class="fs" id="fE"><option value="">كل الخبراء</option></select>
+<select class="fs" id="fR"><option value="">النسبة</option><option value="12">~1:12</option><option value="15">1:15</option><option value="16">1:16</option><option value="17">1:17</option></select>
+<select class="fs" id="fS"><option value="pop">الأشهر</option><option value="fast">الأسرع</option><option value="easy">الأسهل</option><option value="strong">الأقوى</option></select>
+<span class="rcnt" id="rc"></span>
+</div>
+<div class="cw"><div class="cg" id="grid"></div></div>
+</div>
+
+<!-- LEARN -->
+<div class="scr" id="learn">
+<div class="hd"><div class="hd-row"><div><h1>&#128218; تعلّم</h1><div class="hd-sub">كل شي تحتاجه عن القهوة المقطّرة</div></div></div></div>
+<div class="learn-pad">
+<div class="chips" id="learnChips">
+<button class="ch on" data-v="origins">&#127759; المناشئ</button>
+<button class="ch" data-v="glossary">&#128214; المصطلحات</button>
+<button class="ch" data-v="roast">&#128293; التحميص</button>
+<button class="ch" data-v="water">&#128167; جودة الماء</button>
+<button class="ch" data-v="variables">&#9881; المتغيرات</button>
+<button class="ch" data-v="mistakes">&#9888; أخطاء شائعة</button>
+<button class="ch" data-v="seasonal">&#128197; نصائح موسمية</button>
+<button class="ch" data-v="tips">&#128161; نصائح</button>
+</div>
+<div id="learnContent"></div>
+</div>
+</div>
+
+<!-- FIX -->
+<div class="scr" id="fix">
+<div class="hd"><div class="hd-row"><div><h1>&#128295; أصلح</h1><div class="hd-sub">وش المشكلة بقهوتك؟</div></div></div></div>
+<div class="fix-pad">
+<div class="diag-start" id="startDiag">&#129658; تشخيص تفاعلي — جاوب أسئلة ونوصلك للحل</div>
+<div id="diagWizard"></div>
+<div id="fixDetail"></div>
+<div class="fix-grid" id="fixGrid"></div>
+<div class="sc" style="margin-top:16px">
+<h3>&#129517; بوصلة الاستخلاص</h3>
+<div id="extractionCompass"></div>
+</div>
+<div class="sc" style="margin-top:16px">
+<h3>&#128270; تحليل قاع الفلتر</h3>
+<div id="bedAnalysis"></div>
+</div>
+<div class="sc" style="margin-top:16px">
+<h3>&#9888; أخطاء المبتدئين</h3>
+<div id="beginnerMistakes"></div>
+</div>
+</div>
+</div>
+
+<!-- TOOLS -->
+<div class="scr" id="tools">
+<div class="hd"><div class="hd-row"><div><h1>&#129518; أدوات</h1><div class="hd-sub">حسابات وأدوات مساعدة</div></div></div></div>
+<div class="tools-pad">
+<div class="tools-grid">
+
+<div class="tool-card" id="toolRatio">
+<h4>&#128208; حاسبة النسبة</h4>
+<div class="tool-row">
+<span class="tool-label">البن</span>
+<input class="tool-input en" type="number" id="ratDose" value="20" min="5" max="100" step="0.5">
+<span class="tool-label">g</span>
+<span class="tool-label" style="margin-inline-start:10px">النسبة</span>
+<select class="tool-select en" id="ratRatio">
+<option value="14">1:14</option><option value="15" selected>1:15</option><option value="15.4">1:15.4</option>
+<option value="16">1:16</option><option value="16.5">1:16.5</option><option value="17">1:17</option><option value="18">1:18</option>
+</select>
+</div>
+<div class="tool-output" id="ratOutput"><b class="en">300g</b><span>ماء</span></div>
+</div>
+
+<div class="tool-card" id="toolIced">
+<h4>&#129482; حاسبة المثلّج</h4>
+<div class="tool-row">
+<span class="tool-label">البن</span>
+<input class="tool-input en" type="number" id="iceDose" value="20" min="5" max="100" step="0.5">
+<span class="tool-label">g</span>
+<span class="tool-label" style="margin-inline-start:10px">الماء الكلي</span>
+<input class="tool-input en" type="number" id="iceTotal" value="300" min="50" max="1000">
+<span class="tool-label">g</span>
+</div>
+<div class="tool-row">
+<span class="tool-label">نسبة الثلج</span>
+<input class="tool-input en" type="range" id="icePercent" min="20" max="50" value="40" style="width:120px;height:auto">
+<span class="en" id="icePercentVal">40%</span>
+</div>
+<div class="tool-output" id="iceOutput"><b class="en">180g ماء + 120g ثلج</b><span>نسبة 60/40</span></div>
+</div>
+
+<div class="tool-card" id="toolOde">
+<h4>&#9881; دليل <span class="en">Fellow Ode Gen 2</span></h4>
+<table class="tool-table">
+<tr><th>طريقة التحضير</th><th class="en">الإعداد</th></tr>
+<tr><td><span class="en">Prismo / AeroPress</span> إسبريسو</td><td class="en">1–3</td></tr>
+<tr><td><span class="en">AeroPress</span> عادي</td><td class="en">3–6</td></tr>
+<tr><td><span class="en">V60</span> بور أوفر</td><td class="en"><b>4–8 (ابدأ بـ5)</b></td></tr>
+<tr><td><span class="en">Chemex</span></td><td class="en">5–7</td></tr>
+<tr><td>كبينق</td><td class="en">6–7</td></tr>
+<tr><td>باتش برو</td><td class="en">7–9</td></tr>
+<tr><td><span class="en">French Press</span></td><td class="en">8–10</td></tr>
+<tr><td><span class="en">Cold Brew</span></td><td class="en">9–11</td></tr>
+</table>
+<div class="tool-disclaimer">&#9888; جميع الإعدادات تقديرية من تجارب المجتمع — ليست رسمية من <span class="en">Fellow</span>. الجهاز فيه 31 خطوة (~3 نقرات لكل رقم). نطاق الميكرون التقريبي: ~275–1,160.</div>
+</div>
+
+<div class="tool-card" id="toolYield">
+<h4>&#129379; حاسبة الناتج</h4>
+<div class="tool-row">
+<span class="tool-label">البن</span>
+<input class="tool-input en" type="number" id="yieldDose" value="20" min="5" max="100" step="0.5">
+<span class="tool-label">g</span>
+<span class="tool-label" style="margin-inline-start:10px">الماء</span>
+<input class="tool-input en" type="number" id="yieldWater" value="300" min="50" max="1000">
+<span class="tool-label">g</span>
+</div>
+<div class="tool-output" id="yieldOutput"><b class="en">~242ml</b><span>قهوة جاهزة (الماء × 0.94 − امتصاص البن)</span></div>
+</div>
+
+<div class="tool-card" id="toolCaffeine">
+<h4>&#9749; حاسبة الكافيين</h4>
+<div class="tool-row">
+<span class="tool-label">البن</span>
+<input class="tool-input en" type="number" id="caffDose" value="20" min="5" max="100" step="0.5">
+<span class="tool-label">g</span>
+</div>
+<div class="tool-output" id="caffOutput"><b class="en">~120mg</b><span>كافيين تقريبي (أرابيكا V60)</span></div>
+</div>
+
+<div class="tool-card" id="toolCompare">
+<h4>&#128260; مقارنة الوصفات</h4>
+<p style="font-size:11px;color:var(--t3);margin-bottom:10px">اختر وصفتين وقارن بينهم</p>
+<div class="compare-row">
+<select class="compare-sel" id="compareA"></select>
+<select class="compare-sel" id="compareB"></select>
+</div>
+<div id="compareTable"></div>
+</div>
+
+</div>
+</div>
+</div>
+
+<!-- MY BREWS -->
+<div class="scr" id="mybrews">
+<div class="hd"><div class="hd-row"><div><h1>&#9749; مفضلاتي</h1><div class="hd-sub">وصفاتك وسجل تحضيرك</div></div></div></div>
+<div style="padding:14px 20px 0">
+<div class="stabs">
+<button class="stab on" data-sub="fav">&#10084; المفضلة</button>
+<button class="stab" data-sub="log">&#128203; السجل</button>
+<button class="stab" data-sub="stats">&#128202; إحصائيات</button>
+<button class="stab" data-sub="badges">&#127942; إنجازات</button>
+</div>
+</div>
+<div class="cw"><div id="myContent"></div></div>
+</div>
+
+<!-- DETAIL -->
+<div class="scr" id="detail"></div>
+
+<!-- BREW TIMER -->
+<div class="brew" id="brew"></div>
+
+<!-- BREW DONE -->
+<div class="brew-done" id="brewDone">
+<div class="brew-done-card">
+<h2>&#9749; كيف كانت القهوة؟</h2>
+<p>قيّم تحضيرك وسجّل ملاحظاتك</p>
+<div class="rate-stars" id="rateStars"></div>
+<input class="brew-grind en" id="brewGrind" type="text" placeholder="إعداد الطحنة (اختياري)">
+<textarea class="brew-note" id="brewNote" placeholder="ملاحظات... (اختياري)"></textarea>
+<button class="brew-save-btn" id="brewSaveBtn">&#128190; احفظ بالسجل</button>
+<button class="brew-skip" id="brewSkipBtn">تخطّي</button>
+</div>
+</div>
+
+<!-- SUGGEST -->
+<div class="sov" id="sov">
+<div class="ssheet">
+<h2>&#9749; اقترح لي وصفة</h2><p>جاوب الأسئلة وبنلاقي لك الأنسب</p>
+<div class="sq"><div class="sq-l">تبيها حارة ولا باردة؟</div><div class="sq-os" data-q="type"><button class="sq-o" data-v="hot">&#9728; حارة</button><button class="sq-o" data-v="iced">&#10052; باردة</button><button class="sq-o on" data-v="">ما يفرق</button></div></div>
+<div class="sq"><div class="sq-l">تحبها قوية ولا خفيفة؟</div><div class="sq-os" data-q="str"><button class="sq-o" data-v="s">قوية</button><button class="sq-o" data-v="l">خفيفة</button><button class="sq-o on" data-v="">متوسطة</button></div></div>
+<div class="sq"><div class="sq-l">مستواك؟</div><div class="sq-os" data-q="lv"><button class="sq-o" data-v="b">مبتدئ</button><button class="sq-o" data-v="a">خبير</button><button class="sq-o on" data-v="">عادي</button></div></div>
+<div class="sq"><div class="sq-l">النكهة اللي تحبها؟</div><div class="sq-os" data-q="flav"><button class="sq-o" data-v="fruity">&#127815; فاكهية</button><button class="sq-o" data-v="choc">&#127851; شوكولاتة</button><button class="sq-o" data-v="clean">&#128167; نظيفة</button><button class="sq-o on" data-v="">ما يفرق</button></div></div>
+<div class="sq"><div class="sq-l">عندك وقت قد إيش؟</div><div class="sq-os" data-q="time"><button class="sq-o" data-v="quick">&#9889; سريع (&lt;3 دقائق)</button><button class="sq-o" data-v="slow">&#128337; مو مستعجل</button><button class="sq-o on" data-v="">عادي</button></div></div>
+<button class="sgo" id="sgo">اقترح لي &#8592;</button>
+<div class="sug-results" id="sugResults"></div>
+</div></div>
+
+<!-- ONBOARDING -->
+<div class="onboard" id="onboard">
+<div id="onboardContent">
+<div class="onboard-icon">&#9749;</div>
+<h2>مرحبا بك في <b>V60 Masters</b></h2>
+<p>دليلك الشامل لتحضير أفضل قهوة V60 من أشهر الخبراء في العالم</p>
+</div>
+<div class="onboard-dots" id="onboardDots">
+<div class="onboard-dot on"></div>
+<div class="onboard-dot"></div>
+<div class="onboard-dot"></div>
+</div>
+<button class="onboard-next" id="onboardNext">التالي</button>
+<button class="onboard-skip" id="onboardSkip">تخطّي</button>
+</div>
+
+<!-- TOASTS -->
+<div class="toast-container" id="toasts"></div>
+
+<!-- CONFETTI -->
+<div class="confetti-container" id="confetti"></div>
