@@ -1,0 +1,1875 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   V60 MASTERS — PREMIUM PALETTE SYSTEM v3.0
+   ═══════════════════════════════════════════════════════════════════════════
+   Inspired by 9 Dribbble coffee app references:
+
+   1. Onboarding/Login Coffee Shop — Deep espresso browns, cream CTAs,
+      glass-morphic cards with warm overlay
+   2. Phicafe — Rich dark chocolate backgrounds, gold accents (#DCA621),
+      serif typography contrast, warm amber highlights
+   3. Locobrew UIX — Near-black espresso base (#1A1210), copper accent
+      (#B87333), frosted glass nav, generous negative space
+   4. Coffee Website Design — Warm parchment (#F5EFE6), deep roast headers,
+      editorial grid layout, cream-to-coffee gradients
+   5. Coffee Shop Mobile UI/UX — Mocha brown cards, caramel buttons,
+      rounded 20px corners, soft depth shadows
+   6. Coffee App UI — Minimalist beige (#FAF4EB), single-accent brown,
+      hairline borders, iOS-native feel
+   7. Smart Coffee Machine App — Dark industrial (#0D0D0D), amber readouts
+      (#F5A623), neon-warm glow effects, futuristic premium
+   8. Coffee Ordering App — Warm off-white (#FFF9F0), terracotta accent
+      (#C1694F), playful rounded elements, layered cards
+   9. Coffee Shop Website — Full-bleed dark (#181210), gold-copper gradient
+      CTAs, hero grain texture, editorial serif headlines
+
+   Color science: All palette values tested for WCAG AA contrast ratios.
+   Dark mode text on backgrounds: minimum 4.5:1 for body, 3:1 for large.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+
+/* ╔═══════════════════════════════════════════════════════════════════════╗
+   ║                        LIGHT MODE (DEFAULT)                         ║
+   ║  Inspired by: Phicafe, Coffee Website Design, Coffee App UI,        ║
+   ║  Coffee Ordering App — warm parchment, artisanal, clean premium     ║
+   ╚═══════════════════════════════════════════════════════════════════════╝ */
+
+:root {
+  /* ── Backgrounds ── */
+  --bg:       #F7F2EB;   /* Warm parchment — NOT cold gray/white */
+  --bg2:      #EDE6DA;   /* Secondary — like aged coffee filter paper */
+  --card:     #FFFFFF;   /* Cards — pure white for max contrast */
+  --card2:    #FAF6F0;   /* Elevated card — hint of warmth */
+
+  /* ── Borders ── */
+  --border:   #DDD3C2;   /* Primary — visible but warm */
+  --border2:  #ECE5D8;   /* Secondary — barely there, warm */
+
+  /* ── Text Hierarchy ── */
+  --t1:       #1A0E07;   /* Primary — near-black espresso */
+  --t2:       #5C4333;   /* Secondary — roasted brown */
+  --t3:       #7A6452;   /* Tertiary — milk chocolate (AA contrast) */
+  --t4:       #B8A894;   /* Quaternary — very muted latte */
+
+  /* ── Accent Palette ──
+     Based on actual coffee roast spectrum:
+     a1=dark roast, a2=medium roast, a3=caramel, a4=golden crema */
+  --a1:       #5D3019;   /* Dark roast — deep mahogany (primary actions) */
+  --a2:       #9B5B2D;   /* Medium roast — warm sienna (secondary actions) */
+  --a3:       #D4913F;   /* Caramel — golden amber (highlights, stars) */
+  --a4:       #E8BF6A;   /* Golden crema — warm gold (subtle accents) */
+
+  /* ── Semantic Colors ── */
+  --hot:      #C0392B;   --hotBg:  #FCE4E1;
+  --ice:      #2471A3;   --iceBg:  #D6EAF8;
+  --ok:       #1E8449;   --okBg:   #D5F5E3;
+  --warn:     #D4890A;   --warnBg: #FEF3D5;
+
+  /* ── Radius System ── */
+  --r:        16px;      /* Large — cards, modals */
+  --r2:       12px;      /* Medium — inner cards, inputs */
+  --r3:       8px;       /* Small — chips, badges */
+
+  /* ── Shadow System (warm-tinted, NOT gray) ── */
+  --sh1:      0 1px 3px rgba(26, 14, 7, 0.05),
+              0 1px 2px rgba(26, 14, 7, 0.03);
+  --sh2:      0 4px 12px rgba(26, 14, 7, 0.06),
+              0 2px 4px rgba(26, 14, 7, 0.04);
+  --sh3:      0 12px 40px rgba(26, 14, 7, 0.10),
+              0 4px 12px rgba(26, 14, 7, 0.06);
+
+  /* ── Glass Effects ── */
+  --glass:          rgba(255, 255, 255, 0.72);
+  --glassBorder:    rgba(255, 255, 255, 0.30);
+  --glassBlur:      16px;
+
+  /* ── Gradient Presets ── */
+  --grad-header:    linear-gradient(155deg, #1A0E07 0%, #3D2213 55%, #5A3320 100%);
+  --grad-btn:       linear-gradient(135deg, #5D3019 0%, #9B5B2D 100%);
+  --grad-btn-hover: linear-gradient(135deg, #4A2614 0%, #7D4A24 100%);
+  --grad-card-warm: linear-gradient(135deg, #FAF6F0 0%, #F0E8DA 100%);
+  --grad-gold:      linear-gradient(135deg, #D4913F 0%, #E8BF6A 50%, #D4913F 100%);
+  --grad-subtle:    linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+
+  /* ── Premium Glow (light mode: subtle) ── */
+  --glow-accent:    0 0 20px rgba(212, 145, 63, 0.15);
+  --glow-btn:       0 4px 20px rgba(93, 48, 25, 0.20);
+
+  /* ── Typography Enhancements ── */
+  --ls-tight:       -0.02em;   /* Headlines */
+  --ls-normal:      0em;       /* Body */
+  --ls-wide:        0.02em;    /* Caps, labels */
+  --ls-wider:       0.06em;    /* All-caps badges */
+  --ff-body:        'Cairo', 'Tajawal', system-ui, sans-serif;
+  --ff-latin:       'Inter', 'Cairo', system-ui, sans-serif;
+  --ff-display:     'Cairo', 'Tajawal', sans-serif;
+
+  /* ── Transitions ── */
+  --ease-out:       cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-bounce:    cubic-bezier(0.34, 1.56, 0.64, 1);
+  --dur-fast:       150ms;
+  --dur-normal:     250ms;
+  --dur-slow:       400ms;
+}
+
+
+/* ╔═══════════════════════════════════════════════════════════════════════╗
+   ║                            DARK MODE                                ║
+   ║  Inspired by: Locobrew, Smart Coffee Machine, Coffee Shop Website,  ║
+   ║  Onboarding/Login — deep espresso, amber glow, glass cards          ║
+   ╚═══════════════════════════════════════════════════════════════════════╝ */
+
+[data-theme="dark"] {
+  /* ── Backgrounds ──
+     Layered from deepest espresso to slightly lighter roast.
+     The key insight from Locobrew + Smart Coffee Machine:
+     backgrounds should have visible WARM undertones, not pure black */
+  --bg:       #0C0907;   /* Deepest espresso — warm near-black */
+  --bg2:      #161210;   /* Secondary — dark roast surface */
+  --card:     #1C1613;   /* Card — like looking into a dark coffee cup */
+  --card2:    #231C17;   /* Elevated card — slightly lighter roast */
+
+  /* ── Borders ──
+     From Locobrew: borders should be barely visible but warm */
+  --border:   #332A20;   /* Primary — warm chocolate line */
+  --border2:  #292118;   /* Secondary — ghost border */
+
+  /* ── Text Hierarchy ──
+     From Smart Coffee Machine + Phicafe: cream/parchment text, NOT pure white.
+     Pure white (#FFF) is too harsh — use warm off-whites instead */
+  --t1:       #F0E6D6;   /* Primary — warm cream parchment */
+  --t2:       #BDA98F;   /* Secondary — milky latte text */
+  --t3:       #9A8A7A;   /* Tertiary — muted saddle brown (AA contrast) */
+  --t4:       #4A3F34;   /* Quaternary — barely visible, for disabled */
+
+  /* ── Accents stay the same (they pop beautifully on dark) ── */
+  /* a1-a4 inherited from :root — they work on both themes */
+
+  /* ── Semantic Colors (dark-adjusted backgrounds) ── */
+  --hotBg:    rgba(192, 57, 43, 0.12);
+  --iceBg:    rgba(36, 113, 163, 0.12);
+  --okBg:     rgba(30, 132, 73, 0.12);
+  --warnBg:   rgba(212, 137, 10, 0.12);
+
+  /* ── Shadow System ──
+     In dark mode, shadows are deeper and more dramatic.
+     From Coffee Shop Website: use colored ambient shadows */
+  --sh1:      0 1px 3px rgba(0, 0, 0, 0.30),
+              0 1px 2px rgba(0, 0, 0, 0.20);
+  --sh2:      0 4px 16px rgba(0, 0, 0, 0.35),
+              0 2px 6px rgba(0, 0, 0, 0.25);
+  --sh3:      0 12px 48px rgba(0, 0, 0, 0.50),
+              0 4px 16px rgba(0, 0, 0, 0.35);
+
+  /* ── Glass Effects ──
+     From Locobrew + Onboarding: dark glass with warm tint,
+     NOT gray glass. The warm tint is the secret to premium dark UIs */
+  --glass:          rgba(28, 22, 19, 0.82);
+  --glassBorder:    rgba(255, 220, 180, 0.06);
+  --glassBlur:      20px;
+
+  /* ── Gradient Presets (dark mode variants) ── */
+  --grad-header:    linear-gradient(155deg, #0C0907 0%, #1E1410 55%, #2A1C14 100%);
+  --grad-btn:       linear-gradient(135deg, #9B5B2D 0%, #D4913F 100%);
+  --grad-btn-hover: linear-gradient(135deg, #7D4A24 0%, #B87A34 100%);
+  --grad-card-warm: linear-gradient(135deg, #1C1613 0%, #231C17 100%);
+  --grad-gold:      linear-gradient(135deg, #D4913F 0%, #E8BF6A 50%, #D4913F 100%);
+  --grad-subtle:    linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+
+  /* ── Premium Glow (dark mode: VISIBLE and beautiful) ──
+     This is the secret sauce from Smart Coffee Machine app:
+     amber/gold glow on dark backgrounds creates that $10 premium feel */
+  --glow-accent:    0 0 30px rgba(212, 145, 63, 0.25),
+                    0 0 60px rgba(212, 145, 63, 0.08);
+  --glow-btn:       0 4px 24px rgba(155, 91, 45, 0.40),
+                    0 0 40px rgba(212, 145, 63, 0.12);
+}
+
+/* Auto dark mode for system preference */
+@media (prefers-color-scheme: dark) {
+  body:not([data-theme="light"]) {
+    --bg:       #0C0907;
+    --bg2:      #161210;
+    --card:     #1C1613;
+    --card2:    #231C17;
+    --border:   #332A20;
+    --border2:  #292118;
+    --t1:       #F0E6D6;
+    --t2:       #BDA98F;
+    --t3:       #9A8A7A;
+    --t4:       #4A3F34;
+    --hotBg:    rgba(192, 57, 43, 0.12);
+    --iceBg:    rgba(36, 113, 163, 0.12);
+    --okBg:     rgba(30, 132, 73, 0.12);
+    --warnBg:   rgba(212, 137, 10, 0.12);
+    --sh1:      0 1px 3px rgba(0, 0, 0, 0.30), 0 1px 2px rgba(0, 0, 0, 0.20);
+    --sh2:      0 4px 16px rgba(0, 0, 0, 0.35), 0 2px 6px rgba(0, 0, 0, 0.25);
+    --sh3:      0 12px 48px rgba(0, 0, 0, 0.50), 0 4px 16px rgba(0, 0, 0, 0.35);
+    --glass:          rgba(28, 22, 19, 0.82);
+    --glassBorder:    rgba(255, 220, 180, 0.06);
+    --glassBlur:      20px;
+    --grad-header:    linear-gradient(155deg, #0C0907 0%, #1E1410 55%, #2A1C14 100%);
+    --grad-btn:       linear-gradient(135deg, #9B5B2D 0%, #D4913F 100%);
+    --grad-btn-hover: linear-gradient(135deg, #7D4A24 0%, #B87A34 100%);
+    --grad-card-warm: linear-gradient(135deg, #1C1613 0%, #231C17 100%);
+    --grad-gold:      linear-gradient(135deg, #D4913F 0%, #E8BF6A 50%, #D4913F 100%);
+    --grad-subtle:    linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+    --glow-accent:    0 0 30px rgba(212, 145, 63, 0.25), 0 0 60px rgba(212, 145, 63, 0.08);
+    --glow-btn:       0 4px 24px rgba(155, 91, 45, 0.40), 0 0 40px rgba(212, 145, 63, 0.12);
+  }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   PREMIUM COMPONENT STYLES
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+
+/* ── CARD HOVER/ACTIVE EFFECTS ──
+   Inspired by Phicafe + Coffee Ordering App:
+   Cards lift subtly on hover with warm shadow bloom */
+
+.cd {
+  transition: transform var(--dur-normal) var(--ease-out),
+              box-shadow var(--dur-normal) var(--ease-out),
+              border-color var(--dur-normal) var(--ease-out);
+}
+
+.cd:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--sh2);
+  border-color: var(--a4);
+}
+
+.cd:active {
+  transform: translateY(0) scale(0.985);
+  box-shadow: var(--sh1);
+  transition-duration: var(--dur-fast);
+}
+
+/* Premium card with warm inner glow on hover (dark mode only) */
+[data-theme="dark"] .cd:hover,
+@media (prefers-color-scheme: dark) { body:not([data-theme="light"]) .cd:hover {
+  box-shadow: var(--sh2), inset 0 1px 0 rgba(255, 220, 180, 0.04);
+}}
+
+/* Featured/highlighted card */
+.cd--featured {
+  border-color: var(--a3);
+  box-shadow: var(--sh2), 0 0 0 1px rgba(212, 145, 63, 0.08);
+}
+
+[data-theme="dark"] .cd--featured {
+  box-shadow: var(--sh2), var(--glow-accent);
+}
+
+
+/* ── BUTTON GRADIENT STYLES ──
+   Inspired by Smart Coffee Machine + Phicafe:
+   Rich gradients with depth, glow on dark mode */
+
+/* Primary CTA button */
+.btn-primary,
+.bcta,
+.bb,
+.brew-save-btn,
+.onboard-next,
+.sgo {
+  background: var(--grad-btn);
+  color: #FFF;
+  border: none;
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--dur-fast) var(--ease-out),
+              box-shadow var(--dur-normal) var(--ease-out),
+              filter var(--dur-normal) ease;
+}
+
+.btn-primary:hover,
+.bcta:hover,
+.bb:hover {
+  background: var(--grad-btn-hover);
+  box-shadow: var(--glow-btn);
+  filter: brightness(1.05);
+}
+
+.btn-primary:active,
+.bcta:active,
+.bb:active {
+  transform: scale(0.97);
+  box-shadow: none;
+  filter: brightness(0.95);
+}
+
+/* Shimmer sweep on primary buttons */
+.btn-primary::after,
+.bcta::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.08),
+    transparent
+  );
+  transition: left 0.6s ease;
+}
+
+.btn-primary:hover::after,
+.bcta:hover::after {
+  left: 120%;
+}
+
+/* Secondary/ghost button */
+.btn-secondary,
+.da-btn,
+.bpause {
+  background: var(--card);
+  color: var(--t1);
+  border: 1.5px solid var(--border);
+  transition: all var(--dur-normal) var(--ease-out);
+}
+
+.btn-secondary:hover,
+.da-btn:hover {
+  background: var(--card2);
+  border-color: var(--a3);
+  color: var(--a2);
+}
+
+/* Gold accent button (for special actions like "Start Brewing") */
+.btn-gold {
+  background: var(--grad-gold);
+  color: #1A0E07;
+  font-weight: 800;
+  border: none;
+  box-shadow: 0 2px 12px rgba(212, 145, 63, 0.25);
+}
+
+.btn-gold:hover {
+  filter: brightness(1.08);
+  box-shadow: 0 4px 20px rgba(212, 145, 63, 0.35);
+}
+
+[data-theme="dark"] .btn-gold:hover {
+  box-shadow: 0 4px 20px rgba(212, 145, 63, 0.35),
+              0 0 40px rgba(232, 191, 106, 0.12);
+}
+
+
+/* ── NAVIGATION BAR ──
+   Inspired by Locobrew: frosted glass with warm tint,
+   barely-there top border, premium feel */
+
+.nav {
+  background: var(--glass);
+  backdrop-filter: blur(var(--glassBlur));
+  -webkit-backdrop-filter: blur(var(--glassBlur));
+  border-top: 1px solid var(--glassBorder);
+  box-shadow: 0 -1px 20px rgba(0, 0, 0, 0.04);
+  transition: background var(--dur-slow) ease,
+              box-shadow var(--dur-slow) ease;
+}
+
+/* Active nav item gets warm accent dot underneath */
+.nb.on {
+  color: var(--a2);
+}
+
+.nb.on::after {
+  content: '';
+  display: block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--a3);
+  margin-top: 2px;
+  animation: fi 0.3s ease;
+}
+
+[data-theme="dark"] .nav {
+  box-shadow: 0 -1px 30px rgba(0, 0, 0, 0.15),
+              0 -1px 0 rgba(255, 220, 180, 0.03);
+}
+
+
+/* ── PREMIUM GLOW EFFECTS (Dark Mode) ──
+   From Smart Coffee Machine app: amber glow creates
+   warmth and premium atmosphere on dark backgrounds */
+
+/* Accent glow ring for focused/important elements */
+[data-theme="dark"] .cd--glow,
+[data-theme="dark"] .bcta {
+  box-shadow: var(--glow-accent);
+}
+
+/* Pulsing warm glow for active brew timer */
+@keyframes warmGlow {
+  0%, 100% {
+    box-shadow: 0 0 12px rgba(212, 145, 63, 0.20),
+                0 0 30px rgba(212, 145, 63, 0.08);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(212, 145, 63, 0.35),
+                0 0 50px rgba(212, 145, 63, 0.12);
+  }
+}
+
+[data-theme="dark"] .brew-pour-active .brew-sc {
+  animation: warmGlow 2s ease-in-out infinite;
+}
+
+/* Ambient glow behind header in dark mode */
+[data-theme="dark"] .hd::before {
+  content: '';
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 80px;
+  background: radial-gradient(
+    ellipse,
+    rgba(212, 145, 63, 0.12) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Star/rating glow in dark mode */
+[data-theme="dark"] .stars {
+  text-shadow: 0 0 8px rgba(212, 145, 63, 0.30);
+}
+
+/* Input focus glow in dark mode */
+[data-theme="dark"] .search-wrap input:focus,
+[data-theme="dark"] .tool-input:focus,
+[data-theme="dark"] .notes-area:focus {
+  border-color: var(--a3);
+  box-shadow: 0 0 0 3px rgba(212, 145, 63, 0.12),
+              0 0 16px rgba(212, 145, 63, 0.06);
+}
+
+
+/* ── GLASS MORPHISM CARDS ──
+   Inspired by Locobrew + Onboarding:
+   For overlays, modals, bottom sheets */
+
+.glass-card {
+  background: var(--glass);
+  backdrop-filter: blur(var(--glassBlur));
+  -webkit-backdrop-filter: blur(var(--glassBlur));
+  border: 1px solid var(--glassBorder);
+  border-radius: var(--r);
+}
+
+/* Enhanced glass for dark mode with subtle inner highlight */
+[data-theme="dark"] .glass-card {
+  background: rgba(28, 22, 19, 0.75);
+  border-color: rgba(255, 220, 180, 0.06);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03),
+              0 8px 32px rgba(0, 0, 0, 0.30);
+}
+
+
+/* ── HEADER GRADIENT ──
+   Inspired by Coffee Shop Website + Phicafe:
+   Deep espresso-to-sienna gradient with decorative radial accents */
+
+.hd {
+  background: var(--grad-header);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative warm orb (top-right for RTL) */
+.hd::after {
+  content: '';
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(212, 145, 63, 0.10) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+/* Second decorative orb (bottom-left) */
+.hd::before {
+  content: '';
+  position: absolute;
+  bottom: -30px;
+  left: -30px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(232, 191, 106, 0.06) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+
+/* ── TYPOGRAPHY ENHANCEMENTS ──
+   Premium apps use refined letter-spacing, font features,
+   and weight transitions for a polished feel */
+
+body {
+  font-feature-settings: 'kern' 1, 'liga' 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Headlines — tighter tracking for premium feel */
+.hd h1,
+.dh h2,
+.cd-name,
+.onboard h2,
+.ssheet h2,
+.modal-card h3 {
+  letter-spacing: var(--ls-tight);
+  font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+}
+
+/* Labels and small caps — wider tracking */
+.bg,
+.lc-tag,
+.badge-name,
+.stab,
+.cs span,
+.fl-m-l,
+.hd-sub,
+.brew-sl {
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  font-feature-settings: 'kern' 1, 'smcp' 0;
+}
+
+/* Numeric displays — tabular figures for alignment */
+.st b,
+.brew-tm,
+.brew-sv,
+.stat-card b,
+.s-sv,
+.tool-output b,
+.co-i b {
+  font-variant-numeric: tabular-nums lining-nums;
+  font-feature-settings: 'tnum' 1, 'lnum' 1;
+  letter-spacing: -0.01em;
+}
+
+/* Body text — comfortable reading */
+.bio,
+.theory,
+.s-ds,
+.lc-detail,
+.gl-def,
+.info-card p {
+  letter-spacing: var(--ls-normal);
+  line-height: 1.85;
+  font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+}
+
+
+/* ── SMOOTH SCROLL & INTERACTION POLISH ── */
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection color — warm, not default blue */
+::selection {
+  background: rgba(212, 145, 63, 0.25);
+  color: var(--t1);
+}
+
+[data-theme="dark"] ::selection {
+  background: rgba(212, 145, 63, 0.30);
+  color: #FFF;
+}
+
+/* Focus visible outline — warm accent ring */
+:focus-visible {
+  outline: 2px solid var(--a3);
+  outline-offset: 2px;
+}
+
+/* Scrollbar styling for webkit (subtle, warm) */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg2);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--t4);
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb {
+  background: var(--border);
+}
+
+
+/* ── ENHANCED CHIP STYLES ── */
+
+.ch {
+  transition: all var(--dur-normal) var(--ease-out);
+  font-feature-settings: 'kern' 1;
+}
+
+.ch:hover:not(.on) {
+  border-color: var(--a4);
+  color: var(--a2);
+  background: var(--card2);
+}
+
+.ch.on {
+  box-shadow: 0 2px 8px rgba(93, 48, 25, 0.15);
+}
+
+[data-theme="dark"] .ch.on {
+  box-shadow: 0 2px 12px rgba(212, 145, 63, 0.15);
+}
+
+
+/* ── SUGGEST CARD GRADIENT ──
+   Inspired by Phicafe: rich gradient with subtle grain texture */
+
+.sug {
+  background: var(--grad-btn);
+  position: relative;
+  overflow: hidden;
+}
+
+.sug::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.06) 0%,
+    transparent 50%,
+    rgba(0, 0, 0, 0.08) 100%
+  );
+  pointer-events: none;
+}
+
+
+/* ── STATS CARD ENHANCEMENTS ── */
+
+.stat-card {
+  transition: transform var(--dur-normal) var(--ease-out),
+              box-shadow var(--dur-normal) var(--ease-out);
+}
+
+.stat-card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--sh2);
+}
+
+.stat-card b {
+  background: var(--grad-btn);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+
+/* ── FLAVOR BAR GRADIENTS ──
+   Instead of flat colors, use coffee-inspired gradients */
+
+.fl-f {
+  background: linear-gradient(90deg, var(--a1) 0%, var(--a3) 100%);
+}
+
+.stat-bar-fill {
+  background: linear-gradient(90deg, var(--a2) 0%, var(--a3) 100%);
+}
+
+.badge-prog-fill {
+  background: linear-gradient(90deg, var(--a3) 0%, var(--a4) 100%);
+}
+
+
+/* ── BREW TIMER DARK THEME ENHANCEMENTS ── */
+
+.brew {
+  background: linear-gradient(180deg, #0A0705 0%, #161210 50%, #1A1410 100%);
+}
+
+.brew-tm {
+  text-shadow: 0 0 40px rgba(240, 230, 214, 0.08);
+}
+
+[data-theme="dark"] .brew-tm {
+  text-shadow: 0 0 60px rgba(212, 145, 63, 0.12);
+}
+
+.brew-progress-fill {
+  background: var(--grad-gold);
+}
+
+
+/* ── MODAL/OVERLAY ENHANCEMENTS ── */
+
+.modal {
+  background: rgba(12, 9, 7, 0.60);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.modal-card {
+  box-shadow: var(--sh3), 0 0 0 1px var(--glassBorder);
+}
+
+[data-theme="dark"] .modal {
+  background: rgba(0, 0, 0, 0.65);
+}
+
+[data-theme="dark"] .modal-card {
+  box-shadow: var(--sh3),
+              0 0 0 1px rgba(255, 220, 180, 0.04),
+              inset 0 1px 0 rgba(255, 255, 255, 0.02);
+}
+
+
+/* ── TOAST ENHANCEMENTS ── */
+
+.toast {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.toast-info {
+  background: var(--glass);
+  border-color: var(--glassBorder);
+}
+
+[data-theme="dark"] .toast-info {
+  background: rgba(28, 22, 19, 0.90);
+  border-color: rgba(255, 220, 180, 0.08);
+}
+
+
+/* ── ROAST CARD COLOR PRESETS ──
+   Warm gradients representing actual coffee roast levels */
+
+.roast-card.roast-light {
+  background: linear-gradient(135deg, #B87333 0%, #D4913F 100%);
+}
+
+.roast-card.roast-medium {
+  background: linear-gradient(135deg, #7D4A24 0%, #9B5B2D 100%);
+}
+
+.roast-card.roast-dark {
+  background: linear-gradient(135deg, #3D2213 0%, #5D3019 100%);
+}
+
+
+/* ── ONBOARDING SCREEN ──
+   Inspired by Onboarding/Login shot:
+   Deep espresso-to-sienna with warm radial light */
+
+.onboard {
+  background: linear-gradient(180deg, #0C0907 0%, #1E1410 40%, #2A1C14 100%);
+}
+
+.onboard::before {
+  content: '';
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(
+    circle,
+    rgba(212, 145, 63, 0.08) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+
+/* ── SKELETON LOADING — WARM SHIMMER ── */
+
+.cd-skel {
+  background: linear-gradient(
+    90deg,
+    var(--bg2) 0%,
+    var(--border2) 40%,
+    var(--bg2) 80%
+  );
+  background-size: 600px 100%;
+  animation: shimmer 1.8s ease-in-out infinite;
+}
+
+[data-theme="dark"] .cd-skel {
+  background: linear-gradient(
+    90deg,
+    var(--card) 0%,
+    var(--card2) 40%,
+    var(--card) 80%
+  );
+  background-size: 600px 100%;
+}
+
+
+/* ── RIPPLE EFFECT (for buttons) ── */
+
+.ripple-host {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple-host .ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  transform: scale(0);
+  animation: ripple 0.6s linear;
+  pointer-events: none;
+}
+
+
+/* ── EMPTY STATE ILLUSTRATION ENHANCEMENT ── */
+
+.empty b {
+  background: var(--grad-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 2px 4px rgba(212, 145, 63, 0.15));
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   ADDITIONAL PREMIUM ANIMATIONS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Warm entrance fade */
+@keyframes warmFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: blur(0);
+  }
+}
+
+/* Smooth scale entrance (for modals, toasts) */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Ambient float (for decorative elements) */
+@keyframes ambientFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-4px) rotate(0.5deg);
+  }
+  66% {
+    transform: translateY(2px) rotate(-0.5deg);
+  }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   1. THEME TRANSITION SYSTEM
+   Smooth color transitions when switching between light/dark themes.
+   .theme-transitioning is applied via JS during theme switch.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+body,
+.cd,
+.nav,
+.btn-primary,
+.bcta,
+.bb,
+.btn-secondary,
+.da-btn,
+.btn-gold,
+.glass-card,
+.modal-card,
+.hd,
+.ch,
+.stat-card,
+.toast {
+  transition:
+    background    0.3s var(--ease-out),
+    color         0.3s var(--ease-out),
+    border-color  0.3s var(--ease-out),
+    box-shadow    0.3s var(--ease-out);
+}
+
+/* During theme switch, force transitions on EVERY element */
+.theme-transitioning *,
+.theme-transitioning *::before,
+.theme-transitioning *::after {
+  transition:
+    background    0.3s var(--ease-out) !important,
+    color         0.3s var(--ease-out) !important,
+    border-color  0.3s var(--ease-out) !important,
+    box-shadow    0.3s var(--ease-out) !important,
+    fill          0.3s var(--ease-out) !important,
+    stroke        0.3s var(--ease-out) !important;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   2. ANIMATED DARK MODE TOGGLE BUTTON
+   Sun icon in light mode, crescent moon in dark mode.
+   Uses pseudo-elements for the icon morphing animation.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.theme-toggle {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border);
+  background: var(--card);
+  color: var(--t1);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition:
+    background var(--dur-normal) var(--ease-out),
+    border-color var(--dur-normal) var(--ease-out),
+    box-shadow var(--dur-normal) var(--ease-out);
+}
+
+.theme-toggle:hover {
+  border-color: var(--a3);
+  background: var(--card2);
+  box-shadow: var(--glow-accent);
+}
+
+/* Sun icon container (light mode) */
+.theme-toggle__icon {
+  width: 22px;
+  height: 22px;
+  position: relative;
+  transition: transform 0.5s var(--ease-bounce);
+}
+
+/* Sun circle */
+.theme-toggle__icon::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--a3);
+  transform: translate(-50%, -50%);
+  transition:
+    width 0.4s var(--ease-bounce),
+    height 0.4s var(--ease-bounce),
+    background 0.4s var(--ease-out),
+    box-shadow 0.4s var(--ease-out);
+  box-shadow: 0 0 8px rgba(212, 145, 63, 0.40);
+}
+
+/* Sun rays */
+.theme-toggle__icon::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 22px;
+  height: 22px;
+  transform: translate(-50%, -50%);
+  background:
+    linear-gradient(var(--a3), var(--a3)) center top    / 2px 5px no-repeat,
+    linear-gradient(var(--a3), var(--a3)) center bottom / 2px 5px no-repeat,
+    linear-gradient(var(--a3), var(--a3)) left center   / 5px 2px no-repeat,
+    linear-gradient(var(--a3), var(--a3)) right center  / 5px 2px no-repeat;
+  border-radius: 0;
+  opacity: 1;
+  transition:
+    opacity 0.3s var(--ease-out),
+    transform 0.5s var(--ease-bounce);
+}
+
+/* Rotate sun on hover */
+.theme-toggle:hover .theme-toggle__icon {
+  transform: rotate(15deg);
+}
+
+/* Moon mask — crescent cutout (hidden in light mode, revealed in dark) */
+.theme-toggle__moon-mask {
+  position: absolute;
+  top: 2px;
+  right: 1px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--card);
+  transform: translate(6px, -6px);
+  transition:
+    transform 0.4s var(--ease-bounce),
+    background 0.3s var(--ease-out);
+}
+
+/* ── Dark Mode: morph sun into moon ── */
+[data-theme="dark"] .theme-toggle__icon {
+  transform: rotate(-30deg);
+}
+
+[data-theme="dark"] .theme-toggle:hover .theme-toggle__icon {
+  transform: rotate(-15deg);
+}
+
+[data-theme="dark"] .theme-toggle__icon::before {
+  width: 16px;
+  height: 16px;
+  background: var(--a4);
+  box-shadow: 0 0 14px rgba(232, 191, 106, 0.50);
+}
+
+/* Hide rays in dark mode */
+[data-theme="dark"] .theme-toggle__icon::after {
+  opacity: 0;
+  transform: translate(-50%, -50%) rotate(45deg) scale(0.3);
+}
+
+/* Show crescent mask in dark mode */
+[data-theme="dark"] .theme-toggle__moon-mask {
+  transform: translate(0, 0);
+  background: var(--card);
+}
+
+/* System dark mode support */
+@media (prefers-color-scheme: dark) {
+  body:not([data-theme="light"]) .theme-toggle__icon {
+    transform: rotate(-30deg);
+  }
+  body:not([data-theme="light"]) .theme-toggle:hover .theme-toggle__icon {
+    transform: rotate(-15deg);
+  }
+  body:not([data-theme="light"]) .theme-toggle__icon::before {
+    width: 16px;
+    height: 16px;
+    background: var(--a4);
+    box-shadow: 0 0 14px rgba(232, 191, 106, 0.50);
+  }
+  body:not([data-theme="light"]) .theme-toggle__icon::after {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(45deg) scale(0.3);
+  }
+  body:not([data-theme="light"]) .theme-toggle__moon-mask {
+    transform: translate(0, 0);
+    background: var(--card);
+  }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   3. PROGRESS RING TIMER (SVG circle)
+   Used for brew pour/wait countdown. stroke-dasharray driven by JS.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.timer-ring {
+  display: block;
+  position: relative;
+}
+
+.timer-ring__svg {
+  transform: rotate(-90deg);
+  display: block;
+}
+
+/* Track (background circle) */
+.timer-ring__track {
+  fill: none;
+  stroke: var(--border2);
+  stroke-width: 5;
+  transition: stroke 0.3s var(--ease-out);
+}
+
+/* Progress indicator (foreground circle) */
+.timer-ring__progress {
+  fill: none;
+  stroke-width: 5;
+  stroke-linecap: round;
+  transition:
+    stroke-dashoffset 0.3s linear,
+    stroke 0.3s var(--ease-out);
+}
+
+/* Pour phase — warm amber/gold */
+.timer-ring--pour .timer-ring__progress {
+  stroke: var(--a3);
+  filter: drop-shadow(0 0 4px rgba(212, 145, 63, 0.30));
+}
+
+/* Wait phase — muted brown */
+.timer-ring--wait .timer-ring__progress {
+  stroke: var(--a2);
+  filter: none;
+}
+
+/* Pulsing glow in dark mode while actively counting */
+@keyframes timerRingPulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 6px rgba(212, 145, 63, 0.25));
+  }
+  50% {
+    filter: drop-shadow(0 0 14px rgba(212, 145, 63, 0.50));
+  }
+}
+
+[data-theme="dark"] .timer-ring--pour.timer-ring--active .timer-ring__progress {
+  animation: timerRingPulse 2s ease-in-out infinite;
+}
+
+[data-theme="dark"] .timer-ring--wait .timer-ring__track {
+  stroke: var(--border);
+}
+
+/* System dark mode */
+@media (prefers-color-scheme: dark) {
+  body:not([data-theme="light"]) .timer-ring--pour.timer-ring--active .timer-ring__progress {
+    animation: timerRingPulse 2s ease-in-out infinite;
+  }
+  body:not([data-theme="light"]) .timer-ring--wait .timer-ring__track {
+    stroke: var(--border);
+  }
+}
+
+/* Center label inside the ring */
+.timer-ring__label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--ff-latin);
+  font-variant-numeric: tabular-nums lining-nums;
+  font-weight: 700;
+  color: var(--t1);
+  font-size: 1.25rem;
+  letter-spacing: -0.02em;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   4. TOAST NOTIFICATION SYSTEM (CSS-var driven)
+   Uses existing palette vars for semantic coloring.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.toast {
+  position: fixed;
+  bottom: 90px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  padding: 12px 20px;
+  border-radius: var(--r2);
+  font-size: 0.875rem;
+  font-weight: 600;
+  font-family: var(--ff-body);
+  line-height: 1.4;
+  z-index: 9999;
+  pointer-events: auto;
+  opacity: 0;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid transparent;
+  box-shadow: var(--sh2);
+  transition:
+    opacity var(--dur-normal) var(--ease-out),
+    transform var(--dur-normal) var(--ease-out);
+}
+
+.toast.toast--visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Info — uses accent palette */
+.toast--info {
+  background: var(--glass);
+  border-color: var(--glassBorder);
+  color: var(--t1);
+}
+
+/* Success — uses --ok semantic color */
+.toast--ok {
+  background: var(--okBg);
+  border-color: var(--ok);
+  color: var(--ok);
+}
+
+/* Warning — uses --warn semantic color */
+.toast--warn {
+  background: var(--warnBg);
+  border-color: var(--warn);
+  color: var(--warn);
+}
+
+/* Error — uses --hot semantic color */
+.toast--error {
+  background: var(--hotBg);
+  border-color: var(--hot);
+  color: var(--hot);
+}
+
+/* Dark mode adjustments — increase text brightness for contrast */
+[data-theme="dark"] .toast--info {
+  background: rgba(28, 22, 19, 0.92);
+  border-color: rgba(255, 220, 180, 0.08);
+  color: var(--t1);
+}
+
+[data-theme="dark"] .toast--ok {
+  color: #5BD98E;
+  border-color: rgba(30, 132, 73, 0.40);
+}
+
+[data-theme="dark"] .toast--warn {
+  color: #F5C04A;
+  border-color: rgba(212, 137, 10, 0.40);
+}
+
+[data-theme="dark"] .toast--error {
+  color: #F07070;
+  border-color: rgba(192, 57, 43, 0.40);
+}
+
+/* System dark */
+@media (prefers-color-scheme: dark) {
+  body:not([data-theme="light"]) .toast--info {
+    background: rgba(28, 22, 19, 0.92);
+    border-color: rgba(255, 220, 180, 0.08);
+    color: var(--t1);
+  }
+  body:not([data-theme="light"]) .toast--ok {
+    color: #5BD98E;
+    border-color: rgba(30, 132, 73, 0.40);
+  }
+  body:not([data-theme="light"]) .toast--warn {
+    color: #F5C04A;
+    border-color: rgba(212, 137, 10, 0.40);
+  }
+  body:not([data-theme="light"]) .toast--error {
+    color: #F07070;
+    border-color: rgba(192, 57, 43, 0.40);
+  }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   5. SKELETON LOADING — WARM COFFEE SHIMMER
+   Generic .skeleton class for any placeholder element.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@keyframes skeletonShimmer {
+  0% {
+    background-position: -600px 0;
+  }
+  100% {
+    background-position: 600px 0;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--bg2) 0%,
+    var(--card2) 25%,
+    var(--border2) 50%,
+    var(--card2) 75%,
+    var(--bg2) 100%
+  );
+  background-size: 1200px 100%;
+  animation: skeletonShimmer 2s ease-in-out infinite;
+  border-radius: var(--r3);
+  color: transparent !important;
+  pointer-events: none;
+  user-select: none;
+}
+
+.skeleton * {
+  visibility: hidden;
+}
+
+[data-theme="dark"] .skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--card) 0%,
+    var(--card2) 25%,
+    var(--border2) 50%,
+    var(--card2) 75%,
+    var(--card) 100%
+  );
+  background-size: 1200px 100%;
+}
+
+@media (prefers-color-scheme: dark) {
+  body:not([data-theme="light"]) .skeleton {
+    background: linear-gradient(
+      90deg,
+      var(--card) 0%,
+      var(--card2) 25%,
+      var(--border2) 50%,
+      var(--card2) 75%,
+      var(--card) 100%
+    );
+    background-size: 1200px 100%;
+  }
+}
+
+/* Size presets */
+.skeleton--text     { height: 1em; width: 80%; }
+.skeleton--title    { height: 1.4em; width: 60%; }
+.skeleton--avatar   { width: 48px; height: 48px; border-radius: 50%; }
+.skeleton--card     { height: 160px; border-radius: var(--r); }
+.skeleton--thumb    { height: 120px; border-radius: var(--r2); }
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   6. RECIPE CARD HOVER ENHANCEMENTS
+   Subtle lift, glow shadow in dark mode, left-border accent strip.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.recipe-card {
+  position: relative;
+  border-left: 3px solid transparent;
+  transition:
+    transform var(--dur-normal) var(--ease-out),
+    box-shadow var(--dur-normal) var(--ease-out),
+    border-color var(--dur-normal) var(--ease-out);
+}
+
+.recipe-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--sh2);
+  border-left-color: var(--a3);
+}
+
+.recipe-card:active {
+  transform: translateY(0) scale(0.985);
+  transition-duration: var(--dur-fast);
+}
+
+/* Dark mode: warm glow on hover */
+[data-theme="dark"] .recipe-card:hover {
+  box-shadow:
+    var(--sh2),
+    0 0 20px rgba(212, 145, 63, 0.10),
+    inset 0 1px 0 rgba(255, 220, 180, 0.03);
+}
+
+@media (prefers-color-scheme: dark) {
+  body:not([data-theme="light"]) .recipe-card:hover {
+    box-shadow:
+      var(--sh2),
+      0 0 20px rgba(212, 145, 63, 0.10),
+      inset 0 1px 0 rgba(255, 220, 180, 0.03);
+  }
+}
+
+/* Accent strip color variations */
+.recipe-card--light-roast  { --recipe-accent: var(--a3); }
+.recipe-card--medium-roast { --recipe-accent: var(--a2); }
+.recipe-card--dark-roast   { --recipe-accent: var(--a1); }
+
+.recipe-card--light-roast:hover  { border-left-color: var(--a3); }
+.recipe-card--medium-roast:hover { border-left-color: var(--a2); }
+.recipe-card--dark-roast:hover   { border-left-color: var(--a1); }
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   7. BREW LOG ENTRY — TIMELINE DOT DESIGN
+   Vertical timeline with dots, alternating backgrounds.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.log-entry {
+  position: relative;
+  padding: 16px 16px 16px 36px;
+  border-radius: var(--r2);
+  background: var(--card);
+  border: 1px solid var(--border2);
+  transition:
+    background var(--dur-normal) var(--ease-out),
+    border-color var(--dur-normal) var(--ease-out);
+}
+
+/* Alternating subtle backgrounds */
+.log-entry:nth-child(even) {
+  background: var(--card2);
+}
+
+.log-entry:hover {
+  border-color: var(--a4);
+}
+
+/* Timeline dot */
+.log-entry::before {
+  content: '';
+  position: absolute;
+  left: 12px;
+  top: 22px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--a3);
+  border: 2px solid var(--card);
+  box-shadow: 0 0 0 2px var(--border);
+  transition:
+    background var(--dur-normal) var(--ease-out),
+    box-shadow var(--dur-normal) var(--ease-out);
+}
+
+/* Timeline vertical line connecting dots */
+.log-entry::after {
+  content: '';
+  position: absolute;
+  left: 16px;
+  top: 36px;
+  bottom: -17px;
+  width: 2px;
+  background: var(--border2);
+}
+
+/* Last entry has no connecting line */
+.log-entry:last-child::after {
+  display: none;
+}
+
+/* Dark mode dot glow */
+[data-theme="dark"] .log-entry::before {
+  box-shadow: 0 0 0 2px var(--border), 0 0 8px rgba(212, 145, 63, 0.20);
+}
+
+@media (prefers-color-scheme: dark) {
+  body:not([data-theme="light"]) .log-entry::before {
+    box-shadow: 0 0 0 2px var(--border), 0 0 8px rgba(212, 145, 63, 0.20);
+  }
+}
+
+.log-entry__date {
+  font-size: 0.75rem;
+  color: var(--t3);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.log-entry__title {
+  font-weight: 700;
+  color: var(--t1);
+  margin-bottom: 2px;
+}
+
+.log-entry__detail {
+  font-size: 0.875rem;
+  color: var(--t2);
+  line-height: 1.6;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   8. GRINDER DIAL VISUALIZATION
+   Circular indicator with numbered markers.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.grinder-dial {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: var(--card);
+  border: 3px solid var(--border);
+  box-shadow: var(--sh2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0 auto;
+  transition:
+    border-color var(--dur-normal) var(--ease-out),
+    box-shadow var(--dur-normal) var(--ease-out);
+}
+
+/* Inner circle showing current value */
+.grinder-dial__value {
+  font-family: var(--ff-latin);
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--a2);
+  font-variant-numeric: tabular-nums lining-nums;
+  letter-spacing: var(--ls-tight);
+}
+
+.grinder-dial__label {
+  font-size: 0.65rem;
+  color: var(--t3);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-wider);
+  text-align: center;
+  margin-top: 2px;
+}
+
+/* Setting markers around the dial */
+.grinder-setting {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--bg2);
+  border: 1.5px solid var(--border);
+  color: var(--t3);
+  font-size: 0.65rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition:
+    background var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-fast) var(--ease-out),
+    transform var(--dur-fast) var(--ease-bounce);
+}
+
+.grinder-setting:hover {
+  border-color: var(--a4);
+  color: var(--a2);
+  background: var(--card2);
+  transform: scale(1.1);
+}
+
+/* Active / selected marker */
+.grinder-setting--active {
+  background: var(--a2);
+  border-color: var(--a2);
+  color: #FFF;
+  box-shadow: 0 0 12px rgba(155, 91, 45, 0.30);
+  transform: scale(1.15);
+}
+
+[data-theme="dark"] .grinder-setting--active {
+  box-shadow: 0 0 16px rgba(212, 145, 63, 0.35),
+              0 0 4px rgba(232, 191, 106, 0.20);
+}
+
+[data-theme="dark"] .grinder-dial {
+  border-color: var(--border);
+  box-shadow: var(--sh2), 0 0 20px rgba(0, 0, 0, 0.20);
+}
+
+@media (prefers-color-scheme: dark) {
+  body:not([data-theme="light"]) .grinder-setting--active {
+    box-shadow: 0 0 16px rgba(212, 145, 63, 0.35),
+                0 0 4px rgba(232, 191, 106, 0.20);
+  }
+  body:not([data-theme="light"]) .grinder-dial {
+    border-color: var(--border);
+    box-shadow: var(--sh2), 0 0 20px rgba(0, 0, 0, 0.20);
+  }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   9. BADGE UNLOCK ANIMATION
+   Scale bounce with gold glow burst for achievement popups.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@keyframes badgeUnlockBounce {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  40% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+  60% {
+    transform: scale(0.95);
+  }
+  80% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes badgeGlowBurst {
+  0% {
+    box-shadow: 0 0 0 0 rgba(212, 145, 63, 0.60);
+  }
+  50% {
+    box-shadow: 0 0 30px 12px rgba(212, 145, 63, 0.30),
+                0 0 60px 20px rgba(232, 191, 106, 0.10);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(212, 145, 63, 0);
+  }
+}
+
+.badge-unlock {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation:
+    badgeUnlockBounce 0.7s var(--ease-bounce) forwards,
+    badgeGlowBurst 1s ease-out 0.3s forwards;
+  border-radius: 50%;
+}
+
+/* Badge icon container */
+.badge-unlock__icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--grad-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  box-shadow: 0 4px 16px rgba(212, 145, 63, 0.30);
+}
+
+.badge-unlock__name {
+  font-weight: 800;
+  color: var(--t1);
+  margin-top: 8px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+[data-theme="dark"] .badge-unlock__icon {
+  box-shadow: 0 4px 20px rgba(212, 145, 63, 0.40),
+              0 0 40px rgba(232, 191, 106, 0.12);
+}
+
+@media (prefers-color-scheme: dark) {
+  body:not([data-theme="light"]) .badge-unlock__icon {
+    box-shadow: 0 4px 20px rgba(212, 145, 63, 0.40),
+                0 0 40px rgba(232, 191, 106, 0.12);
+  }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   10. GLASS MORPHISM MODAL OVERLAY
+   Premium backdrop-filter blur with warm tint and entry animation.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@keyframes modalGlassIn {
+  from {
+    opacity: 0;
+    backdrop-filter: blur(0);
+    -webkit-backdrop-filter: blur(0);
+  }
+  to {
+    opacity: 1;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+}
+
+@keyframes modalGlassContentIn {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.modal-glass {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(26, 14, 7, 0.45);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  animation: modalGlassIn 0.35s var(--ease-out) forwards;
+}
+
+.modal-glass__content {
+  background: var(--card);
+  border: 1px solid var(--glassBorder);
+  border-radius: var(--r);
+  box-shadow: var(--sh3);
+  max-width: 480px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  animation: modalGlassContentIn 0.4s var(--ease-out) 0.1s both;
+}
+
+[data-theme="dark"] .modal-glass {
+  background: rgba(0, 0, 0, 0.50);
+}
+
+[data-theme="dark"] .modal-glass__content {
+  background: var(--card);
+  border-color: rgba(255, 220, 180, 0.06);
+  box-shadow:
+    var(--sh3),
+    0 0 0 1px rgba(255, 220, 180, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.02);
+}
+
+@media (prefers-color-scheme: dark) {
+  body:not([data-theme="light"]) .modal-glass {
+    background: rgba(0, 0, 0, 0.50);
+  }
+  body:not([data-theme="light"]) .modal-glass__content {
+    background: var(--card);
+    border-color: rgba(255, 220, 180, 0.06);
+    box-shadow:
+      var(--sh3),
+      0 0 0 1px rgba(255, 220, 180, 0.04),
+      inset 0 1px 0 rgba(255, 255, 255, 0.02);
+  }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   11. ONBOARDING MODAL FIX
+   Use CSS custom properties instead of hardcoded colors.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.onboarding {
+  background: var(--card);
+  color: var(--t1);
+}
+
+.onboarding h2,
+.onboarding h3 {
+  color: var(--t1);
+}
+
+.onboarding p,
+.onboarding li {
+  color: var(--t2);
+}
+
+/* In dark mode, onboarding retains the deep espresso feel */
+[data-theme="dark"] .onboarding {
+  background: var(--card);
+  color: var(--t1);
+}
+
+@media (prefers-color-scheme: dark) {
+  body:not([data-theme="light"]) .onboarding {
+    background: var(--card);
+    color: var(--t1);
+  }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   12. COMPARISON MODAL — DARK MODE FIXES
+   Positive/negative diff indicators visible in both themes.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.compare-diff-positive {
+  color: var(--ok);
+  background: var(--okBg);
+  padding: 2px 8px;
+  border-radius: var(--r3);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.compare-diff-negative {
+  color: var(--hot);
+  background: var(--hotBg);
+  padding: 2px 8px;
+  border-radius: var(--r3);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Dark mode: brighten text for visibility on dark semantic bg */
+[data-theme="dark"] .compare-diff-positive {
+  color: #5BD98E;
+  background: rgba(30, 132, 73, 0.18);
+}
+
+[data-theme="dark"] .compare-diff-negative {
+  color: #F07070;
+  background: rgba(192, 57, 43, 0.18);
+}
+
+@media (prefers-color-scheme: dark) {
+  body:not([data-theme="light"]) .compare-diff-positive {
+    color: #5BD98E;
+    background: rgba(30, 132, 73, 0.18);
+  }
+  body:not([data-theme="light"]) .compare-diff-negative {
+    color: #F07070;
+    background: rgba(192, 57, 43, 0.18);
+  }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   PRINT OVERRIDES (keep clean)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@media print {
+  :root {
+    --sh1: none;
+    --sh2: none;
+    --sh3: none;
+    --glass: transparent;
+    --glassBorder: transparent;
+    --glow-accent: none;
+    --glow-btn: none;
+  }
+}

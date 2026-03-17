@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" width="192" height="192">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1A0E07"/>
+      <stop offset="100%" stop-color="#0C0907"/>
+    </linearGradient>
+    <linearGradient id="cup" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#D4913F"/>
+      <stop offset="100%" stop-color="#9B5B2D"/>
+    </linearGradient>
+  </defs>
+  <rect width="192" height="192" rx="40" fill="url(#bg)"/>
+  <!-- V60 cone -->
+  <path d="M60 55 L96 140 L132 55" fill="none" stroke="url(#cup)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Dripper ridges -->
+  <line x1="72" y1="72" x2="88" y2="120" stroke="#D4913F" stroke-width="2" opacity=".4"/>
+  <line x1="96" y1="58" x2="96" y2="137" stroke="#D4913F" stroke-width="2" opacity=".4"/>
+  <line x1="120" y1="72" x2="104" y2="120" stroke="#D4913F" stroke-width="2" opacity=".4"/>
+  <!-- Steam lines -->
+  <path d="M82 48 Q82 38 88 32" fill="none" stroke="#F0E6D6" stroke-width="2.5" stroke-linecap="round" opacity=".6"/>
+  <path d="M96 45 Q96 33 102 26" fill="none" stroke="#F0E6D6" stroke-width="2.5" stroke-linecap="round" opacity=".7"/>
+  <path d="M110 48 Q110 38 116 32" fill="none" stroke="#F0E6D6" stroke-width="2.5" stroke-linecap="round" opacity=".6"/>
+  <!-- Server/cup below -->
+  <rect x="72" y="142" width="48" height="16" rx="4" fill="#5D3019" opacity=".8"/>
+  <!-- Text -->
+  <text x="96" y="178" text-anchor="middle" font-family="sans-serif" font-weight="800" font-size="14" fill="#D4913F">V60</text>
+</svg>
